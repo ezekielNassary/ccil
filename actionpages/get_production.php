@@ -4,12 +4,19 @@ require_once "config.php";
 
 if(!empty($_POST['line'])){
 $line = mysqli_real_escape_string($link,$_POST['line']);
+$shift = mysqli_real_escape_string($link,$_POST['shift']);
+$date = mysqli_real_escape_string($link,$_POST['date']);
 
 
 //line 1
 if($line=='line1'){
 $data = array();
-$sql = "SELECT * FROM line1 ORDER BY id DESC LIMIT 1";
+if ($date=='today') {
+$sql = "SELECT * FROM line1 ORDER BY id DESC LIMIT 1";	
+}else{
+$sql = "SELECT * FROM line1 WHERE shift='$shift' AND date='$date'";	
+}
+
 $result = mysqli_query($link, $sql);	 
 if (mysqli_num_rows($result) > 0) {
 	while($row[] = mysqli_fetch_assoc($result)) {
@@ -25,7 +32,11 @@ echo json_encode($data);;
 //line 2
 if($line=='line2'){
 $data = array();
-$sql = "SELECT * FROM line2 ORDER BY id DESC LIMIT 1";
+if ($date=='today') {
+$sql = "SELECT * FROM line2 ORDER BY id DESC LIMIT 1";	
+}else{
+$sql = "SELECT * FROM line2 WHERE shift='$shift' AND date='$date'";	
+}
 $result = mysqli_query($link, $sql);	 
 if (mysqli_num_rows($result) > 0) {
 	while($row[] = mysqli_fetch_assoc($result)) {
@@ -42,7 +53,11 @@ echo json_encode($data);;
 //line 3
 if($line=='line3'){
 $data = array();
-$sql = "SELECT * FROM line3 ORDER BY id DESC LIMIT 1";
+if ($date=='today') {
+$sql = "SELECT * FROM line3 ORDER BY id DESC LIMIT 1";	
+}else{
+$sql = "SELECT * FROM line3 WHERE shift='$shift' AND date='$date'";	
+}
 $result = mysqli_query($link, $sql);	 
 if (mysqli_num_rows($result) > 0) {
 	while($row[] = mysqli_fetch_assoc($result)) {
@@ -59,7 +74,11 @@ echo json_encode($data);;
 //line 4
 if($line=='line4'){
 $data = array();
-$sql = "SELECT * FROM line4 ORDER BY id DESC LIMIT 1";
+if ($date=='today') {
+$sql = "SELECT * FROM line4 ORDER BY id DESC LIMIT 1";	
+}else{
+$sql = "SELECT * FROM line4 WHERE shift='$shift' AND date='$date'";	
+}
 $result = mysqli_query($link, $sql);	 
 if (mysqli_num_rows($result) > 0) {
 	while($row[] = mysqli_fetch_assoc($result)) {
@@ -76,7 +95,11 @@ echo json_encode($data);;
 //line 5
 if($line=='line5'){
 $data = array();
-$sql = "SELECT * FROM line5 ORDER BY id DESC LIMIT 1";
+if ($date=='today') {
+$sql = "SELECT * FROM line5 ORDER BY id DESC LIMIT 1";	
+}else{
+$sql = "SELECT * FROM line5 WHERE shift='$shift' AND date='$date'";	
+}
 $result = mysqli_query($link, $sql);	 
 if (mysqli_num_rows($result) > 0) {
 	while($row[] = mysqli_fetch_assoc($result)) {
@@ -93,7 +116,11 @@ echo json_encode($data);;
 //line 6
 if($line=='line6'){
 $data = array();
-$sql = "SELECT * FROM line6 ORDER BY id DESC LIMIT 1";
+if ($date=='today') {
+$sql = "SELECT * FROM line6 ORDER BY id DESC LIMIT 1";	
+}else{
+$sql = "SELECT * FROM line6 WHERE shift='$shift' AND date='$date'";	
+}
 $result = mysqli_query($link, $sql);	 
 if (mysqli_num_rows($result) > 0) {
 	while($row[] = mysqli_fetch_assoc($result)) {

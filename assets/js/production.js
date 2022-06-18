@@ -22,6 +22,32 @@ var ef6=0;
 var totalpro=0;
 var totaleff=0.0;
 var total_target=0;
+var shift = $('#shift').find(":selected").text();
+var date = $("#date_day").val();
+ if (shift == 'Select Shift') {
+  shift='A';
+  }
+  if (date =='') {
+   date='today';
+  }
+
+$('#shift').on('change', function() {
+ shift = $('#shift').find(":selected").text();
+ date = $("#date_day").val();
+ if (date =='') {
+   alert('Select Date')
+
+  }else{
+  	
+production_line1();
+production_line2();
+production_line3();
+production_line4();
+production_line5();
+production_line6();
+  }
+
+});
 
 production_line1();
 production_line2();
@@ -32,16 +58,16 @@ production_line6();
 
     
 function production_line1(){
- $.ajax({
+	 $.ajax({
  			type:'POST',
             url:'actionpages/get_production.php',
             dataType: "json",
-            data:{line:'line1'},
+            data:{line:'line1',shift:shift,date:date},
             success:function(data){
-            	
-          if(data.status == 'line1'){
-        act1=parseInt(data.result[0].actual);
-        target1=parseInt(data.result[0].target);
+            	console.log(data);
+        if(data.status == 'line1'){
+       act1=parseInt(data.result[0].actual);
+       target1=parseInt(data.result[0].target);
 			$('.sku1').html(data.result[0].sku);
 			$('.target1').html(target1);
 			$('.actual').html(act1);
@@ -52,7 +78,7 @@ function production_line1(){
 			$('#shif-time').html('Shift: '+shift+' Date: '+date);
 			graph(act1,act2,act3,act4,act5,act6);
 		   }else if(data.status == 'Error'){
-		   	alert('Error');
+		   //	alert('Error');
 		   }
 		}
         });
@@ -63,7 +89,7 @@ function production_line2(){
  			type:'POST',
             url:'actionpages/get_production.php',
             dataType: "json",
-            data:{line:'line2'},
+            data:{line:'line2',shift:shift,date:date},
             success:function(data){
            
 		if(data.status == 'line2'){
@@ -76,7 +102,7 @@ function production_line2(){
 			$('.effi2').html(ef2.toFixed(2)+'%');
 			graph(act1,act2,act3,act4,act5,act6);
 		}else if(data.status == 'Error'){
-		   	alert('Error');
+		   	//alert('Error');
 		   }
             }
         });
@@ -86,7 +112,7 @@ function production_line3(){
  			type:'POST',
             url:'actionpages/get_production.php',
             dataType: "json",
-            data:{line:'line3'},
+            data:{line:'line3',shift:shift,date:date},
             success:function(data){
            
 		if(data.status == 'line3'){
@@ -99,7 +125,7 @@ function production_line3(){
 			$('.effi3').html(ef3.toFixed(2)+'%');
 			graph(act1,act2,act3,act4,act5,act6);
 		}else if(data.status == 'Error'){
-		   	alert('Error');
+		   //	alert('Error');
 		   }
             }
         });
@@ -109,10 +135,9 @@ function production_line4(){
  			type:'POST',
             url:'actionpages/get_production.php',
             dataType: "json",
-            data:{line:'line4'},
+            data:{line:'line4',shift:shift,date:date},
             success:function(data){
-            console.log(data);
-		if(data.status == 'line4'){
+        	if(data.status == 'line4'){
 			act4=parseInt(data.result[0].actual);
 			 target4=parseInt(data.result[0].target);
 			$('.sku4').html(data.result[0].sku);
@@ -122,7 +147,7 @@ function production_line4(){
 			$('.effi4').html(ef4.toFixed(2)+'%');
 			graph(act1,act2,act3,act4,act5,act6);
 		}else if(data.status == 'Error'){
-		   	alert('Error');
+		   //	alert('Error');
 		   }
             }
         });
@@ -133,10 +158,9 @@ function production_line5(){
  			type:'POST',
             url:'actionpages/get_production.php',
             dataType: "json",
-            data:{line:'line5'},
+            data:{line:'line5',shift:shift,date:date},
             success:function(data){
-            console.log(data);
-		if(data.status == 'line5'){
+           		if(data.status == 'line5'){
 			act5=parseInt(data.result[0].actual);
 			target5=parseInt(data.result[0].target);
 			$('.sku5').html(data.result[0].sku);
@@ -146,7 +170,7 @@ function production_line5(){
 			$('.effi5').html(ef5.toFixed(2)+'%');
 			graph(act1,act2,act3,act4,act5,act6);
 		}else if(data.status == 'Error'){
-		   	alert('Error');
+		  // 	alert('Error');
 		   }
             }
         });
@@ -156,9 +180,9 @@ function production_line6(){
  			type:'POST',
             url:'actionpages/get_production.php',
             dataType: "json",
-            data:{line:'line6'},
+            data:{line:'line6',shift:shift,date:date},
             success:function(data){
-            console.log(data);
+           
 		if(data.status == 'line6'){
 			act6=parseInt(data.result[0].actual);
 			target6=parseInt(data.result[0].target);
@@ -173,13 +197,12 @@ function production_line6(){
 			total_target=target1+target2+target3+target4+target5+target6;
        var eff_remain=100- totaleff;
 
-			console.log(total_target);
 			$('.target-remain').html(eff_remain.toFixed(2)+'%');
 			$('.total-target').html(total_target);
 			$('.total_eff').html(totaleff.toFixed(2)+'%');
 			$('.total_production').html(totalpro)
 		}else if(data.status == 'Error'){
-		   	alert('Error');
+		   //	alert('Error');
 		   }
             }
         });
@@ -187,8 +210,6 @@ function production_line6(){
 
 
 function graph(){
-	
-
 	 echarts.init(document.querySelector("#trafficChart")).setOption({
                     tooltip: {
                       trigger: 'item'
