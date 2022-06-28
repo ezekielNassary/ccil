@@ -15,7 +15,7 @@ var target5=0;
 var target6=0;
 var ef1=0;
 var ef2=0;
-var ef3=0;
+var ef3=0; 
 var ef4=0;
 var ef5=0;
 var ef6=0;
@@ -207,9 +207,79 @@ function production_line6(){
             }
         });
 }
-
+ 
 
 function graph(){
+   echarts.init(document.querySelector("#barChart")).setOption({
+    title: {
+                      text: 'Production chart',
+                      subtext: '',
+                      left: 'center'
+                    },
+                    xAxis: {
+                      type: 'category',
+                      data: ['2002-1', '2002-2', '1702', '700', 'GAB', 'GAN']
+                    },
+                    yAxis: {
+                      type: 'value'
+                    },
+                    series: [{
+                      data: [act1, act2, act3, act4, act5, act6],
+                      type: 'bar'
+                    }]
+                  });
+   echarts.init(document.querySelector("#pieChart")).setOption({
+                    title: {
+                      text: 'Machine efficiency chart',
+                      subtext: '',
+                      left: 'center'
+                    },
+                    tooltip: {
+                      trigger: 'item'
+                    },
+                    legend: {
+                      orient: 'horizontal',
+                      left: 'bottom'
+                    },
+                    series: [{
+                      name: 'Efficiency in %',
+                      type: 'pie',
+                      radius: '70%',
+                      data: [{
+                          value: ef1.toFixed(2),
+                          name: 'NM 2002-1'
+                        },
+                        {
+                          value: ef2.toFixed(2),
+                          name: 'NM 2002-2'
+                        },
+                        {
+                          value: ef3.toFixed(2),
+                          name: 'NM 1702'
+                        },
+                        {
+                         value: ef4.toFixed(2),
+                          name: 'NM 700'
+                        },
+                        {
+                          value: ef5.toFixed(2),
+                          name: 'WIMCO GAB'
+                        }
+                        ,
+                        {
+                          value: ef6.toFixed(2),
+                          name: 'WIMCO GAN'
+                        }
+                      ],
+                      emphasis: {
+                        itemStyle: {
+                          shadowBlur: 10,
+                          shadowOffsetX: 0,
+                          shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                      }
+                    }]
+                  });
 	 echarts.init(document.querySelector("#trafficChart")).setOption({
                     tooltip: {
                       trigger: 'item'
@@ -221,8 +291,8 @@ function graph(){
                     series: [{
                       name: 'Production',
                       type: 'pie',
-                      radius: ['40%', '70%'],
-                      avoidLabelOverlap: false,
+                      radius: ['80%', '70%'],
+                      avoidLabelOverlap: true,
                       label: {
                         show: false,
                         position: 'center'
@@ -266,4 +336,5 @@ function graph(){
                     }]
                   });
 }
+
 });

@@ -67,7 +67,7 @@
                         var data=data;
               if(data==1){
                 $("#error").hide();
-               window.location.replace("../ccil/")
+               window.location.replace("../ccil")
                 $('#login-form').trigger("reset");              
             }
             else if(data==0) {

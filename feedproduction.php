@@ -1,507 +1,7 @@
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Dashboard / Oral Care</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
- <script src="assets/js/links.js"></script>
-  <script src="assets/js/reports.js"></script>
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="../ccil/" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Oral Care</span>
-      </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
-
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search Spare Parts" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
-
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a class="notifications" href="javascript:void(0)"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div class="note-4">
-                <h4>Out of Order</h4>
-                <p>120 Spareparts require new order</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>New Spare Registered</h4>
-                <p>Check all new spareparts</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Weekly spareparts view</h4>
-                <p>You can view spareparts usage graphs now</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div class="note-4">
-                <h4>Manage all Spare Parts easly</h4>
-                <p>Add, Edit all spareparts easly</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a class="notifications" href="javascript:void(0)">Show all notifications</a>
-            </li>
-
-          </ul><!-- End Notification Dropdown Items -->
-
-        </li><!-- End Notification Nav -->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a class="message" href="javascript:void(0)"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Tedy</h4>
-                  <p>New Order for Bearings Created</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Sankaran </h4>
-                  <p>We need updates of all spareparts ordered this week</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Swapnil</h4>
-                  <p>New Drives on the way.</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="dropdown-footer">
-              <a class="message" href="javascript:void(0)">Show all messages</a>
-            </li>
-
-          </ul><!-- End Messages Dropdown Items -->
-
-        </li><!-- End Messages Nav -->
-
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="staffname d-none d-md-block dropdown-toggle ps-2">E Nassary</span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-            <li class="dropdown-header">
-              <p class="staffname"></p>
-              <span>Automation Engineer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="profile dropdown-item d-flex align-items-center" href="javascript:void(0)">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="profile dropdown-item d-flex align-items-center" href="javascript:void(0)">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="help dropdown-item d-flex align-items-center" href="javascript:void(0)">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="actionpages/logout.php">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
-
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
-    </nav><!-- End Icons Navigation -->
-
-  </header><!-- End Header -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="ccil nav-link " href="javascript:void(0)">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed " data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Spareparts</span><i class="bi bi-chevron-down ms-auto"></i> 
-        </a>
-        <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-          <li class="spareparts">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle "></i><span>New Spare</span>
-            </a>
-          </li>
-          <li class="spareparts">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>Stock</span>
-            </a>
-          </li>
-          <li class="spareparts">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>Edit Spare</span>
-            </a>
-          </li>
-          <li class="spareparts">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle "></i><span>Spare Parts Analysis</span>
-            </a>
-          </li>
-          
-        </ul>
-      </li><!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Machine - Filler</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li class="machine">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>NM 2002-1</span>
-            </a>
-          </li>
-          <li class="machine">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>NM 2002-2</span>
-            </a>
-          </li>
-          <li class="machine">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>NM 1702</span>
-            </a>
-          </li>
-          <li class="machine">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>NM 700</span>
-            </a>
-          </li>
-          <li class="machine">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>WIMCO GAB</span>
-            </a>
-          </li>
-          <li class="machine">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>WIMCO GAN</span>
-            </a>
-          </li>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
-
- <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Machine - Packing</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li class="packing">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>NP 1702 - 1</span>
-            </a>
-          </li>
-          <li class="packing">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>NP 1702 - 2</span>
-            </a>
-          </li>
-          <li class="packing">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>NP 1702 - 3</span>
-            </a>
-          </li>
-          <li class="autopack">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>AUTOPACK - 1</span>
-            </a>
-          </li>
-          <li class="autopack">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>AUTOPACK - 2</span>
-            </a>
-          </li>
-          <li class="autopack">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>AUTOPACK - 3</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Production</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li class="production">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>Daily Production</span>
-            </a>
-          </li>
-         <li class="production">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>Planing</span>
-            </a>
-          </li>
-             <li class="production">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>Stock</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li class="reports">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>Daily Reports</span>
-            </a>
-          </li>
-           <li class="reports">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>Monthly Reports</span>
-            </a>
-          </li>
-            <li class="reports">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>Charts</span>
-            </a>
-          </li>
-          <li class="reports">
-            <a href="javascript:void(0)">
-              <i class="bi bi-circle"></i><span>Machine Efficiency</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Icons Nav -->
-
-      <li class="nav-heading">Account</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="help nav-link collapsed" href="javascript:void(0)">
-          <i class="bi bi-question-circle"></i>
-          <span>Help</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="contact nav-link collapsed" href="javascript:void(0)">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="actionpages/logout.php">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Logout</span>
-        </a>
-      </li><!-- End Login Page Nav -->
- </ul>
-
-  </aside><!-- End Sidebar-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<?php
+$title = "CCIL | Insert Production";                   
+include "header.php";                 
+?>
   <main id="main" class="main">
 
    <div class="pagetitle">
@@ -628,7 +128,7 @@
                         <td>
                          <div class="">
                   <div class="">
-                    <input type="number" value="480" class="form-control" id="time1" placeholder="time">
+                    <input type="number" value="450" class="form-control" id="time1" placeholder="time">
                   
                   </div>
                 </div>
@@ -699,7 +199,7 @@
                         <td>
                          <div class="">
                   <div class="">
-                    <input type="number" value="480" class="form-control" id="time2" placeholder="time">
+                    <input type="number" value="450" class="form-control" id="time2" placeholder="time">
                   
                   </div>
                 </div>
@@ -772,7 +272,7 @@
                         <td>
                          <div class="">
                   <div class="">
-                    <input type="number" value="480" class="form-control" id="time3" placeholder="time">
+                    <input type="number" value="450" class="form-control" id="time3" placeholder="time">
                   
                   </div>
                 </div>
@@ -845,7 +345,7 @@
                         <td>
                          <div class="">
                   <div class="">
-                    <input type="number"  value="480" class="form-control" id="time4" placeholder="time">
+                    <input type="number"  value="450" class="form-control" id="time4" placeholder="time">
                   
                   </div>
                 </div>
@@ -915,7 +415,7 @@
                         <td>
                          <div class="">
                   <div class="">
-                    <input type="number" value="480" class="form-control" id="time5" placeholder="time">
+                    <input type="number" value="450" class="form-control" id="time5" placeholder="time">
                   
                   </div>
                 </div>
@@ -981,7 +481,7 @@
                         <td>
                          <div class="">
                   <div class="">
-                    <input type="number" value="480" class="form-control" id="time6" placeholder="time">
+                    <input type="number" value="450" class="form-control" id="time6" placeholder="time">
                   
                   </div>
                 </div>
@@ -1024,7 +524,7 @@
                     </div>
                     <div class="ps-3">
                       <div class="h2 fw-bold" ><input name="pt" type="text" class="form-control" id="total-production" readonly></div>
-                      <span class="total-efficiency small pt-1 fw-bold">87%</span> <span class="text-muted small pt-2 ps-1">Efficiency</span>
+                      <span class="total-efficiency small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Efficiency</span>
 
                     </div>
                   </div>
@@ -1038,64 +538,13 @@
                   <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
                 </form>
-                <div class="card top-selling overflow-auto mt-4 bg-warning">
-              <div class="card-body pb-0 ">
-                  <h5 class="card-title">Target Production <span>| Today</span></h5>
-                  <table class="table table-borderless">
-                    <thead class="bg-warning">
-                      <tr>
-                        <th>M/C</th>
-                       <th scope="col text-center">NM 2002-1</th>
-                        <th scope="col text-center">NM 2002-2</th>
-                        <th scope="col text-center">NM 1702</th>
-                        <th scope="col text-center">NM 700</th>
-                        <th scope="col text-center">WIMCO GAB</th>
-                         <th scope="col text-center">WIMCO GAN</th>
-                                              </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                         <td><h5>Target</h5></td>
-                        <td class="tgt1" class="h5">
-                        </td>
-                          <td class="tgt2" class="h5">
-                          
-                        </td>
-                        <td class="tgt3" class="h5">
-                        
-                        </td>
-                       
-                        <td class="tgt4" class="h5">
-                         
-                 </td>
-                
-                 <td class="tgt5" class="h5"></td>
-                  <td class="tgt6" class="h5">
-                         
-                 </td>
-                      </tr>
-                     
-                    </tbody>
-                  </table>
-                
-
-                </div>
-
-              </div>
+             
                    
                 </div>
 
               </div>
               <div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Bar CHart</h5>
-
-              <!-- Bar Chart -->
-              <canvas id="barChart" style="max-height: 400px;"></canvas>
-             
-            </div>
-          </div>
+     
         </div>
    </div>
             <!-- End Production -->
@@ -1113,26 +562,108 @@
        </div>
     </div>
   </div>
-
-
-
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-
-             
-
-
-
+<div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+  <form class="row g-3">
+                <div class="col-md-6">
+                  <h5 class="card-title">LINE 1</h5>
+                  <div class="row mb-3">
+                  <label for="li" class="col-sm-4 col-form-label">Downtime</label>
+                  <div class="col-sm-8">
+                   <select class="form-select" id="downtime" aria-label="State">
+                    <option selected value="">Select Downtime</option>
+                      <option value="">Tube orientation problem</option>
+                      <option value="">overload coding station</option>
+                      <option value="">Sealing leakage</option>
+                      <option value="">HA lifter check failure</option>
+                      <option value="">Tube chain timing lost</option>
+                      <option value="">Tube chain overload</option>
+                      <option value="">Color stripe problem</option>
+                      <option value="">Tube still in chain</option>
+                      <option value="">Product chain overload </option>
+                      <option value="">carton chain overload</option>
+                      <option value="">weight variation</option>
+                      <option value="">tube infeed presser overload</option>
+                      <option value="">Transfer pump problem</option>
+                      <option value="">filling lifter problem</option>
+                      <option value="">HA lifter problem</option>
+                      <option value="">Infeed arm timing lost</option>
+                      <option value="">Cutoff problem</option>
+                      <option value="">Folding problem</option>
+                      <option value="">Filling pump problem</option>
+                      <option value="">Poor cooling in electrical cabinet</option>
+                      <option value="">HA fan motor overload</option>
+                      <option value="">Tube discharge problem</option>
+                      <option value="">Main shaft problem</option>
+                      <option value="">Tube damaged at  nozzle</option>
+                      <option value="">Pick and place problem</option>
+                      <option value="">carton infeed problem</option>
+                      <option value="">filling valve problem </option>
+                      <option value="">Tilter problem</option>
+                      <option value="">connection block leakage</option>
+                      <option value="">Carton infeed problem</option>
+                      <option value="">filling problem</option>
+                      <option value="">piston leakage</option>
+                      <option value="">depressor cone problem</option>
+                      <option value="">Cartoner timing lost</option>
+                      <option value="">Amplifier error filling pump</option>
+                      <option value="">machine start failure</option>
+                      <option value="">Motor Overheating</option>
+                      <option value="">tube infeed problem</option>
+                    
+                      <option value="">Heater burnt</option>
+                    
+                  </select>
+                  </div>
+                  
                 </div>
-
-                <div class="tab-pane fade pt-3" id="profile-settings">
-
-
-
-
-
-
-
+                 <div class="row mb-3">
+                  <label for="time-dt" class="col-sm-4 col-form-label">
+                    Time
+                  </label>
+                  <div class="col-sm-8">
+                    <input type="number" class="form-control" id="time-dt">
+                  </div>
                 </div>
+                 <div class="row mb-3">
+                  <label for="time-dt" class="col-sm-4 col-form-label">
+                    Cause
+                  </label>
+                  <div class="col-sm-8">
+                    <textarea class="form-control" placeholder="Problem causes" id="causes" style="height: 100px;"></textarea>
+
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="time-dt" class="col-sm-4 col-form-label">
+                    Solution
+                  </label>
+                  <div class="col-sm-8">
+                    <textarea class="form-control" placeholder="Problem solution" id="soln" style="height: 100px;"></textarea>
+
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="time-dt" class="col-sm-4 col-form-label">
+                    Spare required
+                  </label>
+                  <div class="col-sm-8">
+                    <textarea class="form-control" placeholder="Required spare" id="soln" style="height: 100px;"></textarea>
+
+                  </div>
+                </div>
+                </div>
+              </form>
+  
+</div>
+<div class="tab-pane fade pt-3" id="profile-settings">
+
+
+
+
+
+
+
+</div>
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
@@ -1154,32 +685,6 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>CCIL</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-
-      Designed by <a href="https://www.femtechtz.tech">Ezekiel nassary</a>
-    </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.min.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
+<?php
+include "footer.php";                
+?>

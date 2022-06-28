@@ -1,10 +1,8 @@
 $(document).ready(function(){
-
-
   var sku1 = '';
   var sku2 = '';
   var sku3 = '';
-  var sku4 = '';
+  var sku4 = ''; 
   var sku5 = '';
   var sku6 = '';
   var speed1=0;
@@ -36,7 +34,7 @@ $(document).ready(function(){
   var target3=0;
   var target4=0;
   var target5=0;
-  var target6=0;
+  var target6=0; 
   var effi1 = 0;
   var effi2 = 0;
   var effi3 = 0;
@@ -46,7 +44,8 @@ $(document).ready(function(){
   var shift = $('#shift').find(":selected").text();
   var date = $("#date_day").val();
   var total_eff=0;
-
+ //  var plan1, plan2,plan3,plan4,plan5,plan6='';
+ // var plan1 = $('.plan6:checked').val();
 getsku();
 target_production();
 efficiency();
@@ -82,6 +81,12 @@ $('#submit-production').click(function(e){
       if (data == 'success') {
          $('.result').html('<p class="text-success text-center h1"><i class="bi bi-check-lg"></i><p class="h2 text-success p3 text-center">Data Saved Succesful</p></p>')
          $("#success-modal").modal('show');
+         $('#actual1').val(0);
+         $('#actual2').val(0);
+         $('#actual3').val(0);
+         $('#actual4').val(0);
+         $('#actual5').val(0);
+         $('#actual6').val(0);
       }else{
          $('.result').html('<p class="text-danger text-center h1"><i class="bi bi-info-square"></i><p class="h2 text-danger p3 text-center">'+data+'</p></p>')
           $("#success-modal").modal('show');
@@ -137,30 +142,35 @@ $('#actual2').on('input', function() {
   
  get_totalproduction();
  efficiency();
+ target_production();
  
 });
 $('#actual3').on('input', function() {
 
  get_totalproduction();
  efficiency();
+ target_production();
 
 });
 $('#actual4').on('input', function() {
 
  get_totalproduction();
  efficiency();
+ target_production();
  
 });
 $('#actual5').on('input', function() {
  
  get_totalproduction();
  efficiency();
+ target_production();
  
 });
 $('#actual6').on('input', function() {
    
  get_totalproduction();
  efficiency();
+ target_production();
 
 });
 
@@ -170,26 +180,32 @@ $('#actual6').on('input', function() {
 $('#speed1').on('input', function() {
   getsku();
  target_production(); 
+ efficiency();
 });
 $('#speed2').on('input', function() {
     getsku();
  target_production();
+ efficiency();
 });
 $('#speed3').on('input', function() {
     getsku();
  target_production();
+ efficiency();
 });
 $('#speed4').on('input', function() {
     getsku();
  target_production();
+ efficiency();
 });
 $('#speed5').on('input', function() {
     getsku();
  target_production();
+ efficiency();
 });
 $('#speed6').on('input', function() {
     getsku();
  target_production();
+ efficiency();
 });
   
 
@@ -197,22 +213,27 @@ $('#speed6').on('input', function() {
   $('#time1').on('input', function() {
   getsku();
  target_production(); 
+ efficiency();
 });
    $('#time2').on('input', function() {
   getsku();
  target_production(); 
+ efficiency();
 });
     $('#time4').on('input', function() {
   getsku();
  target_production(); 
+ efficiency();
 });
      $('#time5').on('input', function() {
   getsku();
  target_production(); 
+ efficiency();
 });
  $('#time6').on('input', function() {
   getsku();
  target_production(); 
+ efficiency();
 });
 
 //get total production
@@ -533,7 +554,5 @@ switch(sku6){
 }
 
 }
-
-
 
 });
