@@ -165,7 +165,51 @@ include "header.php";
                       <div class="col-sm-4">
                        
                      </div>
+                   
                    </div>
+                  <div class="row "id='downtime-line1'>
+
+                       <h5 class="card-title text-center ">Downtimes</h5>
+                       <div class="col-sm-5" >
+                     
+                       <div class="row mb-3">
+
+                  <label for="li" class="col-sm-3 col-form-label">Downtime</label>
+                  <div class="col-sm-9">
+                   <select class="form-select" id="downtime" aria-label="State">
+                    <option selected value="">Select Downtime</option>
+                     
+                  </select>
+                  </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="row mb-3">
+                  <label for="inputTime" class="col-sm-4 col-form-label">From</label>
+                  <div class="col-sm-8">
+                    <input type="time" id="start-time" class="form-control">
+                  </div>
+                </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="row mb-3">
+                  <label for="inputTime" class="col-sm-4 col-form-label">To</label>
+                  <div class="col-sm-8">
+                    <input type="time" id="end-time" class="form-control">
+                  </div>
+                </div>
+                </div>
+                <div class=" col-sm-1">
+                  <div class="iconslist" >
+                      <div class="icon">
+          <a href="javascript:void(0)" id="dtm1"><i class="bi bi-plus-lg"></i></a>
+          
+        </div>
+                  </div>
+            
+                </div>
+                </div>
+                     </div>
                   <hr>
                   <table class="table table-borderless">
                   
@@ -567,6 +611,8 @@ include "header.php";
                 <div class="col-md-6">
                   <h5 class="card-title">LINE 1</h5>
                   <div class="row mb-3">
+
+<select id='mySelect'></select>
                   <label for="li" class="col-sm-4 col-form-label">Downtime</label>
                   <div class="col-sm-8">
                    <select class="form-select" id="downtime" aria-label="State">

@@ -835,22 +835,23 @@ h1, h2, h3, h4, h5, h6 {
 # Icons list page
 --------------------------------------------------------------*/
 .iconslist {
-  display: grid;
-  max-width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.25rem;
-  padding-top: 15px;
+
+  background-color: #012970;
 }
 .iconslist .icon {
-  background-color: #fff;
+  
   border-radius: 0.25rem;
   text-align: center;
-  color: #012970;
-  padding: 15px 0;
+  color: #fff;
+  padding: 5px 0;
 }
 .iconslist i {
-  margin: 0.25rem;
-  font-size: 2.5rem;
+  margin: 0.15rem;
+  font-size: 1.2rem;
+}
+.iconslist a {
+ text-decoration: none;
+ color: #fff;
 }
 .iconslist .label {
   font-family: var(--bs-font-monospace);

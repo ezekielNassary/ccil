@@ -42,7 +42,7 @@ if (isset($_SESSION['loggedin'])) {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
- <script src="assets/js/dashboard.js"></script>
+ 
    <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -52,7 +52,7 @@ if (isset($_SESSION['loggedin'])) {
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
+<script src="assets/js/dashboard.js"></script>
 
 
 

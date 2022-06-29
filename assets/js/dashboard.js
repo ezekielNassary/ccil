@@ -51,6 +51,8 @@ myprofile();
 let windowLoc = $(location).attr('pathname');
 console.log(windowLoc)
 if(windowLoc=='/ccil/'){
+
+
   var shiftA='A';
   var shiftB='B';
   var shiftC='C';
@@ -59,6 +61,7 @@ if(windowLoc=='/ccil/'){
   var act1B,act2B,act3B,act4B,act5B=0;
   var act1C,act2C,act3C,act4C,act5C=0;
   var target1,target2,target3,target4,target5,target6=0;  
+
 
   //dashboard page
   production_line1();
@@ -83,6 +86,49 @@ var total_eff=0;
 var shift = $('#shift').find(":selected").text();
 var date = $("#date_day").val();
 
+const downtimes = [
+'Tube orientation problem','Jog problem','Sealing leakage'  , 
+'HA lifter check failure','Tube still chain','timing lost' ,   
+'Tube chain overload','Color stripe problem','Tube still in chain' ,
+'Product chain overload','carton chain overload','weight variation',
+'tube infeed ' , 'Transfer pump problem','filling lifter problem' ,
+'Folding problem','Infeed arm timing lost', 'Cutoff problem ',
+'Product pusher overload ' ,'Filling pump problem', 
+'Poor cooling in electrical cabinet' , 'HA fan motor overload',  
+'Tube discharge problem ','Emergency stop error', 
+'Tube damaged at  nozzle','Pick and place problem' , 
+'carton infeed problem','filling valve check problem' ,
+'Tilter problem','connection block leakage' ,
+'Carton infeed problem','filling problem',  
+' piston leakage','depressor cone problem', 
+' product check in carton failure ', 
+'amplifier error ','coding prolem','paste leakage at dosing pump',  
+'tube infeed problem','Heater burnt' 
+];
+
+for (i = 0; i < downtimes.length; i++)
+{ 
+     $('#downtime').append($('<option>',
+     {
+      value: i,
+      text : downtimes[i] 
+    }));
+}
+
+$('#dtm1').click(function(){
+  var start_time = $("#start-time").val();
+var end_time = $("#end-time").val();
+
+var min=timediff(start_time,end_time)
+   var dtm = $('#downtime').find(":selected").text();
+//$('#downtime-line1').append('<div class="h5">'+dtm+'</div><span> <b>Start Time: '+start_date+'</b> <b>End Time: '+end_date+'</b></span>');   
+$('#downtime-line1').append('<div class="row "><div class="col-sm-3" >'+dtm+'</div><div class="col-sm-3" >Start: '+start_time+'</div><div class="col-sm-3" >End: '+end_time+'</div><div class="col-sm-3" >'+min+' min </div></div>');   
+
+})
+function timediff(start_time,end_time){
+ var diff = ( new Date("2022-1-1 " + end_time) - new Date("2022-1-1 " + start_time) ) / 1000 / 60 ; 
+return diff;
+}
 getsku();
 target_production();
 efficiency();
@@ -475,6 +521,7 @@ function totalproduction(){
   $('.eff_C').html(C_perfomance+'%');
 
   $('.overall_eff').html(overall_perf+'%');
+   
 
 }
 function graphical_data(){

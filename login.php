@@ -22,6 +22,7 @@
         </p>
         <div class="alert alert-danger alert-dismissible" id="error" style="display:none;"></div>
          <div class="alert alert-success alert-dismissible" id="success" style="display:none;"></div>
+        
  <div class="form-group">
     <label for="email">Email address:</label>
     <input type="email" class="form-control" placeholder="Enter email" id="email">
@@ -34,8 +35,15 @@
       <br>
  
    <button type="button" id="login" class="btn btn-primary">Login</button> 
+   <br>
+   <p>New here? <a href="register.php">Register</a></p>
 </form> 
-<p>New here? <a href="register.php">Register</a></p>
+
+ <div class="alert  alert-dismissible text-center" id="loading" style="display:none;">
+             <div class="spinner-grow" style="width: 40px; height: 40px;" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+         </div>
 </div>
         </div>
        
@@ -44,6 +52,9 @@
 <script > 
    $(document).ready(function() {
                         $("#login").click(function() {
+
+
+
                 $("#success").hide();
                 $("#error").hide();
                 var email = $("#email").val();
@@ -54,8 +65,9 @@
                    $('#error').html('Please fill all fields !');
                     return false;
                 }
- 
+ $("#loading").show();
                 $.ajax({
+
                     type: "POST",
                     url: "actionpages/loginuser.php",
                     data: {
@@ -65,13 +77,18 @@
                     cache: false,
                     success: function(data) {
                         var data=data;
+                        
               if(data==1){
                 $("#error").hide();
                window.location.replace("../ccil")
-                $('#login-form').trigger("reset");              
+                $('#login-form').trigger("reset"); 
+                 $('#login-form').hide();
+                        
             }
             else if(data==0) {
+                $("#loading").hide();
                 $("#success").hide();
+
                  $("#error").show();
                    $('#error').html('Enter correct email and password');
             }
