@@ -208,6 +208,7 @@ include "header.php";
                   </div>
             
                 </div>
+                <p id="dt_array"></p>
                 </div>
                      </div>
                   <hr>

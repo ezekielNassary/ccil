@@ -114,21 +114,39 @@ for (i = 0; i < downtimes.length; i++)
       text : downtimes[i] 
     }));
 }
-
+const dt_array = [];
 $('#dtm1').click(function(){
-  var start_time = $("#start-time").val();
+var start_time = $("#start-time").val();
 var end_time = $("#end-time").val();
+
+if (start_time=='') {
+ alert('Select Start Time')
+return
+}
+if (end_time=='') {
+  alert('Select End Time')
+ return 
+}
 
 var min=timediff(start_time,end_time)
    var dtm = $('#downtime').find(":selected").text();
 //$('#downtime-line1').append('<div class="h5">'+dtm+'</div><span> <b>Start Time: '+start_date+'</b> <b>End Time: '+end_date+'</b></span>');   
 $('#downtime-line1').append('<div class="row "><div class="col-sm-3" >'+dtm+'</div><div class="col-sm-3" >Start: '+start_time+'</div><div class="col-sm-3" >End: '+end_time+'</div><div class="col-sm-3" >'+min+' min </div></div>');   
+var item = {}
+item ["downtimes"] = dtm;
+item ["start"] = start_time;
+item ["end"] = end_time;
+item ["minutes"] = min;
+dt_array.push(item);
+
+console.log(dt_array)
 
 })
 function timediff(start_time,end_time){
  var diff = ( new Date("2022-1-1 " + end_time) - new Date("2022-1-1 " + start_time) ) / 1000 / 60 ; 
 return diff;
 }
+
 getsku();
 target_production();
 efficiency();
