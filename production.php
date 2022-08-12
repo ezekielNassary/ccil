@@ -1,6 +1,7 @@
 <?php
-$title = "CCIL | Production";                   
-include "header.php";                 
+$title = "CCIL | Production"; 
+include "templates/top.php";                    
+include "templates/header.php";                  
 ?>
   <main id="main" class="main">
    <div class="pagetitle">

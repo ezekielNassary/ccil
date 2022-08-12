@@ -1,21 +1,15 @@
-/**
-* Template Name: NiceAdmin - v2.2.2
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 :root {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #f6f9ff;
-  color: #444444;
+  height: 768px;
+  background-image:url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
 }
 
 a {
@@ -35,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Main
 --------------------------------------------------------------*/
-#main {
+#main, #dash-main {
   margin-top: 60px;
   padding: 20px 30px;
   transition: all 0.3s;
@@ -45,7 +39,20 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
   }
 }
-
+#dash-main .row .card{
+  background-color: green;
+}
+.inventory-list{
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
+}
+.inventory-list button{
+  background-color: yellow;
+}
+.inventory-list button:hover{
+  opacity: 0.6;
+}
 /*--------------------------------------------------------------
 # Page Title
 --------------------------------------------------------------*/

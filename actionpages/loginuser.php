@@ -10,7 +10,7 @@ if($row = mysqli_fetch_array($result)) {
   echo (1);
     }  
 else {
-    echo (0);
+   echo (0);
     }
   
  
