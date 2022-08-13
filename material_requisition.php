@@ -18,6 +18,7 @@ include "templates/top.php";
       <table class="table" id="req-table">
                 <thead>
                   <tr>
+                    
                     <th scope="col">No</th>
                     <th scope="col">Description</th>
                     <th scope="col">Quantity</th>
@@ -26,10 +27,15 @@ include "templates/top.php";
                   
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbdata">
                   <tr>
+                   
                     <td><input type="text" class="form-control" id="material-no"></td>
-                    <td><input type="text" class="form-control" id="material-des"></td>
+                    <td>
+                  
+                    <textarea class="form-control" placeholder="Description" id="material-des" style="height: 100px;"></textarea>
+                  
+                  </td>
                     <td><input type="text" class="form-control" id="material-qty"></td>
                     <td><input type="text" class="form-control" id="material-uom"></td>
                     <td><button type="button" class="btn btn-success" id="add-req-list"><i class="bi bi-plus"></i></button></td>
@@ -65,6 +71,7 @@ include "templates/top.php";
                     <td>Chombo</td>
                     <td>10-08-2022</td>
                    <td>Francis</td>
+                   <td><i class="bi bi-printer"></i></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
