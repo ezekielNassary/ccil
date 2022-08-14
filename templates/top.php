@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['loggedin'])) {
  
 }else{
-  header('location:login.php');
+  #header('location:login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -57,8 +57,8 @@ if (isset($_SESSION['loggedin'])) {
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="../ccil/" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Oral Care</span>
+        <img src="assets/img/ccil_logo.jpeg" alt="">
+        <span class="d-none d-lg-block"></span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -280,3 +280,20 @@ if (isset($_SESSION['loggedin'])) {
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
+  <div class="top-nav">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+    <a class="nav-link " href="../ccil/">DASHBOARD</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="spareparts_management.php">SPAREPARTS</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="material_requisition.php">REQUISITION</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="material_management.php">MATERIAL MANAGEMENT</a>
+  </li>
+  
+</ul>
+  </div>
