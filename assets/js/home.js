@@ -22,10 +22,10 @@ $(document).ready(function () {
     items = {}
     error = ""
     if (reqNo == "") {
-      error = "Please enter requisition number";
+      error = "Please enter order number";
 
     } else if (materialNo == "") {
-      error = "Please enter material number";
+      error = "Please enter code number";
     }
     if (error != "") {
       $('.error').html(error);
@@ -33,6 +33,7 @@ $(document).ready(function () {
     } else {
       $('.error').html(error);
     }
+    $('#orderno').html(reqNo)
     items["material_no"] = materialNo;
     items["description"] = materialDesc;
     items["quantity"] = materialQty;

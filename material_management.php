@@ -5,7 +5,9 @@ include "templates/top.php";
 ?>
 
 <main id="dash-main">
+    
     <div class="row">
+
         <div class="col-lg-4">
             <div class="card bg-light">
                 <h1 class="card-title text-success  text-center">Material Registration</h1>

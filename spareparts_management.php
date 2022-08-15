@@ -5,12 +5,31 @@ include "templates/top.php";
 ?>
 
 <main id="dash-main">
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="card bg-light">
-        <h1 class="card-title text-success  text-center">Spareparts Registration</h1>
-        <div class="card-body">
-           <!-- Floating Labels Form -->
+  <div class="card">
+            <div class="card-body ">
+              <h5 class="card-title">Spareparts Management</h5>
+
+              <!-- Bordered Tabs Justified -->
+              <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist">
+                <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-home" type="button" role="tab" aria-controls="home" aria-selected="true">NEW SPAREPART</button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">STOCK</button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <button class="nav-link w-100" id="contact-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                </li>
+              </ul>
+              <div class="tab-content pt-2" id="borderedTabJustifiedContent">
+                <div class="tab-pane fade show active" id="bordered-justified-home" role="tabpanel" aria-labelledby="home-tab">
+                
+<div class="card pt-2">
+      <div class="card-body">
+        <div class="row">
+                  <div class="col-lg-4 p-2 border">
+      <h1 class="card-title shadow-sm p-3 text-light  bg-success rounded">Spare Code Registration</h1>
+         <!-- Floating Labels Form -->
               <form class="row g-3">
                 <div class="col-md-12">
                   <div class="form-floating">
@@ -21,7 +40,7 @@ include "templates/top.php";
                 <div class="col-md-6">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="partnumber" placeholder="Partnumber">
-                    <label for="floatingEmail">Part Number</label>
+                    <label for="floatingEmail">Code No.</label>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -88,6 +107,12 @@ include "templates/top.php";
                     <label for="amount">Amount (Tzs)</label>
                   </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="amount" placeholder="Enter order level">
+                    <label for="amount">Order Level</label>
+                  </div>
+                </div>
                 <div class="col-md-12">
                             <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="openingstock" checked>
@@ -102,17 +127,11 @@ include "templates/top.php";
                 </div>
               </form><!-- End floating Labels Form -->
             
-
-        </div>
-      </div>
+      
     </div>
     <div class="col-lg-8">
-      <div class="card bg-light">
-        <h1 class="card-title text-success  text-center">Spareparts Registered</h1>
-
-        <div class="card-body">
-          <!-- Table with stripped rows -->
-          <table class="table datatable">
+    <h1 class="card-title text-success  text-center">Spareparts Registered</h1>
+ <table class="table datatable">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -140,11 +159,27 @@ include "templates/top.php";
 
             </tbody>
           </table>
-        </div>
-      </div>
+     
     </div>
-
   </div>
+    
+</div>
+</div>
+
+
+
+                </div>
+                <div class="tab-pane fade" id="bordered-justified-profile" role="tabpanel" aria-labelledby="profile-tab">
+                  Nesciunt totam et. Consequuntur magnam aliquid eos nulla dolor iure eos quia. Accusantium distinctio omnis et atque fugiat. Itaque doloremque aliquid sint quasi quia distinctio similique. Voluptate nihil recusandae mollitia dolores. Ut laboriosam voluptatum dicta.
+                </div>
+                <div class="tab-pane fade" id="bordered-justified-contact" role="tabpanel" aria-labelledby="contact-tab">
+                  Saepe animi et soluta ad odit soluta sunt. Nihil quos omnis animi debitis cumque. Accusantium quibusdam perspiciatis qui qui omnis magnam. Officiis accusamus impedit molestias nostrum veniam. Qui amet ipsum iure. Dignissimos fuga tempore dolor.
+                </div>
+              </div><!-- End Bordered Tabs Justified -->
+
+            </div>
+          </div>
+  
 </main>
 
 <?php
