@@ -137,6 +137,7 @@ include "templates/top.php";
                 </div>
                  </div>
                  </div>
+        <div class="col-sm-12 p-2 bg-light shadow-sm" style="text-align: center; "> <button type="button" class="btn btn-success" id="save"><i class="bi bi-pencil-square"></i>SAVE</button></div>
 </form>
   </div>
    </div>
@@ -157,7 +158,7 @@ include "templates/top.php";
                 <th scope="col">Specification</th>
                 <th scope="col">Balance</th>
                 <th scope="col">Cost</th>
-                <th scope="col">Action</th>
+                <th scope="col">Adjust</th>
               </tr>
             </thead>
             <tbody>
@@ -168,7 +169,7 @@ include "templates/top.php";
                 <td>56</td>
                 <td>74,000</td>
                 <td><div class="btn-group" role="group" aria-label="Basic example">
-               <button type="button" class="delete-spare btn btn-danger" id="delete-req"><i class="bi bi-trash"></i></button>
+               <button type="button" class="delete-spare btn btn-danger" id="delete-req"><i class="bi bi-plus"></i></button>
                 <button type="button" class="btn btn-primary" id="edit-spare"><i class="bi bi-pencil-square"></i></button>
 
               </div></td>
