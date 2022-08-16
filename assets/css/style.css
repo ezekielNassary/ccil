@@ -61,8 +61,16 @@ h6 {
   }
 }
 
+.company-info{
+  font-size: 12px;
+  color: red;
+}
 
-
+ .indentInfo-table tr td{
+  font-size: 14px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
 .inventory-list {
   font-size: 14px;
   font-weight: bold;
@@ -77,6 +85,18 @@ h6 {
   opacity: 0.6;
 }
 
+.authorization{
+  margin-left: 0px;
+}
+.authorization p{
+  font-size: 12px;
+}
+#requisition-form{
+  padding: 20px;
+}
+hr{
+  color: black;
+}
 /*--------------------------------------------------------------
 # Page Title
 --------------------------------------------------------------*/
@@ -1275,3 +1295,4 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+

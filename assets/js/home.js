@@ -10,60 +10,66 @@ $(document).ready(function () {
   $('#material').click(function () {
     window.location.replace("material_management.php")
   });
+
+  var requistionForm=document.getElementById('requisition-form');
+
+
   let requistions = [];
   var error = "";
+  var totalvalue=0;
+   
+
   $('#add-req-list').click(function () {
+
     let data = [];
-    var reqNo = $("#req-no").val();
-    var materialNo = $("#material-no").val();
-    var materialDesc = $("#material-des").val();
-    var materialQty = $("#material-qty").val();
-    var materialUOM = $("#material-uom").val();
+    var materialCode = $("#material-code").val();
+    var specifications = $("#specifications").val();
+    var qty = $("#qty").val();
+    var rate = $("#rate").val();
+    var uom = $("#uom").val();
+    
+    totalvalue=calculate_total_value()
     items = {}
     error = ""
-    if (reqNo == "") {
-      error = "Please enter order number";
-
-    } else if (materialNo == "") {
-      error = "Please enter code number";
+   if (materialCode == "") {
+      error = "Please material Code";
     }
+    
     if (error != "") {
       $('.error').html(error);
       return;
     } else {
       $('.error').html(error);
     }
-    $('#orderno').html(reqNo)
-    items["material_no"] = materialNo;
-    items["description"] = materialDesc;
-    items["quantity"] = materialQty;
-    items["uom"] = materialUOM;
+  
+    
+    items["materialCode"] = materialCode;
+    items["specifications"] = specifications;
+    items["qty"] = qty;
+    items["rate"] = rate;
+    items["uom"] = uom;
+    items["total_val"] = totalvalue;
     data.push(items);
     requistions.push(items);
-    //clear all fields 
-    $("#material-no").val("");
-    $("#material-des").val("");
-    $("#material-qty").val("");
-    $("#material-uom").val("");
-
     $.each(data, (index, row) => {
       const rowContent = `<tr>
-              
-                       <td class="nr">${row.material_no}</td>
-                       <td>${row.description}</td>
-                       <td>${row.quantity}</td>
-                       <td>${row.uom}</td>
-                       <td>
+              <td class="nr">${row.materialCode}</td>
+               <td>${row.specifications}</td>
+               <td>${row.qty}</td>
+               <td>${row.uom}</td>
+               <td>${row.rate}</td>
+               <td>${row.total_val}</td>
+               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
                <button type="button" class="delete-req btn btn-danger" id="delete-req"><i class="bi bi-trash"></i></button>
-                <button type="button" class="btn btn-primary" id="edit-req"><i class="bi bi-pencil-square"></i></button>
-
+                
               </div>
                 </td>
                     </tr>`;
       $('#tbdata').append(rowContent);
     });
-
+   clear_form()
+ $("#addItem").modal('hide');
 
     $(".delete-req").click(function () {
       var item = $(this).closest("tr")        // Finds the closest row <tr> 
@@ -78,5 +84,40 @@ $(document).ready(function () {
 
     console.log(requistions)
   });
+$('#print-req').click(function () {
+  print_form()
+});
 
+$('#rate').on('input', function() {
+  var total_val=calculate_total_value()
+  $("#rate-total").html(total_val)
+});
+function calculate_total_value(){
+  var qty = $("#qty").val();
+  var rate = $("#rate").val();
+  totalvalue=qty*rate;
+  return totalvalue
+}
+function clear_form(){
+  //clear all fields 
+    $("#material-code").val("");
+    $("#specifications").val("");
+    $("#qty").val("");
+    $("#rate").val("");
+    $("#uom").val("");
+$("#rate-total").html("")
+}
+function print_form(){
+  var divToPrint=document.getElementById('requisition-form');
+  //Copy the element you want to print to the print-me div.
+    $("#printarea").clone().appendTo("#requisition-form");
+    //Apply some styles to hide everything else while printing.
+    $("body").addClass("printing");
+    //Print the window.
+    window.print();
+    //Restore the styles.
+    $("body").removeClass("printing");
+    //Clear up the div.
+    $("#requisition-form").empty();
+}
 });

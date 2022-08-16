@@ -8,81 +8,133 @@ include "templates/top.php";
   <div class="card">
             <div class="card-body">
             <div class="row">
-    <div class="col-lg-6 p-2">
+    <div class="col-lg-8" id="requisition-form">
       <div class="row border pt-3">
-        <div class="col-sm-7">
+        <div class="col-sm-12">
+           <h1 class="card-title text-center">Purchase Indent</h1>
+
+          
+        </div>
+        <hr>
+        <div class="col-sm-3">
+         
           <h1 class="card-title text-success "><img src="assets/img/ccil_logo.jpeg" width="150px" height="30px"></h1>
         </div>
-        <div class="col-sm-5"><h1 class="card-title text-success ">Parts Order Form</h1>
-        </div>
-
-         <div class="col-sm-4">
-          <h1 class="card-title">To <span><hr></span>
-<span><hr></span>
-<span><hr></span>
-          </h1>
-        </div>
-        <div class="col-sm-4">
+        <div class="company-info col-sm-6 text-center">
+          <h3 class="card-title">Chemi Cotex Industries Limited</h3>
+          <p>Dar es Salaam, Bagamoyo Road 347 Mbezi </p>
+          <p>Phone: +255759082262 Telefax: 233-233-232 Email: chemicotexindustries@ccil.com</p>
          
+
         </div>
-         <div class="col-sm-4">
-              <div class="info-box">
-                <h3>Call Us</h3>
-                <p>+255 759 082 262<br>+255 674 656 767</p>
-              </div>
-               </div>
+        <hr>
+        
+
         <div class="col-sm-4">
+           <table class="indentInfo-table table table-borderless">
+            
+                <tbody>
+                  <tr>
+                    <td scope="row">Department</td>
+                   <td scope="row">: FMCG</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Division</td>
+                   <td scope="row">: Oral Care</td>
+                   </tr>
+                   <tr>
+                    <td scope="row">Indent No</td>
+                   <td scope="row">: </td>
+                   </tr>
+                   <tr>
+                    <td scope="row">Indent Date</td>
+                   <td scope="row">:</td>
+                   </tr>
+                 
+                </tbody>
+              </table>
         </div>
-        <div class="col-sm-3">
-             
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+             <div class="col-sm-5">
+           <table class="indentInfo-table table table-borderless">
+            
+                <tbody>
+                  <tr>
+                    <td scope="row">Indent Type</td>
+                   <td scope="row">: </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Requested By</td>
+                   <td scope="row">: </td>
+                   </tr>
+                   
+                 
+                </tbody>
+              </table>
+        </div>
                </div>
-        <div class="col-sm-5">
-          <h1 class="card-title">Date<span>_________________</span></h1>
-        </div>
-        <div class="col-sm-12">
-        <p class="card-title">Order No:<span class="card-title mx-2" id="orderno"></span></p>
-        </div>
-        <div class="col-sm-12">
-          <p>Kindly arrange to supply the following items ____________________________________________________________________________________
-        </div>
-        <div class="col-sm-12">
-           <table class="table table-bordered" >
+               <hr>
+        
+        
+       
+           <table class=" table table-bordered" >
                 <thead>
                   <tr>
-                    <th scope="col">Code No</th>
+                    <th scope="col">Material Code</th>
                     <th scope="col">Specification</th>
-                    <th scope="col">Budget Code</th>
                     <th scope="col">Quantity</th>
-                    <th scope="col">Purpose</th>
+                    <th scope="col">UOM</th>
+                    <th scope="col">Estimated Rate</th>
+                    <th scope="col">Estmated Value</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody  id="tbdata">
                </tbody>
               </table>
-        </div>
+   
         <p style="text-align: right;">
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addItem"><i class="bi bi-plus"></i></button></p>
-
-
-        <div class="col-sm-9 mt-2">
-          <p style="text-align: right;">Submitted By:</p>
+        <div class="row">
+          
+           <div class="col-sm-7">
+         </div>
+         <div class="col-sm-3">
+          <p>Total Value:</p>
         </div>
-        <div class="col-sm-3 mt-2">
-          <p style="text-align: left;">__________</p>
+        <div class="col-sm-2">
+          <p id="total-amount"></p>
         </div>
-         <div class="col-sm-12 mt-2">
-          <p >Remarks Store Division ________________________________________________</p>
-           <p >Remarks Technical manager ________________________________________________</p>
+        
         </div>
-        <div class="col-12 p-3 border"> 
-<p><i>Approved By</i></p>
-<div class="col-12" style="text-align: right;"> 
-<p>General Manager / Procurement Manger</p>
+        <hr>
+        <div class="col-sm-12">
+          <p>Remarks:</p>
+          
         </div>
+        <hr>
+        <div class="authorization row">
+          <div class="col-12">
+            <p style="text-align: right;">For Chemicotex Industries</p>
+          </div>
+          <div style="height: 100px; width: 100%;"></div>
+        <div class="row">
+          <div class="col-sm-4">
+            <p style="text-align: left;">Prepared By</p>
+          </div>
+          <div class="col-sm-4">
+            <p style="text-align: center;">Patner</p>
+          </div>
+          <div class="col-sm-4">
+            <p style="text-align: right;">Authorized Signator</p>
+          </div>
+        </div>
+        <hr>
         </div>
 
   <div class="col-md-6 p-2" style="text-align: right;">
-    <button type="button" class="btn btn-success">Print Form</i></button>
+    <button type="button" id="print-req" class="btn btn-success">Print Form</i></button>
   </div>
   <div class="col-md-6 p-2">
     <button type="button" class="btn btn-success" >Submit by Email</button>
@@ -92,9 +144,9 @@ include "templates/top.php";
       </div>
     
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <div class="card bg-light">
-        <h1 class="card-title text-success  text-center">REQUISITION LIST</h1>
+        <h1 class="card-title text-success  text-center">Indent List</h1>
 
         <div class="card-body">
           <!-- Table with stripped rows -->
@@ -102,28 +154,22 @@ include "templates/top.php";
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Req No</th>
-                <th scope="col">Made By</th>
+                <th scope="col">Indent No</th>
                 <th scope="col">Date</th>
-                <th scope="col">To</th>
+                <th scope="col">Made by</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td>10 AUGUST 2022</td>
-                <td>Chombo</td>
-                <td>10-08-2022</td>
-                <td>Francis</td>
+                <td>CCIL-001</td>
+                <td>12-09-2022</td>
+                <td>Swap</td>
+                <td></td>
                 <td><i class="bi bi-printer"></i></td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>10 AUGUST 2022</td>
-                <td>Chombo</td>
-                <td>10-08-2022</td>
-                <td>Emanuel</td>
-              </tr>
+              
 
             </tbody>
           </table>
@@ -149,36 +195,37 @@ include "templates/top.php";
                     <div class="modal-body">
                      <form class="row g-3">
                       <p class="error text-danger"></p>
-                      <div class="row">
-                        <div class="col-md-6">
-              <label for="req-no" class="form-label">Order Number</label>
-              <input type="text" class="form-control" id="req-no">
-            </div>
-            <div class="col-md-6" style="text-align: left;">
-              <button type="button" class="btn btn-warning" >Generate</button>
-            </div>
-                      </div>
+                     
             
             <div class="col-12">
-              <label for="req-no" class="form-label">Code No/Partnumber</label>
-            <input type="text" class="form-control" id="material-no">
+              <label for="material-code" class="form-label">Material Code</label>
+            <input type="text" class="form-control" id="material-code">
             </div>
               <div class="col-12">
-                <label for="req-no" class="form-label">Specifications</label>
-              <textarea class="form-control" placeholder="Specifications" id="material-des" style="height: 100px;"></textarea> 
+                <label for="specifications" class="form-label">Specifications</label>
+              <textarea class="form-control" placeholder="specifications" id="specifications" style="height: 100px;"></textarea> 
               </div>
               <div class="col-12">
-                <label for="req-no" class="form-label">Cost/Budget</label>
-              <input type="text" class="form-control" id="material-qty">
+                <label for="qty" class="form-label">Quantity</label>
+              <input type="text" class="form-control" id="qty">
               </div>
 
+             
+              <div class="col-8">
+                <label for="rate" class="form-label">Rate</label>
+              <input type="text" class="form-control" id="rate">
+              </div>
+              <div class="col-4">
+                <label for="rate" class="form-label">Total</label>
+              <p id="rate-total"></p>
+              </div>
               <div class="col-12">
-                <label for="req-no" class="form-label">Quantity</label>
-              <input type="text" class="form-control" id="material-uom">
+                <label for="uom" class="form-label">UOM</label>
+              <input type="text" class="form-control" id="uom">
               </div>
         
         <div class="col-12 " style="text-align: right;">
-          <button type="button" class="btn btn-success"  id="add-req-list"><i class="bi bi-plus"></i></button>
+          <button type="button" class="btn btn-success"   id="add-req-list"><i class="bi bi-plus"></i></button>
         </div>
  </form>
                     </div>
