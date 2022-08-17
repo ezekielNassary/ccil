@@ -1,5 +1,5 @@
 <?php
-$title = "CCIL | Requisition";
+$title = "CCIL | Spareparts Mangement";
 include "templates/top.php";
 
 ?>
@@ -15,7 +15,7 @@ include "templates/top.php";
       <div class="card-body">
         <div class="row">
                   <div class="col-lg-12 p-2 mt-3  border">
-                    <nav class="navbar navbar-light bg-light p-2 shadow-sm">
+                    <nav class="setting-nav navbar navbar-light bg-light p-2 shadow-sm">
   <a class="navbar-brand ml-2">General</a>
  <p>Setting</p>
   

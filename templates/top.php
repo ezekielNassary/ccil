@@ -45,6 +45,8 @@ if (isset($_SESSION['loggedin'])) {
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
   <script src="assets/js/home.js"></script>
   <script src="assets/js/main.js"></script>
 

@@ -54,7 +54,9 @@ h6 {
 .top-nav a:hover {
   color: white;
 }
-
+.setting-nav{
+  background-color: #e3f2fd;
+}
 @media (max-width: 1199px) {
   #main {
     padding: 20px;
@@ -89,10 +91,35 @@ h6 {
   margin-left: 0px;
 }
 .authorization p{
-  font-size: 12px;
+  font-size: 14px;
 }
 #requisition-form{
   padding: 20px;
+  background-color: #e3f2fd;
+  
+}
+.purchase-indent{
+  background-color: white;
+}
+.ccil-logo{
+
+  margin-left: 2px;
+
+}
+.indent-list{
+
+  background-color: #e3f2fd;
+  
+}
+.indent-list .card{
+  margin-top: 20px;
+}
+.indent-table{
+  background-color: white;
+}
+.form-printing{
+  padding: 5px;
+  margin-bottom: 5px;
 }
 hr{
   color: black;

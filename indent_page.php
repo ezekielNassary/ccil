@@ -9,24 +9,28 @@ include "templates/top.php";
             <div class="card-body">
             <div class="row">
     <div class="col-lg-8" id="requisition-form">
-      <div class="row border pt-3">
+      <div class="purchase-indent row border pt-3">
         <div class="col-sm-12">
            <h1 class="card-title text-center">Purchase Indent</h1>
 
           
         </div>
         <hr>
-        <div class="col-sm-3">
+        <div class="row ccil-logo">
+          <div class="col-sm-3  bg-light">
          
           <h1 class="card-title text-success "><img src="assets/img/ccil_logo.jpeg" width="150px" height="30px"></h1>
         </div>
-        <div class="company-info col-sm-6 text-center">
+        <div class="company-info col-sm-6 text-center  bg-light">
           <h3 class="card-title">Chemi Cotex Industries Limited</h3>
           <p>Dar es Salaam, Bagamoyo Road 347 Mbezi </p>
           <p>Phone: +255759082262 Telefax: 233-233-232 Email: chemicotexindustries@ccil.com</p>
          
 
         </div>
+        <div class="col-sm-3  bg-light"></div>
+        </div>
+        
         <hr>
         
 
@@ -78,7 +82,7 @@ include "templates/top.php";
         
         
        
-           <table class=" table table-bordered" >
+           <table class="indent-table table table-bordered" >
                 <thead>
                   <tr>
                     <th scope="col">Material Code</th>
@@ -132,19 +136,19 @@ include "templates/top.php";
         </div>
         <hr>
         </div>
-
-  <div class="col-md-6 p-2" style="text-align: right;">
-    <button type="button" id="print-req" class="btn btn-success">Print Form</i></button>
+<div class="row form-printing">
+  <div class="col-sm-6" style="text-align: right;">
+    <button type="button" id="printForm" class="btn btn-success">Print Form</i></button>
   </div>
-  <div class="col-md-6 p-2">
+  <div class="col-sm-6">
     <button type="button" class="btn btn-success" >Submit by Email</button>
   </div>
-
+</div>
        
       </div>
     
     </div>
-    <div class="col-lg-4">
+    <div class="indent-list col-lg-4" id="indentList">
       <div class="card bg-light">
         <h1 class="card-title text-success  text-center">Indent List</h1>
 
@@ -156,7 +160,6 @@ include "templates/top.php";
                 <th scope="col">#</th>
                 <th scope="col">Indent No</th>
                 <th scope="col">Date</th>
-                <th scope="col">Made by</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -165,9 +168,7 @@ include "templates/top.php";
                 <th scope="row">1</th>
                 <td>CCIL-001</td>
                 <td>12-09-2022</td>
-                <td>Swap</td>
-                <td></td>
-                <td><i class="bi bi-printer"></i></td>
+                <td> <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addItem"><i class="bi bi-eye-fill"></i></button></td>
               </tr>
               
 
@@ -177,12 +178,7 @@ include "templates/top.php";
       </div>
     </div>
 
-  </div>
-
-                </div>
-            
-            
-            </div>
+    </div>
              <!-- Add Item Modal -->
       
               <div class="modal fade" id="addItem" tabindex="-1">
