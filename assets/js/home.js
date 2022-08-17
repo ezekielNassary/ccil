@@ -1,14 +1,14 @@
 $(document).ready(function () {
   $('#requisition').click(function () {
-    window.location.replace("material_requisition.php")
+    window.location.replace("requesition_page.php")
   });
 
   $('#spareparts').click(function () {
     window.location.replace("spareparts_management.php")
   });
 
-  $('#material').click(function () {
-    window.location.replace("material_management.php")
+  $('#orders').click(function () {
+    window.location.replace("indent_page.php")
   });
 
   var requistionForm=document.getElementById('requisition-form');

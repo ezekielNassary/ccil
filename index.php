@@ -13,15 +13,15 @@ include "templates/top.php";
 
           <!-- List group with Links and buttons -->
           <div class="inventory-list">
-            <button type="button" id="orders" class="list-group-item list-group-item-action ">Purchase Requisition</button>
+            <button type="button" id="requisition" class="list-group-item list-group-item-action ">Purchase Requisition</button>
             <br>
-            <button type="button" id="requisition" class="list-group-item list-group-item-action "></i>Purchase Indent</button>
+            <button type="button" id="orders" class="list-group-item list-group-item-action "></i>Purchase Indent</button>
             <br>
             <button type="button" id="spareparts" class="list-group-item list-group-item-action "></i>SPAREPARTS MANAGEMENT</button>
             <br>
             <button type="button" id="material-code" class="list-group-item list-group-item-action ">Create Material Code</button>
             <br>
-            <button type="button" id="orders" class="list-group-item list-group-item-action ">Outpass Request</button>
+            <button type="button" id="outpass" class="list-group-item list-group-item-action ">Outpass Request</button>
             <br>
             <button type="button" id="reports" class="list-group-item list-group-item-action ">REPORTS MANAGEMENT</button>
 
