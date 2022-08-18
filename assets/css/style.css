@@ -63,64 +63,6 @@ h6 {
   }
 }
 
-.company-info{
-  font-size: 12px;
-  color: red;
-}
-
- .indentInfo-table tr td{
-  font-size: 14px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.inventory-list {
-  font-size: 14px;
-  font-weight: bold;
-  color: red;
-}
-
-.inventory-list button {
-  background-color: yellow;
-}
-
-.inventory-list button:hover {
-  opacity: 0.6;
-}
-
-.authorization{
-  margin-left: 0px;
-}
-.authorization p{
-  font-size: 14px;
-}
-#requisition-form{
-  padding: 20px;
-  background-color: #e3f2fd;
-  
-}
-.purchase-indent{
-  background-color: white;
-}
-.ccil-logo{
-
-  margin-left: 2px;
-
-}
-.indent-list{
-
-  background-color: #e3f2fd;
-  
-}
-.indent-list .card{
-  margin-top: 20px;
-}
-.indent-table{
-  background-color: white;
-}
-.form-printing{
-  padding: 5px;
-  margin-bottom: 5px;
-}
 hr{
   color: black;
 }
@@ -1323,3 +1265,141 @@ hr{
   color: #012970;
 }
 
+.company-info{
+  font-size: 12px;
+  color: red;
+}
+.requisition-table{
+  margin-top: -30px;
+}
+ .indentInfo-table tr td{
+  font-size: 14px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.requisition-table tr th{
+  padding-left: 5px !important;
+  margin: 0 !important;
+  text-align: left;
+  vertical-align: middle;
+  border: 1px;
+ 
+}
+.requisition-table tr th button{
+width: 100%;
+}
+
+.requisition-table tr td{
+  padding: 5px !important;
+  margin top: 0 !important;
+}
+.inventory-list {
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
+}
+
+.inventory-list button {
+  background-color: yellow;
+}
+
+.inventory-list button:hover {
+  opacity: 0.6;
+}
+
+.authorization{
+  margin-left: 0px;
+}
+.authorization p{
+  font-size: 14px;
+}
+#requisition-form{
+  margin-top: -50px;
+  padding: 20px;
+  background-color: #78909c;
+  
+}
+.purchase-indent{
+  background-color: white;
+}
+.ccil-logo{
+
+  margin-left: 2px;
+
+}
+.indent-list{
+
+  background-color: #e3f2fd;
+  
+}
+.indent-list .card{
+  margin-top: 20px;
+}
+.indent-table{
+  background-color: white;
+}
+.form-printing{
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: skyblue;
+}
+.requisition-printing{
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.management-req{
+  background-color: skyblue;
+  padding: 5px;
+}
+.requisition-auth {
+  margin-bottom: 5px;
+  font-size: 14px;
+  text-align: right;
+}
+.requisition-auth input{
+  width: 100%;
+}
+.req-form{
+  background-color: #cfd8dc;
+  padding: 20px;
+}
+.req-options{
+  background-color: #b2ebf2;
+  height: 100%;
+  padding: 5px;
+}
+.req-options button{
+  font-size: 14px;
+  width: 200px;
+  color: white;
+  background-color: #00bcd4 !important;
+  margin-bottom: 10px;
+}
+.indent-form{
+  width: 100% !important;
+}
+.material-code-form{
+  background-color: #e0f7fa;
+  margin-top: -30px;
+  padding-top: 10px;
+}
+.save-code {
+  text-align: center; 
+   background-color: #4dd0e1;
+
+}
+.save-code button{
+  width: 200px;
+}
+.material-addition{
+  padding: 10px;
+  
+  text-align: center;
+}
+
+.material-addition input{
+  font-size: 20px;
+  height: 60px;
+  text-align: center;
+  margin-bottom: 20px;
+}

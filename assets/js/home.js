@@ -1,16 +1,23 @@
 $(document).ready(function () {
   $('#requisition').click(function () {
-    window.location.replace("requesition_page.php")
+    window.location.replace("requisition_page.php")
   });
 
   $('#spareparts').click(function () {
     window.location.replace("spareparts_management.php")
   });
+  $('#inward').click(function () {
+    window.location.replace("inward_material.php")
+  });
+
 
   $('#orders').click(function () {
     window.location.replace("indent_page.php")
   });
 
+$('#outpass').click(function () {
+    window.location.replace("out_pass_material.php")
+  });
   var requistionForm=document.getElementById('requisition-form');
 
 

@@ -6,8 +6,8 @@ include "templates/top.php";
 
 <main id="dash-main">
   <div class="card">
-            <div class="card-body">
-            <div class="row">
+ <div class="card-body">
+   <div class="row">
     <div class="col-lg-8" id="requisition-form">
       <div class="purchase-indent row border pt-3">
         <div class="col-sm-12">

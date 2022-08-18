@@ -288,13 +288,13 @@ if (isset($_SESSION['loggedin'])) {
     <a class="nav-link " href="../ccil/">DASHBOARD</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link " href="spareparts_management.php">SPAREPARTS</a>
+    <a class="nav-link " href="javascript:void(0)" id="">SPAREPARTS</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="material_requisition.php">REQUISITION</a>
+    <a class="nav-link" href="javascript:void(0)" id="">REQUISITION</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="material_management.php">MATERIAL MANAGEMENT</a>
+    <a class="nav-link" href="javascript:void(0)" id="">MATERIAL MANAGEMENT</a>
   </li>
   
 </ul>
