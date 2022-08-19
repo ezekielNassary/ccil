@@ -14,12 +14,173 @@ include "templates/top.php";
             <div class="row p-3">
      <div class="d-flex align-items-start" id="requisition-form">
                 <div class="req-options nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  <button class="nav-link active" id="v-pills-code-tab" data-bs-toggle="pill" data-bs-target="#v-pills-code" type="button" role="tab" aria-controls="v-pills-code" aria-selected="true">Create Material Code</button>
+
+                   <button class="nav-link active" id="v-pills-stock-tab" data-bs-toggle="pill" data-bs-target="#v-pills-stock" type="button" role="tab" aria-controls="v-pills-stock" aria-selected="true">Stock View</button>
+                  
+
+                  <button class="nav-link " id="v-pills-code-tab" data-bs-toggle="pill" data-bs-target="#v-pills-code" type="button" role="tab" aria-controls="v-pills-code" aria-selected="false">Create Material Code</button>
+
                   <button class="nav-link" id="v-pills-addition-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addition" type="button" role="tab" aria-controls="v-pills-addition" aria-selected="false">Material Addition</button>
-                 
                 </div>
-                <div class="tab-content" id="v-pills-tabContent">
-                  <div class="tab-pane fade show active" id="v-pills-code" role="tabpanel" aria-labelledby="v-pills-code-tab">
+
+
+
+<div class="tab-content" id="v-pills-tabContent">
+  <div class="tab-pane fade  show active" id="v-pills-stock" role="tabpanel" aria-labelledby="v-pills-stock-tab">
+ 
+ <div class="col-lg-12" >
+      <div class="card ">
+        <div class="card-title">
+          <h1 class="card-title text-center">SPARE PARTS STOCK</h1>
+          <hr>
+        </div>
+        <div class="card-body">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card stock-data current-stock">
+          
+          <div class="card-body">
+            <h5 class="card-title">Current Stock</h5>
+          <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                     <i class="bi bi-gear"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>145</h6>
+                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-lg-3">
+         <div class="card stock-data stock-value">
+          <div class="card-body">
+             <h5 class="card-title">Stock Value </h5>
+          <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>590,000 Tzs</h6>
+                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                    </div>
+                  </div>
+          </div>
+        </div>
+       </div>
+        <div class="col-lg-3">
+          <div class="card stock-data stock-in">
+          <div class="card-body">
+              <h5 class="card-title">Stock In </h5>
+          <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-box-arrow-in-down-right"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>5</h6>
+                      <span class="text-success small pt-1 fw-bold">23%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                    </div>
+                  </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card stock-data stock-out">
+          <div class="card-body">
+              <h5 class="card-title">Stock Out </h5>
+          <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>1</h6>
+                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+
+                    </div>
+                  </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Stock Flow 2022</h5>
+
+              <!-- Column Chart -->
+              <div id="columnChart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new ApexCharts(document.querySelector("#columnChart"), {
+                    series: [{
+                      name: 'Stock In',
+                      data: [46, 55, 57, 56, 61, 58, 63, 60, 66]
+                    }, {
+                      name: 'Stock Balance',
+                      data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+                    }, {
+                      name: 'Stock Out',
+                      data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+                    }],
+                    chart: {
+                      type: 'bar',
+                      height: 350
+                    },
+                    plotOptions: {
+                      bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded'
+                      },
+                    },
+                    dataLabels: {
+                      enabled: false
+                    },
+                    stroke: {
+                      show: true,
+                      width: 2,
+                      colors: ['transparent']
+                    },
+                    xaxis: {
+                      categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    },
+                    yaxis: {
+                      title: {
+                        text: 'Units'
+                      }
+                    },
+                    fill: {
+                      opacity: 1
+                    },
+                    tooltip: {
+                      y: {
+                        formatter: function(val) {
+                          return "$ " + val + " thousands"
+                        }
+                      }
+                    }
+                  }).render();
+                });
+              </script>
+              <!-- End Column Chart -->
+
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    </div>
+ 
+    </div>     
+        </div>
+
+      
+</div>
+  <div class="tab-pane fade" id="v-pills-code" role="tabpanel" aria-labelledby="v-pills-code-tab">
 <div class="req-form">    
  <div class="col-lg-12" >
       <div class="card">
@@ -195,9 +356,6 @@ include "templates/top.php";
  </div>
 </div>  
 
-
-
-
 <div class="tab-pane fade" id="v-pills-addition" role="tabpanel" aria-labelledby="v-pills-addition-tab">
 <div class="req-form">   
  <div class="col-lg-12" >
@@ -246,12 +404,14 @@ include "templates/top.php";
     
     </div>
  
-    </div>
-          
+    </div>     
         </div>
       </div>
-
 </div>
+
+
+
+
 </div>
 
                 </div>

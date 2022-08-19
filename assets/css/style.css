@@ -818,19 +818,19 @@ hr{
 }
 
 /* Info Cards */
-.dashboard .info-card {
+.stock-data {
   padding-bottom: 10px;
 }
 
-.dashboard .info-card h6 {
-  font-size: 28px;
+.stock-data h6 {
+  font-size: 22px;
   color: #012970;
   font-weight: 700;
   margin: 0;
   padding: 0;
 }
 
-.dashboard .card-icon {
+.card-icon {
   font-size: 32px;
   line-height: 0;
   width: 64px;
@@ -838,21 +838,29 @@ hr{
   flex-shrink: 0;
   flex-grow: 0;
 }
-
-.dashboard .sales-card .card-icon {
+.current-stock, .stock-value, .stock-in, .stock-out{
+  height: 150px;
+  vertical-align: bottom;
+}
+.current-stock .card-icon {
   color: #4154f1;
-  background: #f6f6fe;
+  background: #e0f7fa;
 }
 
-.dashboard .revenue-card .card-icon {
+.stock-value .card-icon {
   color: #2eca6a;
-  background: #e0f8e9;
+  background: #e0f7fa;
 }
 
-.dashboard .customers-card .card-icon {
+.stock-in .card-icon {
   color: #ff771d;
-  background: #ffecdf;
+  background: #e0f7fa;
 }
+.stock-out .card-icon {
+  color: #ff771d;
+  background: #e0f7fa;
+}
+
 
 /* Activity */
 .dashboard .activity {
@@ -1264,7 +1272,9 @@ hr{
   font-size: 13px;
   color: #012970;
 }
-
+.tab-content{
+  width: 100% !important;
+}
 .company-info{
   font-size: 12px;
   color: red;
@@ -1374,6 +1384,7 @@ width: 100%;
   color: white;
   background-color: #00bcd4 !important;
   margin-bottom: 10px;
+  text-align: left;
 }
 .indent-form{
   width: 100% !important;

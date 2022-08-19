@@ -1,9 +1,13 @@
 <?php
 session_start();
-if (isset($_SESSION['loggedin'])) {
- 
+$email="";
+$log_level="";
+if (isset($_SESSION["email"]) && isset($_SESSION["login"])) {
+  $email=$_SESSION["email"];
+  $log_level=$_SESSION["login"];
+  
 }else{
-  #header('location:login.php');
+  header('location: login.php');
 }
 ?>
 <!DOCTYPE html>

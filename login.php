@@ -83,7 +83,8 @@
                  $('#login-form').hide();
                         
             }
-            else if(data==0) {
+            else {
+                console.log(data)
                 $("#loading").hide();
                 $("#success").hide();
 

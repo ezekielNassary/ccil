@@ -44,6 +44,15 @@
     <label for="pwd">Password:</label>
     <input type="password" class="form-control" placeholder="Enter password" id="pwd">
   </div>
+  <div class="form-group">
+    <label for="login_level">Login Level</label>
+    <select class="form-select" id="level" aria-label="State">
+        <option selected value="choose">Select Level</option>
+        <option value="user">user</option>
+        <option value="approver">approver</option>
+        <option value="admin">admin</option>
+    </select>
+  </div>
       <br>
  
   <button type="button" id="register" class="btn btn-primary">Register</button><span > I have account <a href="login.php"> Login</a></span>
@@ -59,17 +68,18 @@
         $(document).ready(function() {
             
             $("#register").click(function() {
+
                 $("#success").hide();
                  $("#error").hide();
                 var name = $("#uname").val();
                 var email = $("#email").val();
                 var phone = $("#phone").val();
                 var pass = $("#pwd").val();
-
-                if(name==''|| email==''||pass=='') {
+                var level = $('#level').find(":selected").text();
+                
+                if(name==''|| email==''||pass=='' || level== 'Select Level') {
                     $("#error").show();
-                   $('#error').html('Please fill all fields !');
-                    return false;
+                   $('#error').html('Please fill all fields and choose valid level!');
                     return false;
                 }
  
@@ -80,12 +90,12 @@
                         name: name,
                         email: email,
                         phone: phone,
-                        pass: pass
+                        pass: pass,
+                        level: level
                     },
                     cache: false,
                     success: function(data) {
-                        alert(data);
-            if(data=="success"){
+                                   if(data=="success"){
             $("#success").show();
                 $('#success').html('Data added successfully !');
                 $('#register-form').trigger("reset");                        
