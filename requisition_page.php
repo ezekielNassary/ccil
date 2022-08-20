@@ -54,13 +54,18 @@ include "templates/top.php";
                  
                 </tbody>
               </table>
+              <hr>
+              <br>
+
                <table class="requisition-table table" >
                 <thead>
                   <tr>
                     <th scope="col">Item Description</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Unit Price</th>
-                    <th scope="col"><button type="button" class="btn btn-success">Add Item</button></th>
+                    <th scope="col">
+                      <button  type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addRequisitionItem"><i class="bi bi-plus"></i> Add Item</button>
+                    </th>
                   </tr>
                 </thead>
                 <tbody  id="tbdata">
@@ -68,12 +73,9 @@ include "templates/top.php";
                     <td>Bearing</td>
                    <td >3</td>
                    <td >50000</td>
+                   <td ></td>
                    </tr>
-                   <tr>
-                    <td>Oring</td>
-                   <td >50</td>
-                   <td >200</td>
-                   </tr>
+                   
                </tbody>
               </table>
         </div> 
@@ -151,7 +153,10 @@ include "templates/top.php";
                 <td>CCIL-001</td>
                 <td>12-09-2022</td>
                 <td>Not Approved</td>
-                <td> <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addItem"><i class="bi bi-eye-fill"></i></button></td>
+                <td> <button type="button" class="btn btn-danger" ><i class="bi bi-eye-fill"></i></button>
+
+
+                </td>
               </tr>
               
 
@@ -164,6 +169,50 @@ include "templates/top.php";
 </div>  
 
 
+<!-- Add requisition item Modal -->
+    
+              <div class="modal fade" id="addRequisitionItem" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="outpass Item">Add Item</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                     <div class="row mb-2">
+           <div class="col-sm-4"> <label class="form-label">Item Description</label></div>
+            <div class="col-sm-8">
+<textarea class="form-control" placeholder="e.g Cable Ties" id="description" style="height: 100px;"></textarea>
+            </div>
+          </div>
+            <div class="row mb-2">
+           <div class="col-sm-4"> <label class="form-label">Machine/Usage</label></div>
+            <div class="col-sm-8">
+<textarea class="form-control" placeholder="e.g Nm 1702" id="description" style="height: 100px;"></textarea>
+            </div>
+          </div>
+          <div class="row mb-2">
+           <div class="col-sm-4 "> <label class="form-label">Quantity</label></div>
+            <div class="col-sm-8"><input class="form-control" type="number"  id="outpass-no"></div>
+          </div>
+          
+          <div class="row mb-2">
+           <div class="col-sm-4 "> <label class="form-label">Unit Price</label></div>
+            <div class="col-sm-8"><input class="form-control" type="number"  id="req-item-price"></div>
+          </div>
+          <div class="row mb-2">
+           <div class="col-sm-4 "> <label class="form-label">Date</label></div>
+            <div class="col-sm-8"><input class="form-control" type="date"  id="return-date"></div>
+          </div>
+                    </div>
+                    <div class="modal-footer">
+                     <div class="col-12 " style="text-align: right;">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal"  id="add-outpass-item"><i class="bi bi-plus"></i> Add</button>
+        </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Add outpass item Modal-->
 
 
 
@@ -346,7 +395,7 @@ include "templates/top.php";
                 <th scope="row">1</th>
                 <td>CCIL-001</td>
                 <td>12-09-2022</td>
-                <td> <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addItem"><i class="bi bi-eye-fill"></i></button></td>
+                <td> <button type="button" class="btn btn-danger" ><i class="bi bi-eye-fill"></i></button></td>
               </tr>
               
 

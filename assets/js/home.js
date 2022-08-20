@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  let login_level=$('#login_level').val();
+  let user_email=$('#email').val();
+  dashboard_menu(login_level);
+
   $('#requisition').click(function () {
     window.location.replace("requisition_page.php")
   });
@@ -14,6 +18,13 @@ $(document).ready(function () {
   $('#orders').click(function () {
     window.location.replace("indent_page.php")
   });
+  $('#approve').click(function(){
+    window.location.replace("approve_request.php")
+  })
+
+  $('#register_user').click(function(){
+    window.location.replace("register.php")
+  })
 
 $('#outpass').click(function () {
     window.location.replace("out_pass_material.php")
@@ -134,5 +145,18 @@ function showRequestModal(title){
     $('#request-approve').modal('show')
 }
 
+function dashboard_menu(login_level){
+
+  if (login_level=='admin') {
+
+  }
+   if (login_level=='approver') {
+    $('#register_user').hide();
+  }
+   if (login_level=='user') {
+   $('#register_user').hide();
+   $('#approve').hide();
+  }
+}
 
 });

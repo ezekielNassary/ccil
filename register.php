@@ -1,26 +1,69 @@
- 
+<?php
+include "templates/top.php";
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CCIL</title>
+    <title>CCIL Register</title>
+    <link href="assets/img/ccil_logo.jpeg" rel="icon">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <style type="text/css">
+       body{
+          font-family: "Open Sans", sans-serif;
+          background-image: url("assets/img/background.jpg");
+          height: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+       }
+       h4{
+        font-size: 18px;
+        color: blue;
+       }
+        .register-col {
+        background-color: white;
+       }
+       .company-title{
+        padding: 20px 0 15px 0;
+  text-align: center;
+       }
+       .company-title img{
+        width: 300px;
+        height: 60px;
+       }
+ #register-form{
+    border: 1px solid black;
+ }
+#register-form button{
+ width: 300px;
+}
+#register-form label{
+    margin-bottom: 5px;
+    color: darkgreen;
+    font-weight: bold;
+ }
+   </style>
   </head>
 <body class="bg-light">
 
     <div class="container mt-5">
-<h4 class="text-center">ORAL CARE </h4>
-        <div class="row p-3 bg-light">
+
+        <div class="row p-3">
        
             <div class="col-lg-3">
             </div>
-            <div class="col-lg-6 pb-5">
-             
+            <div class="register-col col-lg-6 p-3">
+              <div class="company-title">
+<img src="assets/img/ccil_logo.jpeg">
+             </div>
+            <p><h4 class="text-center">ORAL CARE</h4></p>
          <form autocomplete="off" id="register-form" class="shadow-sm p-3 my-5 bg-white rounded">
-                 <p class="p-3 text-center text-white bg-primary">
+                 <h5 class="p-3 text-center text-success">
             Register
-        </p>
+        </h5>
+        <hr>
         <div class="alert alert-success alert-dismissible" id="success" style="display:none;">
  </div>
             <div class="alert alert-danger alert-dismissible" id="error" style="display:none;">
@@ -44,6 +87,7 @@
     <label for="pwd">Password:</label>
     <input type="password" class="form-control" placeholder="Enter password" id="pwd">
   </div>
+  <br>
   <div class="form-group">
     <label for="login_level">Login Level</label>
     <select class="form-select" id="level" aria-label="State">
@@ -54,9 +98,8 @@
     </select>
   </div>
       <br>
- 
-  <button type="button" id="register" class="btn btn-primary">Register</button><span > I have account <a href="login.php"> Login</a></span>
-    
+  <p class="text-center">
+  <button type="button" id="register" class="btn btn-success">Register</button></p>
 </form> 
 </div>
     <div class="col-lg-3">

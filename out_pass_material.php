@@ -29,28 +29,48 @@ include "templates/top.php";
         </div>
    
         <div class="card-body">
-        <div class="row">
-         <div class="col-sm-12">
-         <table class="requisition-table table table-borderless">
-             
-                <tbody>
-                  
-                  <tr>
-                    <td scope="row">Department</td>
-                   <td scope="row"><input type="text"  id="dprt"></td></td>
-                   </tr>
-                   <tr>
-                    <td scope="row">Division</td>
-                   <td scope="row"><input type="text"  id="division"></td> </td>
-                   </tr>
-                   <tr>
-                    <td scope="row">Date</td>
-                   <td scope="row"><input type="date"  id="reqdate"></td></td>
-                   </tr>
-                 
-                </tbody>
-              </table>
-               <table class="requisition-table table" >
+        <div class="outpass-form row">
+          
+         <div class="col-sm-6">
+          <div class="row">
+           <div class="col-sm-3"> <label>Department</label></div>
+            <div class="col-sm-9"><input type="text"  id="dprt" value="FMCG"></div>
+          </div>
+          <div class="row">
+           <div class="col-sm-3"> <label>Division</label></div>
+            <div class="col-sm-9"><input type="text"  id="division" value="Oral Care"></div>
+          </div>
+          <div class="row">
+           <div class="col-sm-3"> <label>Date</label></div>
+            <div class="col-sm-9"><input type="date"  id="dprt"></div>
+          </div>
+       </div> 
+               <div class="col-sm-6">
+         <div class="row">
+           <div class="col-sm-3"> <label>TIN</label></div>
+            <div class="col-sm-9"><input type="text" disabled id="tin" value="100-269-309"></div>
+          </div>
+          <div class="row">
+           <div class="col-sm-3"> <label>VAT Reg No.</label></div>
+            <div class="col-sm-9"><input type="text" disabled  id="vat-reg" value="10-013610-Z"></div>
+          </div>
+          <div class="row">
+           <div class="col-sm-3"> <label>No</label></div>
+            <div class="col-sm-9"><input type="text" disabled id="outpass-no"></div>
+          </div>
+              </div> 
+              <hr>
+            <br>
+<div class="col-lg-12">
+  <div class="row">
+           <div class="col-sm-4"> <label>Vendor Information</label></div>
+            <div class="col-sm-8">
+<textarea class="form-control" placeholder="e.g Schenider Comany, P.O.Box 23323 DSM" id="description" style="height: 100px;"></textarea>
+            </div>
+          </div>
+</div>
+              <div class="col-lg-12">
+               <table class=" table" >
                 <thead>
                   <tr>
                     <th scope="col">Item Description</th>
@@ -72,8 +92,8 @@ include "templates/top.php";
                    
                </tbody>
               </table>
-              <p scope="col"><button type="button" class="btn btn-success">Add Item</button></p>
-        </div> 
+              <p scope="col"><button type="button" class="btn btn-danger" data-bs-toggle="modal"  data-bs-target="#addOutpassItem"><i class="bi bi-plus"></i> Add Item</button></p>
+        </div>
         <div class="row">
           <div class="col-sm-12">
             <p style=" font-size: 17px; color: darkblue; font-weight: bold;">Remarks</p>
@@ -82,7 +102,7 @@ include "templates/top.php";
         </div> 
       
         <div class="management-req">
-           <div class="row requisition-auth"> 
+           <div class="row requisition-auth p-3"> 
           <div class="col-sm-3">
             <label class="form-label">Prepared By</label>
           </div>
@@ -96,20 +116,7 @@ include "templates/top.php";
             <input type="text" class=""  id="req-requestedBy">
         </div>
       </div>
-        <div class="row requisition-auth"> 
-          <div class="col-sm-3">
-            <label class="form-label">Authorised By</label>
-          </div>
-          <div class="col-sm-3">
-            <input type="text" class=""  id="req-authorisedBy">
-        </div>
-        <div class="col-sm-3">
-            <label class="form-label">Received By</label>
-          </div>
-           <div class="col-sm-3">
-            <input type="text" class=""  id="req-receivedBy">
-        </div>
-      </div>
+        
         </div>
        <div>   
        </div>
@@ -146,7 +153,7 @@ include "templates/top.php";
                 <td>Motor 3phase, 45kw</td>
                 <td>16-08-2022</td>
                 <td>Not returned</td>
-                <td> <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addItem"><i class="bi bi-eye-fill"></i></button></td>
+                <td> <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addItem" data-bs-dismiss="modal"><i class="bi bi-eye-fill"></i></button></td>
               </tr>
               
 
@@ -158,16 +165,45 @@ include "templates/top.php";
  </div>
 </div>  
 
-
-
-
-
-
-
-
-
-
-
+ <!-- Add outpass item Modal -->
+    
+              <div class="modal fade" id="addOutpassItem" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="outpass Item">Add Item</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                     <div class="row mb-2">
+           <div class="col-sm-4"> <label class="form-label">Item Description</label></div>
+            <div class="col-sm-8">
+<textarea class="form-control" placeholder="e.g Motor 3phase 415V" id="description" style="height: 100px;"></textarea>
+            </div>
+          </div>
+          <div class="row mb-2">
+           <div class="col-sm-4 "> <label class="form-label">Quantity</label></div>
+            <div class="col-sm-8"><input class="form-control" type="text"  id="outpass-no"></div>
+          </div>
+          <div class="row mb-2">
+           <div class="col-sm-4"> <label class="form-label">Purpose</label></div>
+            <div class="col-sm-8">
+<textarea class="form-control" placeholder="e.g rewinding" id="purpose" style="height: 50px;"></textarea>
+            </div>
+          </div>
+          <div class="row mb-2">
+           <div class="col-sm-4 "> <label class="form-label">Epected Return Date</label></div>
+            <div class="col-sm-8"><input class="form-control" type="date"  id="return-date"></div>
+          </div>
+                    </div>
+                    <div class="modal-footer">
+                     <div class="col-12 " style="text-align: right;">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal"  id="add-outpass-item"><i class="bi bi-plus"></i> Add</button>
+        </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Add outpass item Modal-->
 
 
 
@@ -181,21 +217,10 @@ include "templates/top.php";
         </div>
         <div class="card-body">
          
-           <div class="col-lg-12" >
-      <div class="purchase-indent row border pt-3">
-        <div class="col-sm-12">
-           <h1 class="card-title text-center">Out pass</h1>
-
-
-
-
-        </div>
-      </div>
-    </div>
+        
     <div class="indent-list col-lg-12" id="indentList">
       <div class="card bg-light">
-        <h1 class="card-title text-success  text-center">Outpass Items List</h1>
-
+      
         <div class="card-body">
           <!-- Table with stripped rows -->
           <table class="table datatable">
@@ -204,6 +229,7 @@ include "templates/top.php";
                 <th scope="col">#</th>
                 <th scope="col">Item Description</th>
                 <th scope="col">Issue Date</th>
+                <th scope="col">Status</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -212,7 +238,8 @@ include "templates/top.php";
                 <th scope="row">1</th>
                 <td>Motor 3phase</td>
                 <td>12-08-2022</td>
-                <td> <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addItem"><i class="bi bi-eye-fill"></i></button></td>
+                <td>Not Approved</td>
+                <td> <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=""><i class="bi bi-eye-fill"></i></button></td>
               </tr>
               
 

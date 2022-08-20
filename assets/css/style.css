@@ -1414,3 +1414,12 @@ width: 100%;
   text-align: center;
   margin-bottom: 20px;
 }
+.outpass-form label,input{
+ margin-bottom: 5px;
+
+}
+@media (min-width: 480px) {
+  .outpass-form input{
+ width: 100% !important;
+}
+}

@@ -230,13 +230,14 @@ if (isset($_SESSION["email"]) && isset($_SESSION["login"])) {
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="staffname d-none d-md-block dropdown-toggle ps-2">E Nassary</span>
+            <span class="staffname d-none d-md-block dropdown-toggle ps-2">
+              <?= ucfirst($log_level) ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
             <li class="dropdown-header">
-              <p class="staffname"></p>
-              <span>Automation Engineer</span>
+              <p class="staffname"><?= $email ?></p>
+              <span><?= ucfirst($log_level) ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -291,15 +292,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["login"])) {
       <li class="nav-item">
     <a class="nav-link " href="../ccil/">DASHBOARD</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link " href="javascript:void(0)" id="">SPAREPARTS</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="javascript:void(0)" id="">REQUISITION</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="javascript:void(0)" id="">MATERIAL MANAGEMENT</a>
-  </li>
+ 
   
 </ul>
   </div>
