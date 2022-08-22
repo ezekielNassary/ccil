@@ -1351,7 +1351,10 @@ width: 100%;
 .form-printing{
   padding: 5px;
   margin-bottom: 5px;
-  background-color: skyblue;
+  
+}
+.form-printing button{
+  width: 200px;
 }
 .requisition-printing{
   padding: 5px;
@@ -1389,6 +1392,7 @@ width: 100%;
 .indent-form{
   width: 100% !important;
 }
+
 .material-code-form{
   background-color: #e0f7fa;
   margin-top: -30px;
@@ -1408,18 +1412,69 @@ width: 100%;
   text-align: center;
 }
 
-.material-addition input{
-  font-size: 20px;
-  height: 60px;
-  text-align: center;
-  margin-bottom: 20px;
+.material-addition input,label,select{
+  display: none;
+
 }
+
 .outpass-form label,input{
  margin-bottom: 5px;
 
 }
-@media (min-width: 480px) {
+.prchase-indent-form{
+  margin-top: -30px;
+  padding-bottom: 10px;
+}
+.prchase-indent-form select{
+  width: 150px;
+}
+#btn-preview-indent{
+width: 300px;
+margin-bottom: 10px;
+background-color: #4db6ac;
+color: #e0f7fa;
+border: none;
+}
+.requisition-printing button{
+  width: 200px;
+  background-color: #0097a7;
+color: #e0f7fa;
+border: none;
+}
+.requisition-printing button:hover{
+ width: 230px;
+ animation-duration: 100ms;
+ transition: 1000ms;
+ color: #e0f7fa;
+}
+.search-material{
+  padding: 30px;
+  text-align: center;
+  background-color: #0097a7;
+}
+.search-material input{
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: lighter;
+  border: none;
+}
+.search-material input::placeholder{
+opacity: 0.4;
+}
+.search-row{
+  margin-top: -30px;
+}
+
+@media (max-width: 480px) {
+  .req-options{
+    display: none;
+  }
   .outpass-form input{
  width: 100% !important;
+}
+button, input{
+  width: 100%;
 }
 }

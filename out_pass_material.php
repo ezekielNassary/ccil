@@ -110,7 +110,7 @@ include "templates/top.php";
             <input type="text" class=""  id="req-preparedBy">
         </div>
         <div class="col-sm-3">
-           <label class="form-label">Requested By</label>
+           <label class="form-label">Received by(Vendor)</label>
           </div>
        <div class="col-sm-3">
             <input type="text" class=""  id="req-requestedBy">

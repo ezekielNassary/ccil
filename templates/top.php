@@ -35,7 +35,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["login"])) {
   <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="assets/vendor/datatables/datatables.min.css" rel="stylesheet">
+ 
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -50,7 +51,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["login"])) {
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-
+  <script src="assets/vendor/datatables/datatables.min.js"></script>
   <script src="assets/js/home.js"></script>
   <script src="assets/js/main.js"></script>
 

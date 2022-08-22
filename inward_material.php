@@ -20,7 +20,7 @@ include "templates/top.php";
 
                   <button class="nav-link " id="v-pills-code-tab" data-bs-toggle="pill" data-bs-target="#v-pills-code" type="button" role="tab" aria-controls="v-pills-code" aria-selected="false">Create Material Code</button>
 
-                  <button class="nav-link" id="v-pills-addition-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addition" type="button" role="tab" aria-controls="v-pills-addition" aria-selected="false">Material Addition</button>
+                  <button class="nav-link" id="v-pills-addition-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addition" type="button" role="tab" aria-controls="v-pills-addition" aria-selected="false">Material Adjustment</button>
                 </div>
 
 
@@ -311,34 +311,23 @@ include "templates/top.php";
 </form>
 
  </div> 
- <div class="col-lg-12    border">
+ <div class="col-lg-12 border">
 
     <h1 class="card-title text-success  text-center">Spareparts Registered</h1>
- <table class="table datatable">
+ <table class="table" id="stock-table-one">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Partnumber</th>
+               
+                <th scope="col" >Material Code</th>
                 <th scope="col">Specification</th>
+                <th scope="col">Stock_In</th>
+                <th scope="col">Stock_Out</th>
                 <th scope="col">Balance</th>
                 <th scope="col">Cost</th>
                 <th scope="col">Adjust</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>CFK000</td>
-                <td>Bearing</td>
-                <td>56</td>
-                <td>74,000</td>
-                <td><div class="btn-group" role="group" aria-label="Basic example">
-               <button type="button" class="delete-spare btn btn-danger" id="delete-req"><i class="bi bi-plus"></i></button>
-                <button type="button" class="btn btn-primary" id="edit-spare"><i class="bi bi-pencil-square"></i></button>
-
-              </div></td>
-                 </tr>
-              
+            <tbody class="stock-table-data">
 
             </tbody>
           </table>
@@ -361,42 +350,31 @@ include "templates/top.php";
  <div class="col-lg-12" >
       <div class="card">
         <div class="card-title">
-          <h1 class="card-title text-center">Material Addition</h1>
+          <h1 class="card-title text-center">Material Adjustment</h1>
           <hr>
         </div>
         <div class="card-body">
-     <div class="material-addition row ">
-      <div class="col-lg-3"></div>
-       <div class=" col-lg-6 align-items-end">
-        <p> <input type="text" class="form-control" placeholder="Search material...." name="">
-         
-</p>
- <div class="col-lg-3"></div>
-       </div>
-       <div class="col-lg-12">
-         <table class="table table-borderless">
-           <thead>
-            <th>SN</th>
-             <th>  Material Code</th>
-             <th> Description</th>
-             <th> Balance</th>
-             <th>Action </th>
-           </thead>
-           <tbody>
-             <tr>
-                    <td>1</td>
-                   <td >SKF 4348</td>
-                   <td >SKF roller bearing</td>
-                   <td >20</td>
-                   <td >
-              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-success">Add</button>
-                <button type="button" class="btn btn-warning">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-              </div>
 
-                   </td>
-                   </tr>
+     <div class="row search-row">
+       
+      <div class="search-material col-lg-3"></div>
+       <div class="search-material col-lg-6 text-center"> 
+<input class="form-control" type="text" placeholder="Search material" name="">
+       </div>
+       <div class="search-material col-lg-3"></div>
+       <div class="material-addition  col-lg-12">
+         <table class="table table-borderless" id="stock-table-two">
+           <thead>
+           <th scope="col" >Material Code</th>
+                <th scope="col">Specification</th>
+                <th scope="col">Stock_In</th>
+                <th scope="col">Stock_Out</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Adjust</th>
+           </thead>
+           <tbody class="stock-table-data">
+             
            </tbody>
          </table>
        </div>

@@ -1,5 +1,7 @@
 <?php
+$title = "CCIL | User Registration";
 include "templates/top.php";
+
 ?> 
 <!DOCTYPE html>
 <html lang="en">

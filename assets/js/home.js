@@ -1,7 +1,12 @@
 $(document).ready(function () {
   let login_level=$('#login_level').val();
-  let user_email=$('#email').val();
-  dashboard_menu(login_level);
+  let user_email=$('#email').val();   
+  var page_link = window.location.pathname;
+dashboard_menu(login_level);
+  if (page_link == "/ccil/inward_material.php") {
+    
+    fetch_material();
+  } 
 
   $('#requisition').click(function () {
     window.location.replace("requisition_page.php")
@@ -124,6 +129,8 @@ $('#rate').on('input', function() {
   var total_val=calculate_total_value()
   $("#rate-total").html(total_val)
 });
+
+
 function calculate_total_value(){
   var qty = $("#qty").val();
   var rate = $("#rate").val();
@@ -159,4 +166,33 @@ function dashboard_menu(login_level){
   }
 }
 
+function fetch_material(){
+   $.ajax({
+      type:'POST',
+            url:'actionpages/get_material.php',
+            dataType: "json",
+            data:{line:'command'},
+            success:function(data){
+            console.log(data);
+    $.each(data.result, (index, row) => {
+      const rowContent = 
+            `<tr>
+               <td>${row.Partnumber}</td>
+               <td>${row.Material_Description}</td>
+               <td>${row.Total_Received}</td>
+               <td>${row.Stock_Out}</td>
+               <td>${row.Quantity_Bal}</td>
+               <td>${row.Cost}</td>
+               <td>
+               <button type="button" class="btn btn-primary" id="edit-spare"><i class="bi bi-pencil-square"></i></button>
+                </td>
+             </tr>`;
+      $('.stock-table-data').append(rowContent);
+    });
+    $("#stock-table-one").DataTable();
+    $("#stock-table-two").DataTable();
+ }
+        });
+
+}
 });
