@@ -1392,11 +1392,18 @@ width: 100%;
 .indent-form{
   width: 100% !important;
 }
-
+ 
 .material-code-form{
   background-color: #e0f7fa;
   margin-top: -30px;
-  padding-top: 10px;
+  padding: 10px;
+
+}
+.material-code-form label{
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+
 }
 .save-code {
   text-align: center; 
@@ -1418,11 +1425,17 @@ width: 100%;
   text-align: left;
   font-size: 13px;
 }
-.stock-addition input,label,select{
+.stock-addition input, .stock-addition label, .stock-addition select{
   display: none;
 }
-
-.outpass-form label,input{
+.stock-registered table tr td{
+  text-align: left;
+  font-size: 13px;
+} 
+.stock-registered table tr th{
+  font-size: 15px;
+}
+.outpass-form label, .outpass-form input{
  margin-bottom: 5px;
 
 }
@@ -1471,7 +1484,21 @@ opacity: 0.4;
 .search-row{
   margin-top: -30px;
 }
+.code-result{
+  text-align: center;
+  font-size: 20px;
+  
 
+}
+.code-result .icon{
+  
+  font-size: 32px;
+  line-height: 0;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
 @media (max-width: 480px) {
   .req-options{
     display: none;

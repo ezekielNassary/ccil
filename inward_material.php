@@ -192,39 +192,39 @@ include "templates/top.php";
         <div class="card-body">
         <div class="row">
          <div class="col-sm-12">
-<form class="row material-code-form" id="">
+<form class="row material-code-form text-dark" id="">
           
              <div class="col-lg-6">
          <div class="row mb-3">
                   <label for="inputEmail3" class="col-sm-4 col-form-label">Name:</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="inputText">
+                    <input type="text" class="form-control" placeholder="Enter name" id="sp-name">
                   </div>
                 </div>
                  </div>
                  
                   <div class="col-lg-6">
                 <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-6 col-form-label">Material Codde:</label>
+                  <label for="sp-code" class="col-sm-6 col-form-label">Material Code</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputText">
+                    <input type="text" class="form-control" placeholder="Enter code/partname" id="sp-code">
                   </div>
                 </div>
                  </div>
                  <div class="col-lg-6">
          <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label">Description:</label>
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Description</label>
                   <div class="col-sm-8">
-                   <textarea class="form-control" placeholder="enter details about a sparepart" id="description" style="height: 100px;"></textarea>
+                   <textarea class="form-control" placeholder="enter details about a sparepart" id="sp-descr" style="height: 100px;"></textarea>
                     </div>
                 </div>
                  </div>
                  
                   <div class="col-lg-6">
                 <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-6 col-form-label">Category:</label>
+                  <label for="inputEmail3" class="col-sm-6 col-form-label">Category</label>
                   <div class="col-sm-6">
-                   <select class="form-select" id="Category" aria-label="State">
+                   <select class="form-select" id="sp-category" aria-label="State">
                     <option selected value="mech">Electrical</option>
                       <option value="electrical">Mechanical</option>
                   </select>
@@ -234,25 +234,25 @@ include "templates/top.php";
                  <hr>
                 <div class="col-lg-4">
          <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label">Quantity</label>
+                  <label for="sp-qty" class="col-sm-4 col-form-label">Quantity</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="qty" placeholder="Enter quantity">
+                    <input type="number" class="form-control" id="sp-qty" placeholder="Enter quantity">
                 </div>
                  </div>
                   </div>
                  <div class="col-lg-4">
                  <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label">Cost</label>
+                  <label for="sp-cost" class="col-sm-4 col-form-label">Cost</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="qty" placeholder="Enter Cost">
+                    <input type="number" class="form-control" id="sp-cost" placeholder="Enter Cost">
                 </div>
                  </div>
                  </div>
                   <div class="col-lg-4">
                 <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label">Type:</label>
+                  <label for="sp-type" class="col-sm-4 col-form-label">Type</label>
                   <div class="col-sm-8">
-                    <select class="form-select" id="type" aria-label="State">
+                    <select class="form-select" id="sp-type" aria-label="State">
                       <option selected value="motor">Motor</option>
                       <option value="drive">Drive</option>
                       <option value="contactor">Contactor</option>
@@ -281,40 +281,102 @@ include "templates/top.php";
                   </div>
                 </div>
                  </div>
+                
  <div class="col-lg-4">
          <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label">Order Level</label>
+                  <label for="sp-orderlevel" class="col-sm-4 col-form-label">Order Level</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="qty" placeholder="Enter order level">
+                    <input type="number" class="form-control" id="sp-orderlevel" placeholder="Enter order level">
                 </div>
                  </div>
                   </div>
                  <div class="col-lg-4">
                  <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label">Manufacturer</label>
+                  <label for="sp-manuf" class="col-sm-4 col-form-label">Manufacturer</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="qty" placeholder="Enter manufacturer">
+                    <input type="text" class="form-control" id="sp-manuf" placeholder="Enter manufacturer">
                 </div>
                  </div>
                  </div>
                   <div class="col-lg-4">
                  <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label">Date</label>
+                  <label for="sp-date" class="col-sm-4 col-form-label">Date</label>
                   <div class="col-sm-8">
-                    <input type="date" class="form-control" id="date" placeholder="Enter date">
+                    <input type="date" class="form-control" id="sp-date" placeholder="Enter date">
+                </div>
+                 </div>
+                 </div>
+                 <hr>
+                   <div class="col-lg-6">
+         <div class="row mb-3">
+                  <label for="sp-file" class="col-sm-4 col-form-label">Physical File</label>
+                  <div class="col-sm-8">
+                    <select class="form-select" id="sp-file" aria-label="State">
+                    <option selected value="">Select File</option>
+                    <option value="">All_Packing_Machine</option>
+                    <option value="">BEARINGS</option>
+                    <option value="">SEAL</option>
+                    <option value="">ORING</option>
+                    <option value="">FESTO CYLINDER</option>
+                    <option value="">TUBE HOLDER</option>
+                    <option value="">TAFLON SPARE</option>
+                    <option value="">BOILER</option>
+                    <option value="">Nodern_Filling_M/C</option>
+                    <option value="">ETP Plant</option>
+                    <option value="">R.O Plant</option>
+                    <option value="">WAUKESHA PUMP</option>
+                    <option value="">STATIONARY</option>
+                    <option value="">PRINTER</option>
+                    <option value="">Mechanical</option>
+                    <option value="">BELTS</option>
+                    <option value="">AUTOPACK</option>
+                    <option value="">CIR CLIP</option>
+                    <option value="">COMPRESSOR</option>
+                    <option value="">CHILLER</option>
+                    <option value="">GENERAL SPARE</option>
+                    <option value="">ELECTRICAL GENERAL</option>
+                    <option value="">NM2002 #55101</option>
+                    <option value="">NM2002 #55002</option>
+                    <option value="">NM 1702</option>
+                    <option value="">NODERN PARTS</option>
+                    <option value="">FITTINGS</option>
+                    <option value="">NP 1702</option>
+                  </select>
+                </div>
+                 </div>
+                  </div>
+                
+                  <div class="col-lg-6">
+                 <div class="row mb-3">
+                  <label for="sp-remark" class="col-sm-4 col-form-label">Remarks</label>
+                  <div class="col-sm-8">
+                   <textarea class="form-control" placeholder="enter details about a sparepart" id="sp-remark" style="height: 100px;"></textarea>
                 </div>
                  </div>
                  </div>
         <p class="save-code col-sm-12 p-2" >
-         <button type="button" class="btn btn-success" id="save"><i class="bi bi-pencil-square"></i>SAVE</button></p>
+         <button type="button" class="btn btn-success" id="sp-save"><i class="bi bi-pencil-square"></i>SAVE</button></p>
+       
          <hr>
 </form>
-
+<!-- Success Modal-->
+ <div class="modal fade" id="success-modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-sm">
+                  <div class="modal-content">
+                   
+                    <div class="modal-body">
+                     <p class="code-result"></p>
+                    </div>
+                  <p style="text-align: right; padding: 5px;"><button type="button" style="width: 100px; font-size: 12px;" data-bs-dismiss="modal" class="btn btn-success">OK</button></p>
+                  </div>
+                </div>
+              </div>
+  <!-- End Success Modal-->
  </div> 
  <div class="col-lg-12 border">
 
     <h1 class="card-title text-success  text-center">Spareparts Registered</h1>
-<div class="stock-addition">
+<div class="stock-registered">
  <table class="sotock-table table table-stripped" id="stock-table-one">
             <thead>
               <tr>
@@ -366,8 +428,8 @@ include "templates/top.php";
        <div class="stock-addition  col-lg-12">
          <table class="stock-table table table-stripped" id="stock-table-two">
            <thead>
-           <th scope="col" >Code</th>
-           <th scope="col" >Name</th>
+          <th scope="col">Code</th>
+          <th scope="col">Name</th>
           <th scope="col">Specification</th>
           <th scope="col">Stock_In</th>
           <th scope="col">Stock_Out</th>
@@ -380,9 +442,8 @@ include "templates/top.php";
            </tbody>
          </table>
        </div>
-<!-- Vertically centered Modal -->
-              
-              <div class="modal fade" id="verticalycentered" tabindex="-1">
+<!-- spare-adjust-modal centered Modal -->          
+              <div class="modal fade" id="spare-adjust-modal" tabindex="-1">
                 <div class="modal-dialog  modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -414,10 +475,7 @@ include "templates/top.php";
                     </div>
                   </div>
                 </div>
-              </div><!-- End Vertically centered Modal-->
-
-      
-
+              </div><!-- End spare-adjust-modal centered Modal-->  
      </div>
     
     </div>

@@ -41,6 +41,7 @@ $('#outpass').click(function () {
 
 
   if (page_link == "/ccil/inward_material.php") {
+
     fetch_material()
      $("#stock-table-two").on('click','.edit-stock',function(){
          var currentRow=$(this).closest("tr"); 
@@ -51,8 +52,47 @@ $('#outpass').click(function () {
          var stock_out=currentRow.find("td:eq(4)").text(); 
          var balance=currentRow.find("td:eq(5)").text(); 
          var cost=currentRow.find("td:eq(6)").text(); 
-         
-         $('#verticalycentered').modal('show')
+         $('#spare-adjust-modal').modal('show')
+    });
+
+    $('#sp-save').click(function(){
+      var spareName = $('#sp-name').val()
+      var spareCode = $('#sp-code').val()
+      var spareDescription = $('#sp-descr').val()
+      var spareCategory = $('#sp-category').find(":selected").text();
+      var spareQty = $('#sp-qty').val()
+      var spareCost = $('#sp-cost').val()
+      var spareType = $('#sp-type').find(":selected").text();
+      var spareOlevel = $('#sp-orderlevel').val()
+      var spareManuf = $('#sp-manuf').val()
+      var spareDate = $('#sp-date').val()
+      var spareFile = $('#sp-file').find(":selected").text();
+      var spareRemark = $('#sp-remark').val()
+      var error=""
+
+      if (spareCode == "") {
+        error="Enter material code"
+         $('.code-result').html('<p class="text-danger"><i class="icon bi bi-info-square"></i><p>'+error+'</p></p>')
+        $('#success-modal').modal('show')
+        return
+      }
+      
+    $.ajax({
+    type: "POST",
+    url: "actionpages/insert_code.php",
+    data: {'name':spareName,'code':spareCode,'description':spareDescription,'category':spareCategory,'qty':spareQty,
+    'cost':spareCost,'type':spareType,'level':spareOlevel,'date':spareDate,'file':spareFile,'remark':spareRemark},
+    success: function(data){
+      console.log(data);
+      if (data == 'success') {
+         $('.code-result').html('<p class="text-success text-center"><i class="icon bi bi-check-lg"></i><p class=" text-success p3 text-center">Data Saved Succesful</p></p>')
+        $('#success-modal').modal('show')
+      }else{
+         $('.code-result').html('<p class="text-danger text-center"><i class="icon bi bi-info-square"></i><p class=" text-danger p3 text-center">'+data+'</p></p>')
+        $('#success-modal').modal('show')
+      }  
+    }
+});
     });
   } 
   
@@ -65,7 +105,6 @@ $('#outpass').click(function () {
    
 
   $('#add-req-list').click(function () {
-
     let data = [];
     var materialCode = $("#material-code").val();
     var specifications = $("#specifications").val();
@@ -183,11 +222,12 @@ function dashboard_menu(login_level){
    $('#approve').hide();
   }
 }
+function spareparts_inputs(){
+  speed1= $("#speed1").val();
+}
+function register_spare(){
 
-
-
-
-
+}
 
 function fetch_material(){
    $.ajax({
@@ -213,7 +253,7 @@ function fetch_material(){
              </tr>`;
       $('.stock-table-data').append(body);
     });
-   // $("#stock-table-one").DataTable();
+   $("#stock-table-one").DataTable();
     $("#stock-table-two").DataTable();
  }
  });
