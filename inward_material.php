@@ -314,11 +314,13 @@ include "templates/top.php";
  <div class="col-lg-12 border">
 
     <h1 class="card-title text-success  text-center">Spareparts Registered</h1>
- <table class="table" id="stock-table-one">
+<div class="stock-addition">
+ <table class="sotock-table table table-stripped" id="stock-table-one">
             <thead>
               <tr>
                
                 <th scope="col" >Material Code</th>
+                <th scope="col" >Name</th>
                 <th scope="col">Specification</th>
                 <th scope="col">Stock_In</th>
                 <th scope="col">Stock_Out</th>
@@ -331,10 +333,9 @@ include "templates/top.php";
 
             </tbody>
           </table>
-     
+     </div>
     </div>
        
-      
         </div>
         </div>
 
@@ -359,25 +360,64 @@ include "templates/top.php";
        
       <div class="search-material col-lg-3"></div>
        <div class="search-material col-lg-6 text-center"> 
-<input class="form-control" type="text" placeholder="Search material" name="">
+<input class="form-control" type="text" placeholder="Enter code/name/description" name=""><span><button class="edit-spare btn btn-success">Search</button></span>
        </div>
        <div class="search-material col-lg-3"></div>
-       <div class="material-addition  col-lg-12">
-         <table class="table table-borderless" id="stock-table-two">
+       <div class="stock-addition  col-lg-12">
+         <table class="stock-table table table-stripped" id="stock-table-two">
            <thead>
-           <th scope="col" >Material Code</th>
-                <th scope="col">Specification</th>
-                <th scope="col">Stock_In</th>
-                <th scope="col">Stock_Out</th>
-                <th scope="col">Balance</th>
-                <th scope="col">Cost</th>
-                <th scope="col">Adjust</th>
+           <th scope="col" >Code</th>
+           <th scope="col" >Name</th>
+          <th scope="col">Specification</th>
+          <th scope="col">Stock_In</th>
+          <th scope="col">Stock_Out</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Cost</th>
+          <th scope="col">Adjust</th>
            </thead>
            <tbody class="stock-table-data">
              
            </tbody>
          </table>
        </div>
+<!-- Vertically centered Modal -->
+              
+              <div class="modal fade" id="verticalycentered" tabindex="-1">
+                <div class="modal-dialog  modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-center card-title">Adjust Stock</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                     
+
+
+
+
+
+
+
+                     </div>
+                    <div class="modal-footer text-center p-2">
+                    <div class="row">
+                       <div class="col-lg-4"> 
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+                      </div>
+                       <div class="col-lg-4"> 
+                        <button type="button" class="btn btn-success">Modify</button>
+                      </div>
+                       <div class="col-lg-4"> 
+                        <button type="button" class="btn btn-warning">Delete</button>
+                      </div>
+                     </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Vertically centered Modal-->
+
+      
+
      </div>
     
     </div>

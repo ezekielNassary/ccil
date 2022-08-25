@@ -33,7 +33,7 @@ include "templates/top.php";
           
          <div class="col-sm-6">
           <div class="row">
-           <div class="col-sm-3"> <label>Department</label></div>
+           <div class="col-sm-3"> <label class="form-label">Department</label></div>
             <div class="col-sm-9"><input type="text"  id="dprt" value="FMCG"></div>
           </div>
           <div class="row">

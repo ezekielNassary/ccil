@@ -13,7 +13,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["login"])) {
     <title>CCIL Login</title>
     <link href="assets/img/ccil_logo.jpeg" rel="icon">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="assets/vendor/jquery/jquery.min.js"></script> 
    <style type="text/css">
        body{
           font-family: "Open Sans", sans-serif;

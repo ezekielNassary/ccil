@@ -2,38 +2,60 @@ $(document).ready(function () {
   let login_level=$('#login_level').val();
   let user_email=$('#email').val();   
   var page_link = window.location.pathname;
-dashboard_menu(login_level);
-  if (page_link == "/ccil/inward_material.php") {
-    
-    fetch_material();
-  } 
+  dashboard_menu(login_level);
 
   $('#requisition').click(function () {
     window.location.replace("requisition_page.php")
+    return
   });
 
   $('#spareparts').click(function () {
     window.location.replace("spareparts_management.php")
-  });
-  $('#inward').click(function () {
-    window.location.replace("inward_material.php")
+    return
   });
 
+  $('#inward').click(function () {
+    window.location.replace("inward_material.php")
+    return
+  });
 
   $('#orders').click(function () {
     window.location.replace("indent_page.php")
+    return
   });
   $('#approve').click(function(){
     window.location.replace("approve_request.php")
+    return
   })
 
   $('#register_user').click(function(){
     window.location.replace("register.php")
+    return
   })
 
 $('#outpass').click(function () {
     window.location.replace("out_pass_material.php")
+    return
   });
+
+
+
+  if (page_link == "/ccil/inward_material.php") {
+    fetch_material()
+     $("#stock-table-two").on('click','.edit-stock',function(){
+         var currentRow=$(this).closest("tr"); 
+         var code=currentRow.find("td:eq(0)").text(); 
+         var name=currentRow.find("td:eq(1)").text();
+         var specifications=currentRow.find("td:eq(2)").text(); 
+         var stock_in=currentRow.find("td:eq(3)").text(); 
+         var stock_out=currentRow.find("td:eq(4)").text(); 
+         var balance=currentRow.find("td:eq(5)").text(); 
+         var cost=currentRow.find("td:eq(6)").text(); 
+         
+         $('#verticalycentered').modal('show')
+    });
+  } 
+  
   var requistionForm=document.getElementById('requisition-form');
 
 
@@ -75,7 +97,7 @@ $('#outpass').click(function () {
     data.push(items);
     requistions.push(items);
     $.each(data, (index, row) => {
-      const rowContent = `<tr>
+      var rowContent = `<tr>
               <td class="nr">${row.materialCode}</td>
                <td>${row.specifications}</td>
                <td>${row.qty}</td>
@@ -84,8 +106,7 @@ $('#outpass').click(function () {
                <td>${row.total_val}</td>
                <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-               <button type="button" class="delete-req btn btn-danger" id="delete-req"><i class="bi bi-trash"></i></button>
-                
+               <button type="button" class="delete-req btn btn-danger" id="delete-req"><i class="bi bi-trash"></i></button> 
               </div>
                 </td>
                     </tr>`;
@@ -93,18 +114,17 @@ $('#outpass').click(function () {
     });
    clear_form()
  $("#addItem").modal('hide');
-    $(".delete-req").click(function () {
+
+
+$(".delete-req").click(function () {
       var item = $(this).closest("tr")        // Finds the closest row <tr> 
         .find(".nr")     // Gets a descendent with class="nr"
         .text();         // Retrieves the text within <td>
       var currentRow = $(this).closest("tr");           //current row
       var td_value = currentRow.find("td:eq(0)").text();  // get current row 1st TD value
       $(this).closest("tr").remove();
-
-
-    });
-
-    console.log(requistions)
+});
+ console.log(requistions)
   });
 
 
@@ -120,8 +140,6 @@ $('#approveOut').click(function () {
   var btn='Outpass Request'
    showRequestModal(btn)
 });
-
-
 
 
 
@@ -166,6 +184,11 @@ function dashboard_menu(login_level){
   }
 }
 
+
+
+
+
+
 function fetch_material(){
    $.ajax({
       type:'POST',
@@ -173,26 +196,27 @@ function fetch_material(){
             dataType: "json",
             data:{line:'command'},
             success:function(data){
-            console.log(data);
+          
     $.each(data.result, (index, row) => {
-      const rowContent = 
+      var body = 
             `<tr>
-               <td>${row.Partnumber}</td>
+               <td class="nr">${row.Partnumber}</td>
+               <td>${row.Partname}</td>
                <td>${row.Material_Description}</td>
                <td>${row.Total_Received}</td>
                <td>${row.Stock_Out}</td>
                <td>${row.Quantity_Bal}</td>
                <td>${row.Cost}</td>
                <td>
-               <button type="button" class="btn btn-primary" id="edit-spare"><i class="bi bi-pencil-square"></i></button>
+             <button type="button" class="edit-stock btn btn-primary" id="edit-stk"><i class="bi bi-pencil-square"></i></button>
                 </td>
              </tr>`;
-      $('.stock-table-data').append(rowContent);
+      $('.stock-table-data').append(body);
     });
-    $("#stock-table-one").DataTable();
+   // $("#stock-table-one").DataTable();
     $("#stock-table-two").DataTable();
  }
-        });
+ });
 
 }
 });

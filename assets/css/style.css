@@ -1406,15 +1406,20 @@ width: 100%;
 .save-code button{
   width: 200px;
 }
-.material-addition{
+.material-addition, .stock-addition{
   padding: 10px;
-  
-  text-align: center;
 }
 
-.material-addition input,label,select{
-  display: none;
+.stock-addition table tr th{
+  font-size: 15px;
+}
 
+.stock-addition table tr td{
+  text-align: left;
+  font-size: 13px;
+}
+.stock-addition input,label,select{
+  display: none;
 }
 
 .outpass-form label,input{
