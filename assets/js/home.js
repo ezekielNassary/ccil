@@ -1,47 +1,13 @@
 $(document).ready(function () {
   let login_level=$('#login_level').val();
   let user_email=$('#email').val();   
-  var page_link = window.location.pathname;
+  let page_link = window.location.pathname;
   dashboard_menu(login_level);
+  routes();
+ 
 
-  $('#requisition').click(function () {
-    window.location.replace("requisition_page.php")
-    return
-  });
-
-  $('#spareparts').click(function () {
-    window.location.replace("spareparts_management.php")
-    return
-  });
-
-  $('#inward').click(function () {
-    window.location.replace("inward_material.php")
-    return
-  });
-
-  $('#orders').click(function () {
-    window.location.replace("indent_page.php")
-    return
-  });
-  $('#approve').click(function(){
-    window.location.replace("approve_request.php")
-    return
-  })
-
-  $('#register_user').click(function(){
-    window.location.replace("register.php")
-    return
-  })
-
-$('#outpass').click(function () {
-    window.location.replace("out_pass_material.php")
-    return
-  });
-
-
-
+  //Inward material Management
   if (page_link == "/ccil/inward_material.php") {
-
     fetch_material()
      $("#stock-table-two").on('click','.edit-stock',function(){
          var currentRow=$(this).closest("tr"); 
@@ -52,57 +18,28 @@ $('#outpass').click(function () {
          var stock_out=currentRow.find("td:eq(4)").text(); 
          var balance=currentRow.find("td:eq(5)").text(); 
          var cost=currentRow.find("td:eq(6)").text(); 
+          $('#ed-code').val(code)
+          $('#ed-name').val(name)
+          $('#ed-descr').val(specifications)
+           $('#ed-descr').val(specifications)
          $('#spare-adjust-modal').modal('show')
+
     });
 
+    $('#sp-category').on('change', function() {
+     var sp_category = $('#sp-category').find(":selected").text();
+     load_spare_type(sp_category)
+    });
+    
     $('#sp-save').click(function(){
-      var spareName = $('#sp-name').val()
-      var spareCode = $('#sp-code').val()
-      var spareDescription = $('#sp-descr').val()
-      var spareCategory = $('#sp-category').find(":selected").text();
-      var spareQty = $('#sp-qty').val()
-      var spareCost = $('#sp-cost').val()
-      var spareType = $('#sp-type').find(":selected").text();
-      var spareOlevel = $('#sp-orderlevel').val()
-      var spareManuf = $('#sp-manuf').val()
-      var spareDate = $('#sp-date').val()
-      var spareFile = $('#sp-file').find(":selected").text();
-      var spareRemark = $('#sp-remark').val()
-      var error=""
-
-      if (spareCode == "") {
-        error="Enter material code"
-         $('.code-result').html('<p class="text-danger"><i class="icon bi bi-info-square"></i><p>'+error+'</p></p>')
-        $('#success-modal').modal('show')
-        return
-      }
-      
-    $.ajax({
-    type: "POST",
-    url: "actionpages/insert_code.php",
-    data: {'name':spareName,'code':spareCode,'description':spareDescription,'category':spareCategory,'qty':spareQty,
-    'cost':spareCost,'type':spareType,'level':spareOlevel,'date':spareDate,'file':spareFile,'remark':spareRemark},
-    success: function(data){
-      console.log(data);
-      if (data == 'success') {
-         $('.code-result').html('<p class="text-success text-center"><i class="icon bi bi-check-lg"></i><p class=" text-success p3 text-center">Data Saved Succesful</p></p>')
-        $('#success-modal').modal('show')
-      }else{
-         $('.code-result').html('<p class="text-danger text-center"><i class="icon bi bi-info-square"></i><p class=" text-danger p3 text-center">'+data+'</p></p>')
-        $('#success-modal').modal('show')
-      }  
-    }
-});
+     register_spare();
     });
   } 
   
   var requistionForm=document.getElementById('requisition-form');
-
-
   let requistions = [];
   var error = "";
   var totalvalue=0;
-   
 
   $('#add-req-list').click(function () {
     let data = [];
@@ -188,6 +125,42 @@ $('#rate').on('input', function() {
 });
 
 
+function load_spare_type(cat){
+  const electrical = ['select','Motor','Drive','Contactor','Relay','MCB','Sensor','Cable','Panel','HMI','PLC','other'];
+  const mechanical = ['select','Bearings','Pumps','Seals','Tube Holders','Cir Clip','Belts','Waukeshapump','Orings','Shaft','Rod','Spindle','BELTS','FITTINGS','other'];
+  const pneumatic = ['select','Solenoid Valve','Cylinders','Nipple','Connector','Elbow','Pipe','other'];
+  const general=['select','General Spare','PRINTER','STATIONARY','other']
+  const utility=['select','COMPRESSOR','CHILLER','BOILER']
+  if (cat=='Electrical') {
+   append_category(electrical)
+  }else if (cat=='Mechanical') {
+   append_category(mechanical)
+  }else if (cat=='Pneumatic') {
+   append_category(pneumatic)
+  }
+  else if (cat=='General Spare') {
+   append_category(general)
+  }
+  else if (cat=='Utility') {
+   append_category(utility)
+  }
+}
+function append_category(catlist){
+  $('#sp-type')
+    .find('option')
+    .remove()
+    .end();
+   for (i = 0; i < catlist.length; i++)
+    { 
+     $('#sp-type').append($('<option>', 
+     {
+      value: i,
+      text : catlist[i] 
+    }));
+    }
+}
+
+
 function calculate_total_value(){
   var qty = $("#qty").val();
   var rate = $("#rate").val();
@@ -201,7 +174,7 @@ function clear_form(){
     $("#qty").val("");
     $("#rate").val("");
     $("#uom").val("");
-$("#rate-total").html("")
+    $("#rate-total").html("")
 }
 
 function showRequestModal(title){
@@ -226,7 +199,63 @@ function spareparts_inputs(){
   speed1= $("#speed1").val();
 }
 function register_spare(){
+      var spareName = $('#sp-name').val()
+      var spareCode = $('#sp-code').val()
+      var spareDescription = $('#sp-descr').val()
+      var spareCategory = $('#sp-category').find(":selected").text();
+      var spareQty = $('#sp-qty').val()
+      var spareCost = $('#sp-cost').val()
+      var spareType = $('#sp-type').find(":selected").text();
+      var spareOlevel = $('#sp-orderlevel').val()
+      var spareManuf = $('#sp-manuf').val()
+      var spareDate = $('#sp-date').val()
+      var spareFile = $('#sp-file').find(":selected").text();
+      var spareRemark = $('#sp-remark').val()
+      var error=""
 
+      
+      if (spareCode == "" ) {
+        error="Enter material code";
+      }
+      if (spareType=="" || spareType=="select" && error=="" ) {
+        error="Please select item type";
+      }
+      
+      if (spareDate == "" && error=="") {
+        error="Select date";
+      }
+      if (spareFile == "select" && error=="") {
+        error="Select physical file";
+      }
+       if (!$.isNumeric(spareQty) || spareQty<=0) {
+            error="Enter correct quantity value";
+          }
+         if (!$.isNumeric(spareCost)) {
+            error="Enter correct cost value";
+          }
+      if (error != "") {
+         $('.code-result').html('<p class="text-danger">'+error+'</p>')
+          $('#success-modal').modal('show')
+          return false;
+      }
+      
+    $.ajax({
+    type: "POST",
+    url: "actionpages/insert_code.php",
+    data: {'name':spareName,'code':spareCode,'description':spareDescription,'category':spareCategory,'qty':spareQty,
+    'cost':spareCost,'type':spareType,'level':spareOlevel,'date':spareDate,'file':spareFile,'remark':spareRemark},
+    success: function(data){
+      console.log(data);
+      if (data == 'success') {
+         $('.code-result').html('<p class="text-success text-center"><i class="icon bi bi-check-lg"></i><p class=" text-success p3 text-center">Data Saved Succesful</p></p>')
+        $('#success-modal').modal('show')
+        fetch_material()
+      }else{
+         $('.code-result').html('<p class="text-danger text-center"><i class="icon bi bi-info-square"></i><p class=" text-danger p3 text-center">'+data+'</p></p>')
+        $('#success-modal').modal('show')
+      }  
+    }
+});
 }
 
 function fetch_material(){
@@ -257,6 +286,42 @@ function fetch_material(){
     $("#stock-table-two").DataTable();
  }
  });
+
+}
+function routes(){
+   $('#requisition').click(function () {
+    window.location.replace("requisition_page.php")
+    return
+  });
+
+  $('#spareparts').click(function () {
+    window.location.replace("spareparts_management.php")
+    return
+  });
+
+  $('#inward').click(function () {
+    window.location.replace("inward_material.php")
+    return
+  });
+
+  $('#orders').click(function () {
+    window.location.replace("indent_page.php")
+    return
+  });
+  $('#approve').click(function(){
+    window.location.replace("approve_request.php")
+    return
+  })
+
+  $('#register_user').click(function(){
+    window.location.replace("register.php")
+    return
+  })
+
+$('#outpass').click(function () {
+    window.location.replace("out_pass_material.php")
+    return
+  });
 
 }
 });

@@ -108,7 +108,7 @@ const downtimes = [
 
 for (i = 0; i < downtimes.length; i++)
 { 
-     $('#downtime').append($('<option>',
+     $('#downtime').append($('<option>', 
      {
       value: i,
       text : downtimes[i] 

@@ -22,12 +22,8 @@ include "templates/top.php";
 
                   <button class="nav-link" id="v-pills-addition-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addition" type="button" role="tab" aria-controls="v-pills-addition" aria-selected="false">Material Adjustment</button>
                 </div>
-
-
-
 <div class="tab-content" id="v-pills-tabContent">
   <div class="tab-pane fade  show active" id="v-pills-stock" role="tabpanel" aria-labelledby="v-pills-stock-tab">
- 
  <div class="col-lg-12" >
       <div class="card ">
         <div class="card-title">
@@ -38,7 +34,6 @@ include "templates/top.php";
     <div class="row">
       <div class="col-lg-3">
         <div class="card stock-data current-stock">
-          
           <div class="card-body">
             <h5 class="card-title">Current Stock</h5>
           <div class="d-flex align-items-center">
@@ -48,7 +43,6 @@ include "templates/top.php";
                     <div class="ps-3">
                       <h6>145</h6>
                       <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
                     </div>
                   </div>
           </div>
@@ -65,7 +59,6 @@ include "templates/top.php";
                     <div class="ps-3">
                       <h6>590,000 Tzs</h6>
                       <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
                     </div>
                   </div>
           </div>
@@ -74,17 +67,16 @@ include "templates/top.php";
         <div class="col-lg-3">
           <div class="card stock-data stock-in">
           <div class="card-body">
-              <h5 class="card-title">Stock In </h5>
+          <h5 class="card-title">Stock In </h5>
           <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-box-arrow-in-down-right"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>5</h6>
-                      <span class="text-success small pt-1 fw-bold">23%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                    </div>
-                  </div>
+            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+            <i class="bi bi-box-arrow-in-down-right"></i>
+            </div>
+            <div class="ps-3">
+            <h6>5</h6>
+            <span class="text-success small pt-1 fw-bold">23%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+            </div>
+          </div>
           </div>
         </div>
         </div>
@@ -99,7 +91,6 @@ include "templates/top.php";
                     <div class="ps-3">
                       <h6>1</h6>
                       <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
                     </div>
                   </div>
           </div>
@@ -198,36 +189,44 @@ include "templates/top.php";
          <div class="row mb-3">
                   <label for="inputEmail3" class="col-sm-4 col-form-label">Name:</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" placeholder="Enter name" id="sp-name">
+                    <input type="text" class="form-control" placeholder="" id="sp-name">
                   </div>
                 </div>
                  </div>
                  
                   <div class="col-lg-6">
                 <div class="row mb-3">
-                  <label for="sp-code" class="col-sm-6 col-form-label">Material Code</label>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="Enter code/partname" id="sp-code">
-                  </div>
-                </div>
-                 </div>
-                 <div class="col-lg-6">
-         <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label">Description</label>
+                  <label for="sp-code" class="col-sm-4 col-form-label">Material Code</label>
                   <div class="col-sm-8">
-                   <textarea class="form-control" placeholder="enter details about a sparepart" id="sp-descr" style="height: 100px;"></textarea>
-                    </div>
+                    <input type="text" class="form-control" placeholder="" id="sp-code">
+                  </div>
                 </div>
                  </div>
                  
+                 
                   <div class="col-lg-6">
                 <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-6 col-form-label">Category</label>
-                  <div class="col-sm-6">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Category</label>
+                  <div class="col-sm-8">
                    <select class="form-select" id="sp-category" aria-label="State">
-                    <option selected value="mech">Electrical</option>
-                      <option value="electrical">Mechanical</option>
+                    <option selected value="">Select</option>
+                    <option value="">Electrical</option>
+                    <option value="">Mechanical</option>
+                    <option value="">Pneumatic</option>
+                    <option value="">Utility</option>
+                    <option value="">General Spare</option>
                   </select>
+                  </div>
+                </div>
+                 </div>
+                  <div class="col-lg-6">
+                <div class="row mb-3">
+                  <label for="sp-type" class="col-sm-4 col-form-label">Type</label>
+                  <div class="col-sm-8">
+                    <select class="form-select" id="sp-type" aria-label="State">
+                      
+        
+                      </select>
                   </div>
                 </div>
                  </div>
@@ -236,7 +235,7 @@ include "templates/top.php";
          <div class="row mb-3">
                   <label for="sp-qty" class="col-sm-4 col-form-label">Quantity</label>
                   <div class="col-sm-8">
-                    <input type="number" class="form-control" id="sp-qty" placeholder="Enter quantity">
+                    <input type="number" class="form-control" id="sp-qty" placeholder="">
                 </div>
                  </div>
                   </div>
@@ -244,49 +243,17 @@ include "templates/top.php";
                  <div class="row mb-3">
                   <label for="sp-cost" class="col-sm-4 col-form-label">Cost</label>
                   <div class="col-sm-8">
-                    <input type="number" class="form-control" id="sp-cost" placeholder="Enter Cost">
+                    <input type="number" class="form-control" id="sp-cost" value="0.00" placeholder="">
                 </div>
                  </div>
                  </div>
-                  <div class="col-lg-4">
-                <div class="row mb-3">
-                  <label for="sp-type" class="col-sm-4 col-form-label">Type</label>
-                  <div class="col-sm-8">
-                    <select class="form-select" id="sp-type" aria-label="State">
-                      <option selected value="motor">Motor</option>
-                      <option value="drive">Drive</option>
-                      <option value="contactor">Contactor</option>
-                       <option value="relay">Relay</option>
-                      <option value="mcb">MCB</option>
-                       <option value="sensor">Sensor</option>
-                      <option value="cable">Cable</option>
-                       <option value="tools">Tools</option>
-                      <option value="solenoid valve">Solenoid Valve</option>
-                       <option value="cylinders">Cylinders</option>
-                      <option value="panel">Panel</option>
-                       <option value="hmi">HMI</option>
-                      <option value="plc">PLC</option>
-                       <option selected value="motor">Bearings</option>
-                      <option value="drive">Seals</option>
-                      <option value="contactor">Tube Holders</option>
-                       <option value="relay">Cir Clip</option>
-                      <option value="mcb">Belts</option>
-                       <option value="sensor">Waukeshapump</option>
-                      <option value="cable">Orings</option>
-                       <option value="tools">Shaft</option>
-                      <option value="solenoid valve">General Spare</option>
-                       <option value="cylinders">Cams</option>
-                   
-                      </select>
-                  </div>
-                </div>
-                 </div>
+                 
                 
  <div class="col-lg-4">
          <div class="row mb-3">
                   <label for="sp-orderlevel" class="col-sm-4 col-form-label">Order Level</label>
                   <div class="col-sm-8">
-                    <input type="number" class="form-control" id="sp-orderlevel" placeholder="Enter order level">
+                    <input type="number" class="form-control" id="sp-orderlevel" value="1" placeholder="">
                 </div>
                  </div>
                   </div>
@@ -294,15 +261,23 @@ include "templates/top.php";
                  <div class="row mb-3">
                   <label for="sp-manuf" class="col-sm-4 col-form-label">Manufacturer</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="sp-manuf" placeholder="Enter manufacturer">
+                    <input type="text" class="form-control" id="sp-manuf" placeholder="">
                 </div>
                  </div>
+                 </div>
+                 <div class="col-lg-4">
+         <div class="row mb-3">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Description</label>
+                  <div class="col-sm-8">
+                   <textarea class="form-control" placeholder="" id="sp-descr" style="height: 100px;"></textarea>
+                    </div>
+                </div>
                  </div>
                   <div class="col-lg-4">
                  <div class="row mb-3">
                   <label for="sp-date" class="col-sm-4 col-form-label">Date</label>
                   <div class="col-sm-8">
-                    <input type="date" class="form-control" id="sp-date" placeholder="Enter date">
+                    <input type="date" class="form-control" id="sp-date" placeholder="">
                 </div>
                  </div>
                  </div>
@@ -312,7 +287,7 @@ include "templates/top.php";
                   <label for="sp-file" class="col-sm-4 col-form-label">Physical File</label>
                   <div class="col-sm-8">
                     <select class="form-select" id="sp-file" aria-label="State">
-                    <option selected value="">Select File</option>
+                    <option selected value="">select</option>
                     <option value="">All_Packing_Machine</option>
                     <option value="">BEARINGS</option>
                     <option value="">SEAL</option>
@@ -363,11 +338,11 @@ include "templates/top.php";
  <div class="modal fade" id="success-modal" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered modal-sm">
                   <div class="modal-content">
-                   
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="modal-body">
                      <p class="code-result"></p>
                     </div>
-                  <p style="text-align: right; padding: 5px;"><button type="button" style="width: 100px; font-size: 12px;" data-bs-dismiss="modal" class="btn btn-success">OK</button></p>
+                
                   </div>
                 </div>
               </div>
@@ -413,16 +388,18 @@ include "templates/top.php";
  <div class="col-lg-12" >
       <div class="card">
         <div class="card-title">
-          <h1 class="card-title text-center">Material Adjustment</h1>
+          <h1 class="card-title text-center">Manage Material</h1>
           <hr>
         </div>
         <div class="card-body">
 
      <div class="row search-row">
        
-      <div class="search-material col-lg-3"></div>
+      <div class="search-material col-lg-3">
+        
+      </div>
        <div class="search-material col-lg-6 text-center"> 
-<input class="form-control" type="text" placeholder="Enter code/name/description" name=""><span><button class="edit-spare btn btn-success">Search</button></span>
+
        </div>
        <div class="search-material col-lg-3"></div>
        <div class="stock-addition  col-lg-12">
@@ -452,27 +429,94 @@ include "templates/top.php";
                     </div>
                     <div class="modal-body">
                      
-
-
-
-
-
-
-
-                     </div>
-                    <div class="modal-footer text-center p-2">
-                    <div class="row">
-                       <div class="col-lg-4"> 
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
-                      </div>
-                       <div class="col-lg-4"> 
-                        <button type="button" class="btn btn-success">Modify</button>
-                      </div>
-                       <div class="col-lg-4"> 
-                        <button type="button" class="btn btn-warning">Delete</button>
-                      </div>
-                     </div>
+                       <!-- Multi Columns Form -->
+              <form class="row g-3">
+                <div class="col-md-12">
+                 <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="ed-enable-edit" >
+                      <label class="form-check-label" for="ed-enable-edit">Enable Editing</label>
                     </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="ed-name" class="form-label">Material Name</label>
+                  <input type="text" class="form-control" id="ed-name">
+                </div>
+                 <div class="col-md-6">
+                  <label for="ed-code" class="form-label">Material Code</label>
+                  <input type="text" class="form-control" id="ed-code">
+                </div>
+                <div class="col-md-6">
+                  <label for="ed-descr" class="form-label">Description</label>
+                  <textarea class="form-control" placeholder="" id="ed-descr" style="height: 100px;"></textarea>
+                </div>
+                <div class="col-md-6">
+                  <label for="ed-type" class="form-label">Type</label>
+                  <input type="text" class="form-control" id="ed-type">
+                </div>
+                <div class="col-6">
+                  <label for="ed-file" class="form-label">Pysical File</label>
+                  <input type="text" class="form-control" id="ed-file">
+                </div>
+                <div class="col-6">
+                  <label for="inputAddress5" class="form-label">select file</label>
+                 <select class="form-select">
+                   <option>select</option>
+                 </select>
+                </div>
+                
+                <div class="col-md-4">
+                  <label for="ed-rec" class="form-label">Received</label>
+                  <input type="text" class="form-control" id="ed-rec">
+                </div>
+                <div class="col-md-4">
+                  <label for="ed-qty" class="form-label">Quantity</label>
+                  <input type="number" class="form-control" id="ed-qty">
+                </div>
+                <div class="col-md-4">
+                  <label for="ed-datein" class="form-label">Date In</label>
+                  <input type="date" class="form-control" id="ed-datein">
+                </div>
+               
+                <div class="col-md-4">
+                  <label for="ed-stkout" class="form-label">Stock Out</label>
+                  <input type="number" class="form-control" id="ed-stkout">
+                </div>
+                
+                <div class="col-md-4">
+                  <label for="ed-bal" class="form-label">Balance</label>
+                  <input type="number" class="form-control" id="ed-bal">
+                </div>
+                <div class="col-md-4">
+                  <label for="ed-dateout" class="form-label">Date Out</label>
+                 <input type="date" class="form-control" id="ed-dateout">
+                </div>
+                 <div class="col-6">
+                  <label for="ed-cost" class="form-label">Cost</label>
+                  <input type="number" class="form-control" id="ed-cost">
+                </div>
+                <div class="col-md-6">
+                  <label for="ed-rem" class="form-label">Remarks</label>
+                   <textarea class="form-control" placeholder="" id="ed-rem" style="height: 100px;"></textarea>
+                </div>
+                 <div class="col-6">
+                  <label for="ed-manu" class="form-label">Manufacturer</label>
+                  <input type="text" class="form-control" id="ed-manu">
+                </div>
+                <div class="col-md-6">
+                  <label for="ed-level" class="form-label">Order Level</label>
+                  <input type="number" class="form-control" id="od-level">
+                </div>
+               
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-success">SAVE</button>
+                  <button type="button" class="btn btn-warning">Delete</button>
+                </div>
+              </form><!-- End Multi Columns Form -->
+
+
+                     </div>
+                    
                   </div>
                 </div>
               </div><!-- End spare-adjust-modal centered Modal-->  
