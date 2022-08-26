@@ -14,17 +14,10 @@ include "templates/top.php";
             <div class="row p-3">
      <div class="d-flex align-items-start" id="requisition-form">
                 <div class="req-options nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-
                    <button class="nav-link active" id="v-pills-req-tab" data-bs-toggle="pill" data-bs-target="#v-pills-req" type="button" role="tab" aria-controls="v-pills-req" aria-selected="true">Requisition Requests</button>
-                  
-
                   <button class="nav-link " id="v-pills-indent-tab" data-bs-toggle="pill" data-bs-target="#v-pills-indent" type="button" role="tab" aria-controls="v-pills-indent" aria-selected="false">Indent Requests</button>
-
                   <button class="nav-link" id="v-pills-out-tab" data-bs-toggle="pill" data-bs-target="#v-pills-out" type="button" role="tab" aria-controls="v-pills-out" aria-selected="false">Outpass  Requests</button>
                 </div>
-
-
-
 <div class="tab-content" id="v-pills-tabContent">
   <div class="tab-pane fade  show active" id="v-pills-req" role="tabpanel" aria-labelledby="v-pills-req-tab">
  

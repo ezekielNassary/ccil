@@ -18,6 +18,11 @@ $(document).ready(function () {
          var stock_out=currentRow.find("td:eq(4)").text(); 
          var balance=currentRow.find("td:eq(5)").text(); 
          var cost=currentRow.find("td:eq(6)").text(); 
+        var id_data=fetch_id(code)
+        id_data.success(function (data) {
+            console.log(data);
+          });
+        console.log(id_data)
           $('#ed-code').val(code)
           $('#ed-name').val(name)
           $('#ed-descr').val(specifications)
@@ -126,6 +131,7 @@ $('#rate').on('input', function() {
 
 
 function load_spare_type(cat){
+  get_physical_file();
   const electrical = ['select','Motor','Drive','Contactor','Relay','MCB','Sensor','Cable','Panel','HMI','PLC','other'];
   const mechanical = ['select','Bearings','Pumps','Seals','Tube Holders','Cir Clip','Belts','Waukeshapump','Orings','Shaft','Rod','Spindle','BELTS','FITTINGS','other'];
   const pneumatic = ['select','Solenoid Valve','Cylinders','Nipple','Connector','Elbow','Pipe','other'];
@@ -160,6 +166,23 @@ function append_category(catlist){
     }
 }
 
+function get_physical_file(){
+  var physical_file=['All_Packing_Machine','BEARINGS','SEAL','ORING','FESTO CYLINDER','TUBE HOLDER','TAFLON SPARE','BOILER','Nodern_Filling_M/C','ETP Plant'
+  ,'R.O Plant','WAUKESHA PUMP','STATIONARY','PRINTER','Mechanical','BELTS','AUTOPACK','CIR CLIP','COMPRESSOR','CHILLER','GENERAL SPARE','ELECTRICAL GENERAL'
+  ,'NM2002 #55101','NM2002 #55002','NM 1702','NODERN PARTS','FITTINGS','NP 1702'];
+  $('#sp-file')
+    .find('option')
+    .remove()
+    .end();
+   for (i = 0; i < physical_file.length; i++)
+    { 
+     $('#sp-file').append($('<option>', 
+     {
+      value: i,
+      text : physical_file[i] 
+    }));
+    }
+}
 
 function calculate_total_value(){
   var qty = $("#qty").val();
@@ -257,15 +280,28 @@ function register_spare(){
     }
 });
 }
-
+function display_data(x){
+success:function(data){
+  console.log()
+       }
+}
+function fetch_id(code){
+   return $.ajax({
+      type:'POST',
+            url:'actionpages/get_material.php',
+            dataType: "json",
+            data:{'ACTION':'GET_ID','code':code}
+            
+ }); 
+  
+}
 function fetch_material(){
    $.ajax({
       type:'POST',
             url:'actionpages/get_material.php',
             dataType: "json",
-            data:{line:'command'},
+            data:{'ACTION':'GET_ALL'},
             success:function(data){
-          
     $.each(data.result, (index, row) => {
       var body = 
             `<tr>
@@ -288,6 +324,7 @@ function fetch_material(){
  });
 
 }
+
 function routes(){
    $('#requisition').click(function () {
     window.location.replace("requisition_page.php")

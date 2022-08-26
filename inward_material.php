@@ -18,9 +18,9 @@ include "templates/top.php";
                    <button class="nav-link active" id="v-pills-stock-tab" data-bs-toggle="pill" data-bs-target="#v-pills-stock" type="button" role="tab" aria-controls="v-pills-stock" aria-selected="true">Stock View</button>
                   
 
-                  <button class="nav-link " id="v-pills-code-tab" data-bs-toggle="pill" data-bs-target="#v-pills-code" type="button" role="tab" aria-controls="v-pills-code" aria-selected="false">Create Material Code</button>
+                  <button class="nav-link " id="v-pills-code-tab" data-bs-toggle="pill" data-bs-target="#v-pills-code" type="button" role="tab" aria-controls="v-pills-code" aria-selected="false">New Spareparts</button>
 
-                  <button class="nav-link" id="v-pills-addition-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addition" type="button" role="tab" aria-controls="v-pills-addition" aria-selected="false">Material Adjustment</button>
+                  <button class="nav-link" id="v-pills-addition-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addition" type="button" role="tab" aria-controls="v-pills-addition" aria-selected="false">Spareparts Adjustment</button>
                 </div>
 <div class="tab-content" id="v-pills-tabContent">
   <div class="tab-pane fade  show active" id="v-pills-stock" role="tabpanel" aria-labelledby="v-pills-stock-tab">
@@ -287,35 +287,7 @@ include "templates/top.php";
                   <label for="sp-file" class="col-sm-4 col-form-label">Physical File</label>
                   <div class="col-sm-8">
                     <select class="form-select" id="sp-file" aria-label="State">
-                    <option selected value="">select</option>
-                    <option value="">All_Packing_Machine</option>
-                    <option value="">BEARINGS</option>
-                    <option value="">SEAL</option>
-                    <option value="">ORING</option>
-                    <option value="">FESTO CYLINDER</option>
-                    <option value="">TUBE HOLDER</option>
-                    <option value="">TAFLON SPARE</option>
-                    <option value="">BOILER</option>
-                    <option value="">Nodern_Filling_M/C</option>
-                    <option value="">ETP Plant</option>
-                    <option value="">R.O Plant</option>
-                    <option value="">WAUKESHA PUMP</option>
-                    <option value="">STATIONARY</option>
-                    <option value="">PRINTER</option>
-                    <option value="">Mechanical</option>
-                    <option value="">BELTS</option>
-                    <option value="">AUTOPACK</option>
-                    <option value="">CIR CLIP</option>
-                    <option value="">COMPRESSOR</option>
-                    <option value="">CHILLER</option>
-                    <option value="">GENERAL SPARE</option>
-                    <option value="">ELECTRICAL GENERAL</option>
-                    <option value="">NM2002 #55101</option>
-                    <option value="">NM2002 #55002</option>
-                    <option value="">NM 1702</option>
-                    <option value="">NODERN PARTS</option>
-                    <option value="">FITTINGS</option>
-                    <option value="">NP 1702</option>
+                    
                   </select>
                 </div>
                  </div>

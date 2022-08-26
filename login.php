@@ -62,13 +62,13 @@ if (isset($_SESSION["email"]) && isset($_SESSION["login"])) {
              <div class="company-title">
 <img src="assets/img/ccil_logo.jpeg">
              </div>
-            <p><h4 class="text-center">ORAL CARE</h4></p>
+           
          <form autocomplete="off" id="login-form" class="shadow-sm p-3 my-5 bg-white rounded">
             
                 <h5 class="p-3 text-center text-success">
             Login
         </h5>
-        <hr>
+       
         <div class="alert alert-danger alert-dismissible" id="error" style="display:none;"></div>
          <div class="alert alert-success alert-dismissible" id="success" style="display:none;"></div>
         
