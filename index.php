@@ -16,7 +16,7 @@ include "templates/top.php";
           <input type="hidden" id="email" value="<?php echo $_SESSION['email']; ?>">
 
           <div class="inventory-list">
-             <button type="button" id="inward" class="list-group-item list-group-item-action ">Inward Material </button>
+            <button type="button" id="inward" class="list-group-item list-group-item-action ">Inward Material </button>
             <br>
             <button type="button" id="requisition" class="list-group-item list-group-item-action ">Purchase Requisition</button>
             <br>
