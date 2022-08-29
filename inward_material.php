@@ -1,13 +1,11 @@
 <?php
 $title = "CCIL | Inward Material";
 include "templates/top.php";
-
 ?>
-
 <main id="dash-main">
   <div class="card">
     <div class="card-title">
-          <h1 class="card-title text-center">Inward Material Management</h1>
+          <h1 class="card-title text-center">SPAREPARTS MANAGEMENT</h1>
           <hr>
         </div>
             <div class="card-body">
@@ -15,15 +13,18 @@ include "templates/top.php";
      <div class="d-flex align-items-start" id="requisition-form">
                 <div class="req-options nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-                   <button class="nav-link active" id="v-pills-stock-tab" data-bs-toggle="pill" data-bs-target="#v-pills-stock" type="button" role="tab" aria-controls="v-pills-stock" aria-selected="true">Stock View</button>
+                   <button class="nav-link active" id="v-pills-stock-tab" data-bs-toggle="pill" data-bs-target="#v-pills-stock" type="button" role="tab" aria-controls="v-pills-stock" aria-selected="true">STOCK VIEW</button>
                   
 
-                  <button class="nav-link " id="v-pills-code-tab" data-bs-toggle="pill" data-bs-target="#v-pills-code" type="button" role="tab" aria-controls="v-pills-code" aria-selected="false">New Spareparts</button>
+                  <button class="nav-link " id="v-pills-code-tab" data-bs-toggle="pill" data-bs-target="#v-pills-code" type="button" role="tab" aria-controls="v-pills-code" aria-selected="false">NEW SPARE</button>
 
-                  <button class="nav-link" id="v-pills-addition-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addition" type="button" role="tab" aria-controls="v-pills-addition" aria-selected="false">Spareparts Adjustment</button>
+                  <button class="nav-link " id="v-pills-issue-tab" data-bs-toggle="pill" data-bs-target="#v-pills-issue" type="button" role="tab" aria-controls="v-pills-issue" aria-selected="false">ISSUE SPARE</button>
+
+                  <button class="nav-link" id="v-pills-addition-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addition" type="button" role="tab" aria-controls="v-pills-addition"  aria-selected="false">MANAGE SPARE</button>
                 </div>
 <div class="tab-content" id="v-pills-tabContent">
   <div class="tab-pane fade  show active" id="v-pills-stock" role="tabpanel" aria-labelledby="v-pills-stock-tab">
+    <div class="req-form"> 
  <div class="col-lg-12" >
       <div class="card ">
         <div class="card-title">
@@ -33,38 +34,6 @@ include "templates/top.php";
         <div class="card-body">
     <div class="row">
       <div class="col-lg-3">
-        <div class="card stock-data current-stock">
-          <div class="card-body">
-            <h5 class="card-title">Current Stock</h5>
-          <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                     <i class="bi bi-gear"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>145</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-                    </div>
-                  </div>
-          </div>
-        </div>
-      </div>
-       <div class="col-lg-3">
-         <div class="card stock-data stock-value">
-          <div class="card-body">
-             <h5 class="card-title">Stock Value </h5>
-          <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>590,000 Tzs</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-                    </div>
-                  </div>
-          </div>
-        </div>
-       </div>
-        <div class="col-lg-3">
           <div class="card stock-data stock-in">
           <div class="card-body">
           <h5 class="card-title">Stock In </h5>
@@ -73,8 +42,8 @@ include "templates/top.php";
             <i class="bi bi-box-arrow-in-down-right"></i>
             </div>
             <div class="ps-3">
-            <h6>5</h6>
-            <span class="text-success small pt-1 fw-bold">23%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+            <h6 id="stock-in"></h6>
+            <span id="sp-registered" class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Registered</span>
             </div>
           </div>
           </div>
@@ -89,79 +58,59 @@ include "templates/top.php";
                       <i class="bi bi-box-arrow-up-right"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                      <h6 id="stock-out"></h6>
+                      <span id="out-percent" class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">issued</span>
                     </div>
                   </div>
           </div>
         </div>
         </div>
+      <div class="col-lg-3">
+        <div class="card stock-data current-stock">
+          <div class="card-body">
+            <h5 class="card-title">Current Stock</h5>
+          <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                     <i class="bi bi-gear"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6 id="stock-balance"></h6>
+                      <span id="bl-percent" class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">available</span>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-lg-3">
+         <div class="card stock-data stock-value">
+          <div class="card-body">
+             <h5 class="card-title">Stock Value </h5>
+          <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6 id="stock-cost"></h6>
+                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                    </div>
+                  </div>
+          </div>
+        </div>
+       </div>
+        
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Stock Flow 2022</h5>
 
-              <!-- Column Chart -->
-              <div id="columnChart"></div>
-
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  new ApexCharts(document.querySelector("#columnChart"), {
-                    series: [{
-                      name: 'Stock In',
-                      data: [46, 55, 57, 56, 61, 58, 63, 60, 66]
-                    }, {
-                      name: 'Stock Balance',
-                      data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-                    }, {
-                      name: 'Stock Out',
-                      data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
-                    }],
-                    chart: {
-                      type: 'bar',
-                      height: 350
-                    },
-                    plotOptions: {
-                      bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded'
-                      },
-                    },
-                    dataLabels: {
-                      enabled: false
-                    },
-                    stroke: {
-                      show: true,
-                      width: 2,
-                      colors: ['transparent']
-                    },
-                    xaxis: {
-                      categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-                    },
-                    yaxis: {
-                      title: {
-                        text: 'Units'
-                      }
-                    },
-                    fill: {
-                      opacity: 1
-                    },
-                    tooltip: {
-                      y: {
-                        formatter: function(val) {
-                          return "$ " + val + " thousands"
-                        }
-                      }
-                    }
-                  }).render();
-                });
-              </script>
-              <!-- End Column Chart -->
+              <!-- Stock bar Chart -->
+              <div id="stock-chart"></div>
+             
 
             </div>
           </div>
         </div>
+       
     </div>
     
     </div>
@@ -169,21 +118,21 @@ include "templates/top.php";
     </div>     
         </div>
 
-      
+      </div>
 </div>
-  <div class="tab-pane fade" id="v-pills-code" role="tabpanel" aria-labelledby="v-pills-code-tab">
+<div class="tab-pane fade" id="v-pills-code" role="tabpanel" aria-labelledby="v-pills-code-tab">
 <div class="req-form">    
  <div class="col-lg-12" >
       <div class="card">
         <div class="card-title">
-          <h1 class="card-title text-center">Create Material Code</h1>
+          <h1 class="card-title text-center">REGISTER NEW SPARE</h1>
           <hr>
         </div>
 
         <div class="card-body">
         <div class="row">
          <div class="col-sm-12">
-<form class="row material-code-form text-dark" id="">
+<form class="row material-code-form text-dark" id="spare-registration-form">
           
              <div class="col-lg-6">
          <div class="row mb-3">
@@ -320,30 +269,7 @@ include "templates/top.php";
               </div>
   <!-- End Success Modal-->
  </div> 
- <div class="col-lg-12 border">
 
-    <h1 class="card-title text-success  text-center">Spareparts Registered</h1>
-<div class="stock-registered">
- <table class="sotock-table table table-stripped" id="stock-table-one">
-            <thead>
-              <tr>
-               
-                <th scope="col" >Material Code</th>
-                <th scope="col" >Name</th>
-                <th scope="col">Specification</th>
-                <th scope="col">Stock_In</th>
-                <th scope="col">Stock_Out</th>
-                <th scope="col">Balance</th>
-                <th scope="col">Cost</th>
-                <th scope="col">Adjust</th>
-              </tr>
-            </thead>
-            <tbody class="stock-table-data">
-
-            </tbody>
-          </table>
-     </div>
-    </div>
        
         </div>
         </div>
@@ -360,7 +286,7 @@ include "templates/top.php";
  <div class="col-lg-12" >
       <div class="card">
         <div class="card-title">
-          <h1 class="card-title text-center">Manage Material</h1>
+          <h1 class="card-title text-center">MANAGE SPAREPARTS</h1>
           <hr>
         </div>
         <div class="card-body">
@@ -402,51 +328,48 @@ include "templates/top.php";
                     <div class="modal-body">
                      
                        <!-- Multi Columns Form -->
-              <form class="row g-3">
+              <form class="row g-3 p-2">
                 <div class="col-md-12">
                  <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="ed-enable-edit" >
                       <label class="form-check-label" for="ed-enable-edit">Enable Editing</label>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label for="ed-name" class="form-label">Material Name</label>
                   <input type="text" class="form-control" id="ed-name">
                 </div>
-                 <div class="col-md-6">
+                 <div class="col-md-4">
                   <label for="ed-code" class="form-label">Material Code</label>
                   <input type="text" class="form-control" id="ed-code">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                  <label for="ed-level" class="form-label">Order Level</label>
+                  <input type="number" class="form-control" id="od-level">
+                </div>
+                
+                <div class="col-md-4">
                   <label for="ed-descr" class="form-label">Description</label>
                   <textarea class="form-control" placeholder="" id="ed-descr" style="height: 100px;"></textarea>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label for="ed-type" class="form-label">Type</label>
                   <input type="text" class="form-control" id="ed-type">
-                </div>
-                <div class="col-6">
-                  <label for="ed-file" class="form-label">Pysical File</label>
-                  <input type="text" class="form-control" id="ed-file">
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress5" class="form-label">select file</label>
                  <select class="form-select">
                    <option>select</option>
                  </select>
                 </div>
-                
-                <div class="col-md-4">
-                  <label for="ed-rec" class="form-label">Received</label>
-                  <input type="text" class="form-control" id="ed-rec">
+                <div class="col-4">
+                  <label for="ed-file" class="form-label">Pysical File</label>
+                  <input type="text" class="form-control" id="ed-file">
+                  <select class="form-select">
+                   <option>select</option>
+                 </select>
                 </div>
+               
                 <div class="col-md-4">
-                  <label for="ed-qty" class="form-label">Quantity</label>
+                  <label for="ed-qty" class="form-label">Stock In</label>
                   <input type="number" class="form-control" id="ed-qty">
-                </div>
-                <div class="col-md-4">
-                  <label for="ed-datein" class="form-label">Date In</label>
-                  <input type="date" class="form-control" id="ed-datein">
                 </div>
                
                 <div class="col-md-4">
@@ -459,31 +382,42 @@ include "templates/top.php";
                   <input type="number" class="form-control" id="ed-bal">
                 </div>
                 <div class="col-md-4">
+                  <label for="ed-datein" class="form-label">Date In</label>
+                  <input type="date" class="form-control" id="ed-datein">
+                </div>
+                <div class="col-md-4">
                   <label for="ed-dateout" class="form-label">Date Out</label>
                  <input type="date" class="form-control" id="ed-dateout">
                 </div>
-                 <div class="col-6">
+                 <div class="col-4">
                   <label for="ed-cost" class="form-label">Cost</label>
                   <input type="number" class="form-control" id="ed-cost">
+                </div>
+                <div class="col-6">
+                  <label for="ed-manu" class="form-label">Manufacturer</label>
+                  <input type="text" class="form-control" id="ed-manu">
                 </div>
                 <div class="col-md-6">
                   <label for="ed-rem" class="form-label">Remarks</label>
                    <textarea class="form-control" placeholder="" id="ed-rem" style="height: 100px;"></textarea>
                 </div>
-                 <div class="col-6">
-                  <label for="ed-manu" class="form-label">Manufacturer</label>
-                  <input type="text" class="form-control" id="ed-manu">
-                </div>
-                <div class="col-md-6">
-                  <label for="ed-level" class="form-label">Order Level</label>
-                  <input type="number" class="form-control" id="od-level">
-                </div>
+                 
+                
                
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-success">SAVE</button>
-                  <button type="button" class="btn btn-warning">Delete</button>
+                <div class="text-center p-2 bg-light shadow-sm">
+          <div class="error alert alert-danger alert-dismissible" id="" style="display:none;">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+         <div class="success alert alert-success alert-dismissible" id="" style="display:none;">
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">CANCEL</button>
+                  <button type="button" class="btn btn-success">UPDATE</button>
+                  <button type="button" id="ed-delete" class="btn btn-warning">DELETE</button>
                 </div>
+                     
+<br>
               </form><!-- End Multi Columns Form -->
 
 
@@ -501,7 +435,21 @@ include "templates/top.php";
       </div>
 </div>
 
+<div class="tab-pane fade" id="v-pills-issue" role="tabpanel" aria-labelledby="v-pills-issue-tab">
+<div class="req-form">   
+ <div class="col-lg-12" >
+      <div class="card">
+        <div class="card-title">
+          <h1 class="card-title text-center">ISSUE SPAREPART</h1>
+          <hr>
+        </div>
+        <div class="card-body">
 
+        </div>
+      </div>
+</div>
+</div>
+</div>
 
 
 </div>

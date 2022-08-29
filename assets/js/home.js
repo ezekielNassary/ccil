@@ -2,32 +2,49 @@ $(document).ready(function () {
   let login_level=$('#login_level').val();
   let user_email=$('#email').val();   
   let page_link = window.location.pathname;
+  var id_data=[]
+
   dashboard_menu(login_level);
   routes();
  
 
   //Inward material Management
   if (page_link == "/ccil/inward_material.php") {
-    fetch_material()
+    $(".success").hide();
+    $(".error").hide();
+    fetch_material();
+    stock_summary();
      $("#stock-table-two").on('click','.edit-stock',function(){
          var currentRow=$(this).closest("tr"); 
          var code=currentRow.find("td:eq(0)").text(); 
          var name=currentRow.find("td:eq(1)").text();
-         var specifications=currentRow.find("td:eq(2)").text(); 
-         var stock_in=currentRow.find("td:eq(3)").text(); 
-         var stock_out=currentRow.find("td:eq(4)").text(); 
-         var balance=currentRow.find("td:eq(5)").text(); 
-         var cost=currentRow.find("td:eq(6)").text(); 
-        var id_data=fetch_id(code)
-        id_data.success(function (data) {
-            console.log(data);
-          });
-        console.log(id_data)
-          $('#ed-code').val(code)
-          $('#ed-name').val(name)
-          $('#ed-descr').val(specifications)
-           $('#ed-descr').val(specifications)
-         $('#spare-adjust-modal').modal('show')
+         $.ajax({
+          type:'POST',
+            url:'actionpages/spare_management.php',
+            dataType: "json",
+            data:{'ACTION':'GET_ID','code':code},
+          success:function(data){
+          id_data=data; 
+          
+          $('#ed-code').val(id_data.result[0].Partnumber)
+          $('#ed-name').val(id_data.result[0].Partname)
+          $('#ed-descr').val(id_data.result[0].Material_Description)
+          $('#ed-type').val(id_data.result[0].Type)
+          $('#ed-file').val(id_data.result[0].File)
+          $('#ed-qty').val(id_data.result[0].Total_Received)
+          $('#ed-datein').val(id_data.result[0].Date_IN)
+          $('#ed-stkout').val(id_data.result[0].Stock_Out)
+          $('#ed-bal').val(id_data.result[0].Quantity_Bal)
+          $('#ed-dateout').val(id_data.result[0].Date_OUT)
+          $('#od-level').val(id_data.result[0].Order_Level)
+          $('#ed-cost').val(id_data.result[0].Cost)
+          $('#ed-manu').val(id_data.result[0].Manufacturer)
+          $('#ed-rem').val(id_data.result[0].Remark)
+
+         $('#spare-adjust-modal').modal('show')  
+          }
+        });
+      
 
     });
 
@@ -38,75 +55,8 @@ $(document).ready(function () {
     
     $('#sp-save').click(function(){
      register_spare();
+
     });
-  } 
-  
-  var requistionForm=document.getElementById('requisition-form');
-  let requistions = [];
-  var error = "";
-  var totalvalue=0;
-
-  $('#add-req-list').click(function () {
-    let data = [];
-    var materialCode = $("#material-code").val();
-    var specifications = $("#specifications").val();
-    var qty = $("#qty").val();
-    var rate = $("#rate").val();
-    var uom = $("#uom").val();
-    
-    totalvalue=calculate_total_value()
-    items = {}
-    error = ""
-   if (materialCode == "") {
-      error = "Please material Code";
-    }
-    
-    if (error != "") {
-      $('.error').html(error);
-      return;
-    } else {
-      $('.error').html(error);
-    }
-  
-    
-    items["materialCode"] = materialCode;
-    items["specifications"] = specifications;
-    items["qty"] = qty;
-    items["rate"] = rate;
-    items["uom"] = uom;
-    items["total_val"] = totalvalue;
-    data.push(items);
-    requistions.push(items);
-    $.each(data, (index, row) => {
-      var rowContent = `<tr>
-              <td class="nr">${row.materialCode}</td>
-               <td>${row.specifications}</td>
-               <td>${row.qty}</td>
-               <td>${row.uom}</td>
-               <td>${row.rate}</td>
-               <td>${row.total_val}</td>
-               <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
-               <button type="button" class="delete-req btn btn-danger" id="delete-req"><i class="bi bi-trash"></i></button> 
-              </div>
-                </td>
-                    </tr>`;
-      $('#tbdata').append(rowContent);
-    });
-   clear_form()
- $("#addItem").modal('hide');
-
-
-$(".delete-req").click(function () {
-      var item = $(this).closest("tr")        // Finds the closest row <tr> 
-        .find(".nr")     // Gets a descendent with class="nr"
-        .text();         // Retrieves the text within <td>
-      var currentRow = $(this).closest("tr");           //current row
-      var td_value = currentRow.find("td:eq(0)").text();  // get current row 1st TD value
-      $(this).closest("tr").remove();
-});
- console.log(requistions)
-  });
 
 
 $('#approveReq').click(function () {
@@ -122,13 +72,64 @@ $('#approveOut').click(function () {
    showRequestModal(btn)
 });
 
-
-
 $('#rate').on('input', function() {
   var total_val=calculate_total_value()
   $("#rate-total").html(total_val)
 });
 
+
+$('#ed-delete').click(function(){
+ var delete_id=$('#ed-code').val();
+ delete_sparepart(delete_id);
+fetch_material()
+})
+  } 
+function delete_sparepart(delete_id){
+ $.ajax({
+          type:'POST',
+            url:'actionpages/spare_management.php',
+            dataType: "json",
+            data:{'ACTION':'DELETE','code':delete_id},
+          success:function(data){
+            if (data.status=='deleted') {
+              $('.success').show()
+              $('.success').html('Spare deleted successful');
+              
+              clear_edit_modal()
+            }else{
+               $('.error').show()
+              $('.error').html('Cannot find spare part id');
+
+            }
+            
+         }
+        });
+
+ 
+}
+
+function clear_edit_modal(){
+    $('#ed-code').val("")
+    $('#ed-name').val("")
+    $('#ed-descr').val("")
+    $('#ed-qty').val("")
+    $('#ed-datein').val("")
+    $('#ed-stkout').val("")
+    $('#ed-bal').val("")
+    $('#ed-dateout').val("")
+    $('#od-level').val("")
+    $('#ed-cost').val("")
+    $('#ed-manu').val("")
+    $('#ed-rem').val("")
+     $('#ed-type')
+    .find('option')
+    .remove()
+    .end();
+    $('#ed-file')
+    .find('option')
+    .remove()
+    .end();
+}
 
 function load_spare_type(cat){
   get_physical_file();
@@ -264,41 +265,52 @@ function register_spare(){
       
     $.ajax({
     type: "POST",
-    url: "actionpages/insert_code.php",
-    data: {'name':spareName,'code':spareCode,'description':spareDescription,'category':spareCategory,'qty':spareQty,
-    'cost':spareCost,'type':spareType,'level':spareOlevel,'date':spareDate,'file':spareFile,'remark':spareRemark},
+    url: "actionpages/spare_management.php",
+    data: {'ACTION':'INSERT','name':spareName,'code':spareCode,'description':spareDescription,'category':spareCategory,'qty':spareQty,
+    'cost':spareCost,'type':spareType,'level':spareOlevel,'date':spareDate,'file':spareFile,'remark':spareRemark,'manufact':spareManuf},
     success: function(data){
-      console.log(data);
-      if (data == 'success') {
+      if (data.status == 'success') {
          $('.code-result').html('<p class="text-success text-center"><i class="icon bi bi-check-lg"></i><p class=" text-success p3 text-center">Data Saved Succesful</p></p>')
         $('#success-modal').modal('show')
         fetch_material()
+        clear_spare_register_form();
+        
       }else{
-         $('.code-result').html('<p class="text-danger text-center"><i class="icon bi bi-info-square"></i><p class=" text-danger p3 text-center">'+data+'</p></p>')
+         $('.code-result').html('<p class="text-danger text-center"><i class="icon bi bi-info-square"></i><p class=" text-danger p3 text-center">'+data.status+'</p></p>')
         $('#success-modal').modal('show')
       }  
     }
 });
 }
-function display_data(x){
-success:function(data){
-  console.log()
-       }
+function clear_spare_register_form(){
+  $('#sp-name').val("")
+  $('#sp-code').val("")
+  $('#sp-descr').val("")
+  $('#sp-qty').val("")
+  $('#sp-cost').val("")
+  $('#sp-orderlevel').val("")
+  $('#sp-manuf').val("")
+  $('#sp-date').val("")
+  $('#sp-remark').val("")
+  $('#sp-type')
+    .find('option')
+    .remove()
+    .end();
+  $('#sp-file')
+    .find('option')
+    .remove()
+    .end();
+
+$('#sp-category')
+    .find('option')
+    .remove()
+    .end();
 }
-function fetch_id(code){
-   return $.ajax({
-      type:'POST',
-            url:'actionpages/get_material.php',
-            dataType: "json",
-            data:{'ACTION':'GET_ID','code':code}
-            
- }); 
-  
-}
+
 function fetch_material(){
    $.ajax({
       type:'POST',
-            url:'actionpages/get_material.php',
+            url:'actionpages/spare_management.php',
             dataType: "json",
             data:{'ACTION':'GET_ALL'},
             success:function(data){
@@ -313,18 +325,100 @@ function fetch_material(){
                <td>${row.Quantity_Bal}</td>
                <td>${row.Cost}</td>
                <td>
-             <button type="button" class="edit-stock btn btn-primary" id="edit-stk"><i class="bi bi-pencil-square"></i></button>
+             <button type="button" class="edit-stock btn btn-danger" id="edit-stk"><i class="bi bi-pencil-square"></i><i class="bi bi-trash"></i></button>
                 </td>
              </tr>`;
       $('.stock-table-data').append(body);
     });
-   $("#stock-table-one").DataTable();
     $("#stock-table-two").DataTable();
  }
  });
 
 }
+function stock_summary(){
+  var registered,balance,cost,stk_in,stk_out=0.0;
+  var balance_per, stk_out_per=0.0;
 
+   $.ajax({
+      type:'POST',
+            url:'actionpages/spare_management.php',
+            dataType: "json",
+            data:{'ACTION':'FIND_SUM'},
+            success:function(data){
+              console.log(data);
+              balance=data.balance;
+              cost=data.cost;
+              cost=(cost*1.0).toFixed(2);
+              registered=data.registered;
+              stk_in=data.stockin;
+              stk_out=data.stockout;
+              balance_per=((balance/stk_in)*(100.0)).toFixed(2);
+              stk_out_per=((stk_out/stk_in)*(100.0)).toFixed(2);
+              $('#stock-balance').html(balance);
+              $('#stock-cost').html(cost);
+              $('#stock-in').html(stk_in);
+              $('#stock-out').html(stk_out);
+              $('#bl-percent').html(balance_per+"%");
+              $('#out-percent').html(stk_out_per+"%");
+              $('#sp-registered').html(registered)
+              chart(balance,stk_in,stk_out);
+            }
+ });
+
+}
+function chart(b,i,o){
+  new ApexCharts(document.querySelector("#stock-chart"), {
+                    series: [{
+                      name: 'Stock In',
+                      data: [b]
+                    }, {
+                      name: 'Stock Balance',
+                      data: [i]
+                    }, {
+                      name: 'Stock Out',
+                      data: [o]
+                    }],
+                    chart: {
+                      type: 'bar',
+                      height: 350
+                    },
+                    plotOptions: {
+                      bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded'
+                      },
+                    },
+                    dataLabels: {
+                      enabled: false
+                    },
+                    stroke: {
+                      show: true,
+                      width: 2,
+                      colors: ['transparent']
+                    },
+                    xaxis: {
+                      categories: ['Sep'],
+                    },
+                    yaxis: {
+                      title: {
+                        text: 'Units'
+                      }
+                    },
+                    fill: {
+                      opacity: 1
+                    },
+                    tooltip: {
+                      y: {
+                        formatter: function(val) {
+                          return  val + " pics"
+                        }
+                      }
+                    }
+                  }).render();
+
+  
+}
 function routes(){
    $('#requisition').click(function () {
     window.location.replace("requisition_page.php")
@@ -361,4 +455,72 @@ $('#outpass').click(function () {
   });
 
 }
+
+
+ var requistionForm=document.getElementById('requisition-form');
+  let requistions = [];
+  var error = "";
+  var totalvalue=0;
+  
+  $('#add-req-list').click(function () {
+    let data = [];
+    var materialCode = $("#material-code").val();
+    var specifications = $("#specifications").val();
+    var qty = $("#qty").val();
+    var rate = $("#rate").val();
+    var uom = $("#uom").val();
+    
+    totalvalue=calculate_total_value()
+    items = {}
+    error = ""
+   if (materialCode == "") {
+      error = "Please material Code";
+    }
+    
+    if (error != "") {
+      $('.error').html(error);
+      return;
+    } else {
+      $('.error').html(error);
+    }
+  
+    
+    items["materialCode"] = materialCode;
+    items["specifications"] = specifications;
+    items["qty"] = qty;
+    items["rate"] = rate;
+    items["uom"] = uom;
+    items["total_val"] = totalvalue;
+    data.push(items);
+    requistions.push(items);
+    $.each(data, (index, row) => {
+      var rowContent = `<tr>
+              <td class="nr">${row.materialCode}</td>
+               <td>${row.specifications}</td>
+               <td>${row.qty}</td>
+               <td>${row.uom}</td>
+               <td>${row.rate}</td>
+               <td>${row.total_val}</td>
+               <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+               <button type="button" class="delete-req btn btn-danger" id="delete-req"><i class="bi bi-trash"></i></button> 
+              </div>
+                </td>
+                    </tr>`;
+      $('#tbdata').append(rowContent);
+    });
+   clear_form()
+ $("#addItem").modal('hide');
+
+
+$(".delete-req").click(function () {
+      var item = $(this).closest("tr")        // Finds the closest row <tr> 
+        .find(".nr")     // Gets a descendent with class="nr"
+        .text();         // Retrieves the text within <td>
+      var currentRow = $(this).closest("tr");           //current row
+      var td_value = currentRow.find("td:eq(0)").text();  // get current row 1st TD value
+      $(this).closest("tr").remove();
+});
+ console.log(requistions)
+  });
 });
