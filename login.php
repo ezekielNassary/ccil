@@ -133,6 +133,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["login"])) {
                     },
                     cache: false,
                     success: function(data) {
+                        console.log(data)
                         var data = data;
 
                         if (data == 1) {

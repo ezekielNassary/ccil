@@ -14,6 +14,7 @@ $(document).ready(function () {
     $(".error").hide();
     fetch_material();
     stock_summary();
+    generate_material_code();
     $("#stock-table-two").on('click', '.edit-stock', function () {
       var currentRow = $(this).closest("tr");
       var code = currentRow.find("td:eq(0)").text();
@@ -22,7 +23,7 @@ $(document).ready(function () {
         type: 'POST',
         url: 'actionpages/spare_management.php',
         dataType: "json",
-        data: { 'ACTION': 'GET_ID', 'code': code },
+        data: { 'ACTION': 'GET_SPARE', 'code': code },
         success: function (data) {
           id_data = data;
 
@@ -81,9 +82,10 @@ $(document).ready(function () {
     $('#ed-delete').click(function () {
       var delete_id = $('#ed-code').val();
       delete_sparepart(delete_id);
-      fetch_material()
+
     })
   }
+  var delay = 2000;
   function delete_sparepart(delete_id) {
     $.ajax({
       type: 'POST',
@@ -96,16 +98,20 @@ $(document).ready(function () {
           $('.success').html('Spare deleted successful');
 
           clear_edit_modal()
+          setTimeout(function () {
+            fetch_material()
+          }, delay);
+          setTimeout(function () {
+            generate_material_code();
+          }, 1000);
         } else {
           $('.error').show()
           $('.error').html('Cannot find spare part id');
-
+          refresh_all_data();
         }
 
       }
     });
-
-
   }
 
   function clear_edit_modal() {
@@ -168,7 +174,7 @@ $(document).ready(function () {
 
   function get_physical_file() {
     var physical_file = ['All_Packing_Machine', 'BEARINGS', 'SEAL', 'ORING', 'FESTO CYLINDER', 'TUBE HOLDER', 'TAFLON SPARE', 'BOILER', 'Nodern_Filling_M/C', 'ETP Plant'
-      , 'R.O Plant', 'WAUKESHA PUMP', 'STATIONARY', 'PRINTER', 'Mechanical', 'BELTS', 'AUTOPACK', 'CIR CLIP', 'COMPRESSOR', 'CHILLER', 'GENERAL SPARE', 'ELECTRICAL GENERAL'
+      , 'R.O Plant', 'WAUKESHA PUMP', 'STATIONARY', 'Electrical', 'PRINTER', 'Mechanical', 'BELTS', 'AUTOPACK', 'CIR CLIP', 'COMPRESSOR', 'CHILLER', 'GENERAL SPARE', 'ELECTRICAL GENERAL'
       , 'NM2002 #55101', 'NM2002 #55002', 'NM 1702', 'NODERN PARTS', 'FITTINGS', 'NP 1702'];
     $('#sp-file')
       .find('option')
@@ -220,6 +226,35 @@ $(document).ready(function () {
   function spareparts_inputs() {
     speed1 = $("#speed1").val();
   }
+  var new_code = 0;
+  function generate_material_code() {
+
+    $.ajax({
+      type: 'POST',
+      url: 'actionpages/spare_management.php',
+      dataType: "json",
+      data: { 'ACTION': 'GET_CODE' },
+      success: function (data) {
+        console.log(data)
+        if (data.status == 'nothing') {
+          new_code = 'CCW-00000'
+        } else {
+          const code = data.min_code.split("-")
+          var c = parseInt(code[1]);
+          if (c < 99) {
+            new_code = code[0] + "-0000" + (c + 1);
+          } else if (c <= 999) {
+            new_code = code[0] + "-000" + (c + 1);
+          } else if (c <= 9999) {
+            new_code = code[0] + "-00" + (c + 1);
+          }
+
+        }
+        $('#sp-code').val(new_code)
+      }
+    })
+
+  }
   function register_spare() {
     var spareName = $('#sp-name').val()
     var spareCode = $('#sp-code').val()
@@ -239,6 +274,7 @@ $(document).ready(function () {
     if (spareCode == "") {
       error = "Enter material code";
     }
+
     if (spareType == "" || spareType == "select" && error == "") {
       error = "Please select item type";
     }
@@ -272,11 +308,11 @@ $(document).ready(function () {
         if (data.status == 'success') {
           $('.code-result').html('<p class="text-success text-center"><i class="icon bi bi-check-lg"></i><p class=" text-success p3 text-center">Data Saved Succesful</p></p>')
           $('#success-modal').modal('show')
-          fetch_material()
+          refresh_all_data()
           clear_spare_register_form();
 
         } else {
-          $('.code-result').html('<p class="text-danger text-center"><i class="icon bi bi-info-square"></i><p class=" text-danger p3 text-center">' + data.status + '</p></p>')
+          $('.code-result').html('<p class="text-danger text-center"><i class="bi bi-file-earmark-excel-fill"></i><p class=" text-danger p3 text-center">' + data.status + '</p></p>')
           $('#success-modal').modal('show')
         }
       }
@@ -284,7 +320,6 @@ $(document).ready(function () {
   }
   function clear_spare_register_form() {
     $('#sp-name').val("")
-    $('#sp-code').val("")
     $('#sp-descr').val("")
     $('#sp-qty').val("")
     $('#sp-cost').val("")
@@ -301,13 +336,11 @@ $(document).ready(function () {
       .remove()
       .end();
 
-    $('#sp-category')
-      .find('option')
-      .remove()
-      .end();
+
   }
 
   function fetch_material() {
+    $(".stock-table-data").html("");
     $.ajax({
       type: 'POST',
       url: 'actionpages/spare_management.php',
@@ -333,7 +366,45 @@ $(document).ready(function () {
         $("#stock-table-two").DataTable();
       }
     });
+  }
+  $('#filter-data').click(function () {
+    filter_data();
+  });
+  function filter_data() {
+    var filter_input = $('#filter_input').val();
+    $(".issue-table-data").html("");
+    //alert(filter_input);
+    $.ajax({
+      type: 'POST',
+      url: 'actionpages/spare_management.php',
+      dataType: "json",
+      data: { 'ACTION': 'FILTER', 'filter_input': filter_input },
+      success: function (data) {
 
+        console.log(data);
+        if (data.status == 'nothing') {
+          $(".issue-table-data").html("No data found");
+        } else {
+          $.each(data.result, (index, row) => {
+
+            var body =
+              `<tr>
+               <td class="nr">${row.Partnumber}</td>
+               <td>${row.Partname}</td>
+               <td>${row.Material_Description}</td>
+               <td>${row.Total_Received}</td>
+               <td>${row.Stock_Out}</td>
+               <td>${row.Quantity_Bal}</td>
+               <td>${row.Cost}</td>
+               <td>
+             <button type="button" class="edit-stock btn btn-danger" id="edit-stk"><i class="bi bi-pencil-square"></i></button>
+                </td>
+             </tr>`;
+            $('.issue-table-data').append(body);
+          });
+        }
+      }
+    });
   }
   function stock_summary() {
     var registered, balance, cost, stk_in, stk_out = 0.0;
@@ -365,6 +436,17 @@ $(document).ready(function () {
       }
     });
 
+  }
+  function refresh_all_data() {
+    setTimeout(function () {
+      fetch_material()
+    }, delay);
+    setTimeout(function () {
+      generate_material_code();
+    }, 1000);
+    setTimeout(function () {
+      stock_summary();
+    }, 1000);
   }
   function chart(b, i, o) {
     new ApexCharts(document.querySelector("#stock-chart"), {

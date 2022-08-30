@@ -15,7 +15,6 @@ include "templates/top.php";
 
             <button class="nav-link active" id="v-pills-stock-tab" data-bs-toggle="pill" data-bs-target="#v-pills-stock" type="button" role="tab" aria-controls="v-pills-stock" aria-selected="true">STOCK VIEW</button>
 
-
             <button class="nav-link " id="v-pills-code-tab" data-bs-toggle="pill" data-bs-target="#v-pills-code" type="button" role="tab" aria-controls="v-pills-code" aria-selected="false">NEW SPARE</button>
 
             <button class="nav-link " id="v-pills-issue-tab" data-bs-toggle="pill" data-bs-target="#v-pills-issue" type="button" role="tab" aria-controls="v-pills-issue" aria-selected="false">ISSUE SPARE</button>
@@ -97,25 +96,19 @@ include "templates/top.php";
                             </div>
                           </div>
                         </div>
-
                         <div class="col-lg-12">
                           <div class="card">
                             <div class="card-body">
                               <h5 class="card-title">Stock Flow 2022</h5>
-
                               <!-- Stock bar Chart -->
                               <div id="stock-chart"></div>
                             </div>
                           </div>
                         </div>
-
                       </div>
-
                     </div>
-
                   </div>
                 </div>
-
               </div>
             </div>
             <div class="tab-pane fade" id="v-pills-code" role="tabpanel" aria-labelledby="v-pills-code-tab">
@@ -145,7 +138,7 @@ include "templates/top.php";
                               <div class="row mb-3">
                                 <label for="sp-code" class="col-sm-4 col-form-label">Material Code</label>
                                 <div class="col-sm-8">
-                                  <input type="text" class="form-control" placeholder="" id="sp-code">
+                                  <input type="text" class="form-control" placeholder="" id="sp-code" disabled>
                                 </div>
                               </div>
                             </div>
@@ -190,7 +183,7 @@ include "templates/top.php";
                               <div class="row mb-3">
                                 <label for="sp-cost" class="col-sm-4 col-form-label">Cost</label>
                                 <div class="col-sm-8">
-                                  <input type="number" class="form-control" id="sp-cost" value="0.00" placeholder="">
+                                  <input type="number" class="form-control" id="sp-cost" placeholder="">
                                 </div>
                               </div>
                             </div>
@@ -198,7 +191,7 @@ include "templates/top.php";
 
                             <div class="col-lg-4">
                               <div class="row mb-3">
-                                <label for="sp-orderlevel" class="col-sm-4 col-form-label">Order Level</label>
+                                <label for="sp-orderlevel" class="col-sm-4 col-form-label">Re-Order Level</label>
                                 <div class="col-sm-8">
                                   <input type="number" class="form-control" id="sp-orderlevel" value="1" placeholder="">
                                 </div>
@@ -206,7 +199,7 @@ include "templates/top.php";
                             </div>
                             <div class="col-lg-4">
                               <div class="row mb-3">
-                                <label for="sp-manuf" class="col-sm-4 col-form-label">Manufacturer</label>
+                                <label for="sp-manuf" class="col-sm-4 col-form-label">Manuf:</label>
                                 <div class="col-sm-8">
                                   <input type="text" class="form-control" id="sp-manuf" placeholder="">
                                 </div>
@@ -214,7 +207,7 @@ include "templates/top.php";
                             </div>
                             <div class="col-lg-4">
                               <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-4 col-form-label">Description</label>
+                                <label for="inputEmail3" class="col-sm-4 col-form-label">Desc:</label>
                                 <div class="col-sm-8">
                                   <textarea class="form-control" placeholder="" id="sp-descr" style="height: 100px;"></textarea>
                                 </div>
@@ -292,14 +285,8 @@ include "templates/top.php";
 
                       <div class="row search-row">
 
-                        <div class="search-material col-lg-3">
 
-                        </div>
-                        <div class="search-material col-lg-6 text-center">
-
-                        </div>
-                        <div class="search-material col-lg-3"></div>
-                        <div class="stock-addition  col-lg-12">
+                        <div class="stock-addition table-scroll  col-lg-12">
                           <table class="stock-table table table-stripped" id="stock-table-two">
                             <thead>
                               <th scope="col">Code</th>
@@ -442,20 +429,48 @@ include "templates/top.php";
                       <h1 class="card-title text-center">ISSUE SPAREPART</h1>
                       <hr>
                     </div>
-                    <div class="card-body">
+                    <div class="table-scroll card-body">
+                      <div class="row search-row">
+                        <div class="search-material col-lg-3">
+                        </div>
+                        <div class="search-material col-lg-6 text-center">
+                          <form>
+                            <input type="text" name="filter_input" id="filter_input">
+                            <button type="button" class="btn btn-success" id="filter-data" name="search">Seaarch</button>
+                          </form>
+                        </div>
+                        <div class="search-material col-lg-3"></div>
+                      </div>
 
+
+                      <table class="stock-table table table-stripped" id="issue-spare">
+                        <thead>
+                          <th scope="col">Code</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Specification</th>
+                          <th scope="col">Stock_In</th>
+                          <th scope="col">Stock_Out</th>
+                          <th scope="col">Balance</th>
+                          <th scope="col">Cost</th>
+                          <th scope="col">Adjust</th>
+                        </thead>
+                        <tbody class="issue-table-data">
+
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-
           </div>
 
+
         </div>
+
       </div>
     </div>
+  </div>
 
   </div>
 

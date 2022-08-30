@@ -54,18 +54,21 @@ h6 {
 .top-nav a:hover {
   color: white;
 }
-.setting-nav{
+
+.setting-nav {
   background-color: #e3f2fd;
 }
+
 @media (max-width: 1199px) {
   #main {
     padding: 20px;
   }
 }
 
-hr{
+hr {
   color: black;
 }
+
 /*--------------------------------------------------------------
 # Page Title
 --------------------------------------------------------------*/
@@ -838,10 +841,15 @@ hr{
   flex-shrink: 0;
   flex-grow: 0;
 }
-.current-stock, .stock-value, .stock-in, .stock-out{
+
+.current-stock,
+.stock-value,
+.stock-in,
+.stock-out {
   height: 150px;
   vertical-align: bottom;
 }
+
 .current-stock .card-icon {
   color: #4154f1;
   background: #e0f7fa;
@@ -856,6 +864,7 @@ hr{
   color: #ff771d;
   background: #e0f7fa;
 }
+
 .stock-out .card-icon {
   color: #ff771d;
   background: #e0f7fa;
@@ -1272,37 +1281,44 @@ hr{
   font-size: 13px;
   color: #012970;
 }
-.tab-content{
+
+.tab-content {
   width: 100% !important;
 }
-.company-info{
+
+.company-info {
   font-size: 12px;
   color: red;
 }
-.requisition-table{
+
+.requisition-table {
   margin-top: -30px;
 }
- .indentInfo-table tr td{
+
+.indentInfo-table tr td {
   font-size: 14px !important;
   padding: 0 !important;
   margin: 0 !important;
 }
-.requisition-table tr th{
+
+.requisition-table tr th {
   padding-left: 5px !important;
   margin: 0 !important;
   text-align: left;
   vertical-align: middle;
   border: 1px;
- 
-}
-.requisition-table tr th button{
-width: 100%;
+
 }
 
-.requisition-table tr td{
+.requisition-table tr th button {
+  width: 100%;
+}
+
+.requisition-table tr td {
   padding: 5px !important;
   margin top: 0 !important;
 }
+
 .inventory-list {
   font-size: 14px;
   font-weight: bold;
@@ -1317,71 +1333,87 @@ width: 100%;
   opacity: 0.6;
 }
 
-.authorization{
+.authorization {
   margin-left: 0px;
 }
-.authorization p{
+
+.authorization p {
   font-size: 14px;
 }
-#requisition-form{
+
+#requisition-form {
   margin-top: -50px;
   padding: 20px;
   background-color: #78909c;
-  
+
 }
-.purchase-indent{
+
+.purchase-indent {
   background-color: white;
 }
-.ccil-logo{
+
+.ccil-logo {
 
   margin-left: 2px;
 
 }
-.indent-list{
+
+.indent-list {
 
   background-color: #e3f2fd;
-  
+
 }
-.indent-list .card{
+
+.indent-list .card {
   margin-top: 20px;
 }
-.indent-table{
+
+.indent-table {
   background-color: white;
 }
-.form-printing{
+
+.form-printing {
   padding: 5px;
   margin-bottom: 5px;
-  
+
 }
-.form-printing button{
+
+.form-printing button {
   width: 200px;
 }
-.requisition-printing{
+
+.requisition-printing {
   padding: 5px;
   margin-bottom: 5px;
 }
-.management-req{
+
+.management-req {
   background-color: skyblue;
   padding: 5px;
 }
+
 .requisition-auth {
   margin-bottom: 5px;
   font-size: 14px;
   text-align: right;
 }
-.requisition-auth input{
+
+.requisition-auth input {
   width: 100%;
 }
-.req-form{
+
+.req-form {
   background-color: #cfd8dc;
   padding: 20px;
 }
-.req-options{
+
+.req-options {
   background-color: #b2ebf2;
   height: 100%;
   padding: 5px;
 }
-.req-options button{
+
+.req-options button {
   font-size: 14px;
   width: 200px;
   color: white;
@@ -1389,112 +1421,137 @@ width: 100%;
   margin-bottom: 10px;
   text-align: left;
 }
-.indent-form{
+
+.indent-form {
   width: 100% !important;
 }
- 
-.material-code-form{
+
+.material-code-form {
   background-color: #e0f7fa;
   margin-top: -30px;
   padding: 10px;
 
 }
-.material-code-form label{
+
+.material-code-form label {
   text-align: left;
   font-weight: bold;
   font-size: 14px;
 
 }
+
 .save-code {
-  text-align: center; 
-   background-color: #4dd0e1;
+  text-align: center;
+  background-color: #4dd0e1;
 
 }
-.save-code button{
+
+.save-code button {
   width: 200px;
 }
-.material-addition, .stock-addition{
+
+.material-addition,
+.stock-addition {
   padding: 10px;
 }
 
-.stock-addition table tr th{
+.stock-addition table tr th {
   font-size: 15px;
 }
 
-.stock-addition table tr td{
+.stock-addition table tr td {
   text-align: left;
   font-size: 13px;
 }
- .stock-addition select{
+
+.stock-addition select {
   display: none;
 }
-.stock-addition input{
 
-}
-.stock-registered table tr td{
+.stock-addition input {}
+
+.stock-registered table tr td {
   text-align: left;
   font-size: 13px;
-} 
-.stock-registered table tr th{
+}
+
+.stock-registered table tr th {
   font-size: 15px;
 }
-.outpass-form label, .outpass-form input{
- margin-bottom: 5px;
+
+.outpass-form label,
+.outpass-form input {
+  margin-bottom: 5px;
 
 }
-.prchase-indent-form{
+
+.prchase-indent-form {
   margin-top: -30px;
   padding-bottom: 10px;
 }
-.prchase-indent-form select{
+
+.prchase-indent-form select {
   width: 150px;
 }
-#btn-preview-indent{
-width: 300px;
-margin-bottom: 10px;
-background-color: #4db6ac;
-color: #e0f7fa;
-border: none;
+
+#btn-preview-indent {
+  width: 300px;
+  margin-bottom: 10px;
+  background-color: #4db6ac;
+  color: #e0f7fa;
+  border: none;
 }
-.requisition-printing button{
+
+.requisition-printing button {
   width: 200px;
   background-color: #0097a7;
-color: #e0f7fa;
-border: none;
+  color: #e0f7fa;
+  border: none;
 }
-.requisition-printing button:hover{
- width: 230px;
- animation-duration: 100ms;
- transition: 1000ms;
- color: #e0f7fa;
+
+.requisition-printing button:hover {
+  width: 230px;
+  animation-duration: 100ms;
+  transition: 1000ms;
+  color: #e0f7fa;
 }
-.search-material{
+
+.search-material {
   padding: 30px;
   text-align: center;
-  background-color: #0097a7;
+
 }
-.search-material input{
+
+.search-material input {
   width: 100%;
   height: 60px;
   text-align: center;
   font-size: 22px;
   font-weight: lighter;
-  border: none;
 }
-.search-material input::placeholder{
-opacity: 0.4;
+
+.search-material button {
+  margin-top: 5px;
+  width: 50%;
 }
-.search-row{
+
+.search-material input::placeholder {
+  opacity: 0.4;
+}
+
+.search-row {
   margin-top: -30px;
 }
-.code-result{
+
+.code-result {
   text-align: center;
-  font-size: 13px;
-  
+  font-size: 18px;
+
 
 }
-.code-result .icon{
-  
+
+.code-result .icon {
+
   font-size: 32px;
   line-height: 0;
   width: 32px;
@@ -1502,28 +1559,40 @@ opacity: 0.4;
   flex-shrink: 0;
   flex-grow: 0;
 }
-#spare-adjust-modal{
+
+#spare-adjust-modal {
   padding: 10px;
 }
-#spare-adjust-modal label{
+
+#spare-adjust-modal label {
   font-size: 15px;
   font-weight: bold;
-  color:  darkorange;
+  color: darkorange;
 }
-#spare-adjust-modal input, #spare-adjust-modal textarea{
+
+#spare-adjust-modal input,
+#spare-adjust-modal textarea {
   font-size: 13px;
   font-weight: bold;
-  
-  color:  darkgreen;
+
+  color: darkgreen;
 }
+
+.table-scroll {
+  overflow-x: auto;
+}
+
 @media (max-width: 480px) {
-  .req-options{
+  .req-options {
     display: none;
   }
-  .outpass-form input{
- width: 100% !important;
-}
-button, input{
-  width: 100%;
-}
+
+  .outpass-form input {
+    width: 100% !important;
+  }
+
+  button,
+  input {
+    width: 100%;
+  }
 }
