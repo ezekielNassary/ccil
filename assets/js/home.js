@@ -392,12 +392,13 @@ $(document).ready(function () {
                <td class="nr">${row.Partnumber}</td>
                <td>${row.Partname}</td>
                <td>${row.Material_Description}</td>
+               <td>${row.File}</td>
                <td>${row.Total_Received}</td>
                <td>${row.Stock_Out}</td>
                <td>${row.Quantity_Bal}</td>
-               <td>${row.Cost}</td>
+               
                <td>
-             <button type="button" class="edit-stock btn btn-danger" id="edit-stk"><i class="bi bi-pencil-square"></i></button>
+             <button type="button" class="issue-btn btn btn-danger" id="edit-stk"><i class="bi bi-pencil-square"></i></button>
                 </td>
              </tr>`;
             $('.issue-table-data').append(body);
@@ -405,6 +406,52 @@ $(document).ready(function () {
         }
       }
     });
+  }
+
+$("#issue-spare").on('click', '.issue-btn', function () {
+      var currentRow = $(this).closest("tr");
+      var code = currentRow.find("td:eq(0)").text();
+      var name = currentRow.find("td:eq(1)").text();
+      var desc = currentRow.find("td:eq(2)").text();
+      var file = currentRow.find("td:eq(3)").text();
+      var stkin = currentRow.find("td:eq(4)").text();
+      var balance = currentRow.find("td:eq(6)").text();
+       
+      $('#iss-name').val(name)
+      $('#iss-code').val(code)
+      $('#iss-qty').val(stkin)
+      $('#iss-descr').val(desc)
+      $('#iss-file').val(file)
+      $('#iss-bal').val(balance)
+      $("#issue-modal").modal('show');
+     
+    });
+
+  $('#btn-issue-spare').on('click', function () {
+    issue_spare()
+  });
+  function issue_spare(){
+     $('#iss-error').hide();
+    let code = $('#iss-code').val()
+    let out= $('#iss-stkout').val();
+    let bal= $('#iss-bal').val();
+    let new_bal=bal-out;
+    if (out>bal || !$.isNumeric(out)) {
+      $('#iss-error').html('Please check the balance')
+      $('#iss-error').show();
+      return
+    }
+   $.ajax({
+        type: 'POST',
+        url: 'actionpages/spare_management.php',
+        dataType: "json",
+        data: { 'ACTION': 'ISSUE_SPARE', 'code': code, 'out':out, 'bal':new_bal },
+        success: function (data) {
+          
+        }
+      });
+
+   
   }
   function stock_summary() {
     var registered, balance, cost, stk_in, stk_out = 0.0;

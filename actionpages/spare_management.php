@@ -12,7 +12,7 @@ if ($command == 'GET_ALL') {
 if ($command == 'DELETE') {
 	echo (delete_spare($link));
 }
-if ($command == 'UPDATE') {
+if ($command == 'ISSUE_SPARE') {
 }
 if ($command == 'GET_SPARE') {
 	echo (spare_data($link));
@@ -127,7 +127,20 @@ function delete_spare($link)
 	return json_encode($data);
 }
 
-
+function update_spare($link){
+	$data = array();
+	$name = mysqli_real_escape_string($link, $_POST['name']);
+	$code = mysqli_real_escape_string($link, $_POST['code']);
+	$desc = mysqli_real_escape_string($link, $_POST['description']);
+	$qty = mysqli_real_escape_string($link, $_POST['qty']);
+	$cost = mysqli_real_escape_string($link, $_POST['cost']);
+	$type = mysqli_real_escape_string($link, $_POST['type']);
+	$level = mysqli_real_escape_string($link, $_POST['level']);
+	$date = mysqli_real_escape_string($link, $_POST['date']);
+	$file = mysqli_real_escape_string($link, $_POST['file']);
+	$remark = mysqli_real_escape_string($link, $_POST['remark']);
+	$spareManufact = mysqli_real_escape_string($link, $_POST['manufact']);
+}
 
 function insert_code($link)
 {

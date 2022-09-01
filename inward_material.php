@@ -6,7 +6,7 @@ include "templates/top.php";
   <div class="card">
     <div class="card-title">
       <h1 class="card-title text-center">SPAREPARTS MANAGEMENT</h1>
-      <hr>
+      <hr> 
     </div>
     <div class="card-body">
       <div class="row p-3">
@@ -251,7 +251,7 @@ include "templates/top.php";
                           <div class="modal fade" id="success-modal" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered modal-sm">
                               <div class="modal-content">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-clFose" data-bs-dismiss="modal" aria-label="Close"></button>
                                 <div class="modal-body">
                                   <p class="code-result"></p>
                                 </div>
@@ -442,16 +442,17 @@ include "templates/top.php";
                         <div class="search-material col-lg-3"></div>
                       </div>
 
-
+                      <div class="issue-spare-table">
                       <table class="stock-table table table-stripped" id="issue-spare">
                         <thead>
                           <th scope="col">Code</th>
                           <th scope="col">Name</th>
-                          <th scope="col">Specification</th>
+                          <th scope="col">Descr..</th>
+                          <th scope="col">File</th>
                           <th scope="col">Stock_In</th>
                           <th scope="col">Stock_Out</th>
                           <th scope="col">Balance</th>
-                          <th scope="col">Cost</th>
+                        
                           <th scope="col">Adjust</th>
                         </thead>
                         <tbody class="issue-table-data">
@@ -459,6 +460,93 @@ include "templates/top.php";
                         </tbody>
                       </table>
                     </div>
+                    </div>
+                    <!-- Issue Modal -->
+                        <div class="modal fade" id="issue-modal" tabindex="-1">
+                          <div class="modal-dialog  modal-lg">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title text-center card-title">Issue Spare</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+
+                               <form class="row g-3 p-2">
+                                
+                                  <div class="col-md-4">
+                                    <label for="iss-name" class="form-label">Spare Name</label>
+                                    <input type="text" class="form-control" id="iss-name" disabled>
+                                     <label for="iss-file" class="form-label">Pysical File</label>
+                                    <input type="text" class="form-control" id="iss-file" disabled>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <label for="iss-code" class="form-label">Spare Code</label>
+                                    <input type="text" class="form-control" id="iss-code" disabled>
+                                    <label for="iss-qty" class="form-label">Stock In</label>
+                                    <input type="number" class="form-control" id="iss-qty" disabled>
+                                  </div>
+                                  
+
+                                  <div class="col-md-4">
+                                    <label for="iss-descr" class="form-label">Description</label>
+                                    <textarea class="form-control" placeholder="" id="iss-descr" style="height: 100px;" disabled></textarea>
+                                  </div>
+                          
+                                  <div class="row issue-quantity">
+                                  <div class="col-md-4">
+                                    <label for="iss-stkout" class="form-label">Enter Quantity</label>
+                                    <input type="number" class="form-control" id="iss-stkout">
+                                  </div>
+
+                                  <div class="col-md-4">
+                                    <label for="iss-bal" class="form-label">Balance</label>
+                                    <input type="number" class="form-control" id="iss-bal" disabled>
+                                  </div>
+                                 
+                                  <div class="col-md-4">
+                                    <label for="iss-dateout" class="form-label">Select Date</label>
+                                    <input type="date" class="form-control" id="iss-dateout">
+                                  </div>
+                                  </div>
+                                  
+                                  <div class="col-md-6">
+                                    <label for="iss-rem" class="form-label">Remarks</label>
+                                    <textarea class="form-control" placeholder="" id="iss-rem" style="height: 100px;"></textarea>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label for="iss-to" class="form-label">Issued To:</label>
+                                   <select class="form-select" id="iss-to" aria-label="State">
+                                    <option selected value="">Select</option>
+                                    <option value="">NM 2002-1</option>
+                                    <option value="">NM 2002-2</option>
+                                    <option value="">NM 1702</option>
+                                    <option value="">NM 700</option>
+                                    <option value="">WIMCO</option>
+                                  </select>
+                                  </div>
+
+
+                                  <div class="text-center p-2 bg-light shadow-sm">
+                                    <div class=" alert alert-danger alert-dismissible" id="iss-error" style="display:none;">
+                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class=" alert alert-success alert-dismissible" id="iss-success" style="display:none;">
+                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">CANCEL</button>
+                                    <button type="button" class="btn btn-success" id="btn-issue-spare">ISSUE SPARE</button>
+                                   
+                                  </div>
+
+                                  <br>
+                                </form>
+
+                              </div>
+
+                            </div>
+                          </div>
+                        </div><!-- End issue Modal-->
                   </div>
                 </div>
               </div>

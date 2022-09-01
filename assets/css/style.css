@@ -1564,7 +1564,7 @@ hr {
   padding: 10px;
 }
 
-#spare-adjust-modal label {
+#spare-adjust-modal label{
   font-size: 15px;
   font-weight: bold;
   color: darkorange;
@@ -1574,12 +1574,34 @@ hr {
 #spare-adjust-modal textarea {
   font-size: 13px;
   font-weight: bold;
-
   color: darkgreen;
 }
-
+.issue-quantity{
+  background-color: green;
+  color: white;
+  margin-top: 10px;
+  margin-left: 0px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+ #issue-modal label {
+  font-size: 19px;
+  font-weight: bold;
+  color: darkorange;
+ }
+.issue-quantity input{
+  font-size: 20px;
+  font-weight: bold;
+  padding: -5px;
+  text-align: center;
+}
 .table-scroll {
   overflow-x: auto;
+}
+.issue-spare-table{
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 500px;
 }
 
 @media (max-width: 480px) {

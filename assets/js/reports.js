@@ -138,7 +138,6 @@ $(document).ready(function () {
   $('#actual1').on('input', function () {
     get_totalproduction();
     efficiency();
-
   });
   $('#actual2').on('input', function () {
 
